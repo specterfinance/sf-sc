@@ -31,5 +31,9 @@ interface IMasonry {
 
     function allocateSeigniorage(uint256 _amount) external;
 
-    function governanceRecoverUnsupported(address _token, uint256 _amount, address _to) external;
+    function governanceRecoverUnsupported(
+        address _token,
+        uint256 _amount,
+        address _to
+    ) external;
 }
