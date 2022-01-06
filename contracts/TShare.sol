@@ -7,15 +7,14 @@ import "@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol";
 
 import "./owner/Operator.sol";
 
-/*
-  ______                __       _______
- /_  __/___  ____ ___  / /_     / ____(_)___  ____ _____  ________
-  / / / __ \/ __ `__ \/ __ \   / /_  / / __ \/ __ `/ __ \/ ___/ _ \
- / / / /_/ / / / / / / /_/ /  / __/ / / / / / /_/ / / / / /__/  __/
-/_/  \____/_/ /_/ /_/_.___/  /_/   /_/_/ /_/\__,_/_/ /_/\___/\___/
+/***
+ *     ___  ___  ___  ___  ___  ___  ___     ___  _  _ _  ___  _ _  ___  ___
+ *    / __>| . \| __>|  _>|_ _|| __>| . \   | __>| || \ || . || \ ||  _>| __>
+ *    \__ \|  _/| _> | <__ | | | _> |   /   | _> | ||   ||   ||   || <__| _>
+ *    <___/|_|  |___>`___/ |_| |___>|_\_\   |_|  |_||_\_||_|_||_\_|`___/|___>
+ *
+ */
 
-    http://tomb.finance
-*/
 contract TShare is ERC20Burnable, Operator {
     using SafeMath for uint256;
 
@@ -39,7 +38,11 @@ contract TShare is ERC20Burnable, Operator {
 
     bool public rewardPoolDistributed = false;
 
-    constructor(uint256 _startTime, address _communityFund, address _devFund) public ERC20("TSHARE", "TSHARE") {
+    constructor(
+        uint256 _startTime,
+        address _communityFund,
+        address _devFund
+    ) public ERC20("TSHARE", "TSHARE") {
         _mint(msg.sender, 1 ether); // mint 1 TOMB Share for initial pools deployment
 
         startTime = _startTime;

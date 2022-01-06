@@ -14,15 +14,14 @@ import "./interfaces/IBasisAsset.sol";
 import "./interfaces/IOracle.sol";
 import "./interfaces/IMasonry.sol";
 
-/*
-  ______                __       _______
- /_  __/___  ____ ___  / /_     / ____(_)___  ____ _____  ________
-  / / / __ \/ __ `__ \/ __ \   / /_  / / __ \/ __ `/ __ \/ ___/ _ \
- / / / /_/ / / / / / / /_/ /  / __/ / / / / / /_/ / / / / /__/  __/
-/_/  \____/_/ /_/ /_/_.___/  /_/   /_/_/ /_/\__,_/_/ /_/\___/\___/
+/***
+ *     ___  ___  ___  ___  ___  ___  ___     ___  _  _ _  ___  _ _  ___  ___
+ *    / __>| . \| __>|  _>|_ _|| __>| . \   | __>| || \ || . || \ ||  _>| __>
+ *    \__ \|  _/| _> | <__ | | | _> |   /   | _> | ||   ||   ||   || <__| _>
+ *    <___/|_|  |___>`___/ |_| |___>|_\_\   |_|  |_||_\_||_|_||_\_|`___/|___>
+ *
+ */
 
-    http://tomb.finance
-*/
 contract Treasury is ContractGuard {
     using SafeERC20 for IERC20;
     using Address for address;
@@ -112,13 +111,13 @@ contract Treasury is ContractGuard {
         _;
     }
 
-    modifier checkCondition {
+    modifier checkCondition() {
         require(now >= startTime, "Treasury: not started yet");
 
         _;
     }
 
-    modifier checkEpoch {
+    modifier checkEpoch() {
         require(now >= nextEpochPoint(), "Treasury: not opened yet");
 
         _;
@@ -127,7 +126,7 @@ contract Treasury is ContractGuard {
         epochSupplyContractionLeft = (getTombPrice() > tombPriceCeiling) ? 0 : getTombCirculatingSupply().mul(maxSupplyContractionPercent).div(10000);
     }
 
-    modifier checkOperator {
+    modifier checkOperator() {
         require(
             IBasisAsset(tomb).operator() == address(this) &&
                 IBasisAsset(tbond).operator() == address(this) &&
@@ -139,7 +138,7 @@ contract Treasury is ContractGuard {
         _;
     }
 
-    modifier notInitialized {
+    modifier notInitialized() {
         require(!initialized, "Treasury: already initialized");
 
         _;

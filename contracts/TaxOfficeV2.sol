@@ -8,15 +8,14 @@ import "./interfaces/ITaxable.sol";
 import "./interfaces/IUniswapV2Router.sol";
 import "./interfaces/IERC20.sol";
 
-/*
-  ______                __       _______
- /_  __/___  ____ ___  / /_     / ____(_)___  ____ _____  ________
-  / / / __ \/ __ `__ \/ __ \   / /_  / / __ \/ __ `/ __ \/ ___/ _ \
- / / / /_/ / / / / / / /_/ /  / __/ / / / / / /_/ / / / / /__/  __/
-/_/  \____/_/ /_/ /_/_.___/  /_/   /_/_/ /_/\__,_/_/ /_/\___/\___/
+/***
+ *     ___  ___  ___  ___  ___  ___  ___     ___  _  _ _  ___  _ _  ___  ___
+ *    / __>| . \| __>|  _>|_ _|| __>| . \   | __>| || \ || . || \ ||  _>| __>
+ *    \__ \|  _/| _> | <__ | | | _> |   /   | _> | ||   ||   ||   || <__| _>
+ *    <___/|_|  |___>`___/ |_| |___>|_\_\   |_|  |_||_\_||_|_||_\_|`___/|___>
+ *
+ */
 
-    http://tomb.finance
-*/
 contract TaxOfficeV2 is Operator {
     using SafeMath for uint256;
 
@@ -116,10 +115,10 @@ contract TaxOfficeV2 is Operator {
             block.timestamp
         );
 
-        if(amtTomb.sub(resultAmtTomb) > 0) {
+        if (amtTomb.sub(resultAmtTomb) > 0) {
             IERC20(tomb).transfer(msg.sender, amtTomb.sub(resultAmtTomb));
         }
-        if(amtToken.sub(resultAmtToken) > 0) {
+        if (amtToken.sub(resultAmtToken) > 0) {
             IERC20(token).transfer(msg.sender, amtToken.sub(resultAmtToken));
         }
         return (resultAmtTomb, resultAmtToken, liquidity);
@@ -158,7 +157,7 @@ contract TaxOfficeV2 is Operator {
             block.timestamp
         );
 
-        if(amtTomb.sub(resultAmtTomb) > 0) {
+        if (amtTomb.sub(resultAmtTomb) > 0) {
             IERC20(tomb).transfer(msg.sender, amtTomb.sub(resultAmtTomb));
         }
         return (resultAmtTomb, resultAmtFtm, liquidity);

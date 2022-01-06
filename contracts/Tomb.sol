@@ -9,15 +9,14 @@ import "./lib/SafeMath8.sol";
 import "./owner/Operator.sol";
 import "./interfaces/IOracle.sol";
 
-/*
-  ______                __       _______
- /_  __/___  ____ ___  / /_     / ____(_)___  ____ _____  ________
-  / / / __ \/ __ `__ \/ __ \   / /_  / / __ \/ __ `/ __ \/ ___/ _ \
- / / / /_/ / / / / / / /_/ /  / __/ / / / / / /_/ / / / / /__/  __/
-/_/  \____/_/ /_/ /_/_.___/  /_/   /_/_/ /_/\__,_/_/ /_/\___/\___/
+/***
+ *     ___  ___  ___  ___  ___  ___  ___     ___  _  _ _  ___  _ _  ___  ___
+ *    / __>| . \| __>|  _>|_ _|| __>| . \   | __>| || \ || . || \ ||  _>| __>
+ *    \__ \|  _/| _> | <__ | | | _> |   /   | _> | ||   ||   ||   || <__| _>
+ *    <___/|_|  |___>`___/ |_| |___>|_\_\   |_|  |_||_\_||_|_||_\_|`___/|___>
+ *
+ */
 
-    http://tomb.finance
-*/
 contract Tomb is ERC20Burnable, Operator {
     using SafeMath8 for uint8;
     using SafeMath for uint256;
@@ -128,7 +127,7 @@ contract Tomb is ERC20Burnable, Operator {
         }
     }
 
-    function _updateTaxRate(uint256 _tombPrice) internal returns (uint256){
+    function _updateTaxRate(uint256 _tombPrice) internal returns (uint256) {
         if (autoCalculateTax) {
             for (uint8 tierId = uint8(getTaxTiersTwapsCount()).sub(1); tierId >= 0; --tierId) {
                 if (_tombPrice >= taxTiersTwaps[tierId]) {
@@ -220,7 +219,6 @@ contract Tomb is ERC20Burnable, Operator {
             }
         }
 
-
         if (currentTaxRate == 0 || excludedAddresses[sender]) {
             _transfer(sender, recipient, amount);
         } else {
@@ -240,7 +238,7 @@ contract Tomb is ERC20Burnable, Operator {
         uint256 taxAmount = amount.mul(taxRate).div(10000);
         uint256 amountAfterTax = amount.sub(taxAmount);
 
-        if(burnTax) {
+        if (burnTax) {
             // Burn tax
             super.burnFrom(sender, taxAmount);
         } else {
