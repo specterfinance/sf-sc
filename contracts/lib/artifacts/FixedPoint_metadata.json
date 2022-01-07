@@ -1,0 +1,53 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/lib/FixedPoint.sol": "FixedPoint"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/lib/Babylonian.sol": {
+			"keccak256": "0x13c5d3590b976f31939ec06a352838a3bdcfba95def27283b3e7621c3f0b6579",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5bbadf37a20fe4ccae0b7f426f98f8f701c923ecd4340466c436a784f92e5913",
+				"dweb:/ipfs/QmVJmAyfHSbwrJSiuZZhcPWkRJfXAfdkuhksRWBJD8nk5y"
+			]
+		},
+		"contracts/lib/FixedPoint.sol": {
+			"keccak256": "0xb1804af8728c9df112107a74eec006470196d60f57a51745365b16b735f4db86",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d3928871dc3a40b89c01f3c7fa929ae72585d6517e0a707da3c6c998d8e62e53",
+				"dweb:/ipfs/QmXBtmCUJzudtozJToBXAjJwWPYFg1pjc72nKNNz2F72nT"
+			]
+		}
+	},
+	"version": 1
+}

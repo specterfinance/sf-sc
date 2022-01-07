@@ -1,0 +1,91 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract IDistributor[]",
+						"name": "_distributors",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "distribute",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "distributors",
+				"outputs": [
+					{
+						"internalType": "contract IDistributor",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Distributor.sol": "Distributor"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Distributor.sol": {
+			"keccak256": "0x422f6daed5baeb73119564e5c9acc68d8a13c2482288ddd40864bcb8a20150e2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://50c7abf7b4db6ff2fb063747d2cf797a27c257e4ba3c9463ee288c1a133cccde",
+				"dweb:/ipfs/QmTXGQDaFNzfLi3E9DEApaiJbgK2hbf2EPmupaYUHVP7BC"
+			]
+		},
+		"contracts/interfaces/IDistributor.sol": {
+			"keccak256": "0xbb49a57044f4501b370da65d6d2a14a87383d1291fad7faafa7212e7560d2648",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://12959170b3567201899ece4282cd84e365bb4724fe2de1d8b5581a10b6028bfe",
+				"dweb:/ipfs/QmUqRpUzPq4cwaD6B1jxVuacvZ72gGrUoMjWLk4PjhmA3D"
+			]
+		}
+	},
+	"version": 1
+}

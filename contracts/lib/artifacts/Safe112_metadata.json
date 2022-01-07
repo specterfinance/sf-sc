@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/lib/Safe112.sol": "Safe112"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/lib/Safe112.sol": {
+			"keccak256": "0x0be613aa257b43ee48caa146b47fd7bcd9db491d6194dd6d9a5ccb372c94c6e8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bb97941a662116e82c8e4c54fef1a4f4b96a73db7737eaa88a5826ea08802f24",
+				"dweb:/ipfs/QmcjoE9DWqFEmPFqiYev3JRFuxLPXFgV3vLMcNnRYX86p5"
+			]
+		}
+	},
+	"version": 1
+}

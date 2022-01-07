@@ -1,0 +1,53 @@
+{
+	"compiler": {
+		"version": "0.8.1+commit.df193b15"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "distribute",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/interfaces/IDistributor.sol": "IDistributor"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interfaces/IDistributor.sol": {
+			"keccak256": "0xbb49a57044f4501b370da65d6d2a14a87383d1291fad7faafa7212e7560d2648",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://12959170b3567201899ece4282cd84e365bb4724fe2de1d8b5581a10b6028bfe",
+				"dweb:/ipfs/QmUqRpUzPq4cwaD6B1jxVuacvZ72gGrUoMjWLk4PjhmA3D"
+			]
+		}
+	},
+	"version": 1
+}
