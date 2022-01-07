@@ -8,6 +8,8 @@ import "./interfaces/ITaxable.sol";
 import "./interfaces/IUniswapV2Router.sol";
 import "./interfaces/IERC20.sol";
 
+import "hardhat/console.sol";
+
 /***
  *     ___  ___  ___  ___  ___  ___  ___     ___  _  _ _  ___  _ _  ___  ___
  *    / __>| . \| __>|  _>|_ _|| __>| . \   | __>| || \ || . || \ ||  _>| __>
@@ -56,11 +58,12 @@ contract TaxOfficeV2 is Operator {
     function excludeAddressFromTax(address _address) external onlyOperator returns (bool) {
         return _excludeAddressFromTax(_address);
     }
-
+    
     function _excludeAddressFromTax(address _address) private returns (bool) {
         if (!ITaxable(tomb).isAddressExcluded(_address)) {
             return ITaxable(tomb).excludeAddress(_address);
         }
+        
     }
 
     function includeAddressInTax(address _address) external onlyOperator returns (bool) {
