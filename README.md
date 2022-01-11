@@ -1,3 +1,3 @@
 # sf-sc
 
-This is the Specter Fiannce Smart Contracts Repo
+This is the Specter Finance Smart Contracts Repo
