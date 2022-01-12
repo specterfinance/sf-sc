@@ -471,11 +471,11 @@
 			]
 		},
 		"contracts/Oracle.sol": {
-			"keccak256": "0xa28d11c9eff1c873a2deffe7707fce0aa44828649270d7c56bbf23db3fd3e42b",
+			"keccak256": "0xf9bbbb13e658f8309d3d3521471d3b6ecb4850a8bd02fdd05240e48a81aef97f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5f16c05b5ce9a2a130d5a543e9fddbde5597564f227dfa521fdd947092235f1d",
-				"dweb:/ipfs/QmbVTTh4aXhmwrpRxJkZyhh1rDHvM9aH7KH2aMvnVXGjsW"
+				"bzz-raw://b7af05214cc0662711344158184e1986fb744b228d32e2e2f8377ac59a3c6c8d",
+				"dweb:/ipfs/QmQhocmzxZEYxJpqJvCGQDhwRBpmnHg9s57Qoa5r3RWLQR"
 			]
 		},
 		"contracts/interfaces/IUniswapV2Pair.sol": {

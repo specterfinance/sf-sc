@@ -587,11 +587,11 @@
 			]
 		},
 		"contracts/TBond.sol": {
-			"keccak256": "0xd4682a0fc6b5fc749fc730b3692f83709ec8367200083b3d6ca89f68ba3bfabb",
+			"keccak256": "0x329c98b8628672618dfef623f911310ca7994109b97bac12713741f3089f0d06",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b5b3697a4859d3c9804c8805d5a6f1d5f5ce60922d25d2e7854f11b43766fd4a",
-				"dweb:/ipfs/QmTeAtsyAg8ojqgXiUGSpLXnk5uBbCZByCCbfGhXRuAPkB"
+				"bzz-raw://32784029548503e0fc9bd0f7d3d5a014fa10f8b0e8fd558b3b6aecf3f1006b6e",
+				"dweb:/ipfs/QmfGwH64GMtbfMcJniADDuud8xTfaGCBDjnCERCicTn1Jg"
 			]
 		},
 		"contracts/owner/Operator.sol": {

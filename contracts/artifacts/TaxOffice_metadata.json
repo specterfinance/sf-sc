@@ -359,11 +359,11 @@
 			]
 		},
 		"contracts/TaxOffice.sol": {
-			"keccak256": "0x6076ac3c6e01d21ce61e756e96e122f5f7af5cbda338a25566695c86269b5632",
+			"keccak256": "0x0815bea4b3ae177b0ae045c9a626ccba166a2585cd740a0cae9388f923a164d1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7ed5c294179b926b865829bdfb05add53e4916a2c4c14d44580bbed2d1ac2534",
-				"dweb:/ipfs/QmQyY6Bzmc7EUePDtkQK4pqBBJDGR7Q1MmwrHNJEyEUMGj"
+				"bzz-raw://d2d437b4983d88fe1a4b92af552794a14895a6fb7c77f5403f7cfba7d1b14eb4",
+				"dweb:/ipfs/QmZ4KgUrcToqwAsQwYN4aaYnEXQh84uwtdwg1tUxuYfpWL"
 			]
 		},
 		"contracts/interfaces/ITaxable.sol": {
@@ -380,14 +380,6 @@
 			"urls": [
 				"bzz-raw://5187a02abdc2d365cc4d1316057777cf0955911971efe98203bcb90d76d9e5e8",
 				"dweb:/ipfs/QmQAXwBVBF6dwhoFSMyw3KbtbvLhr8Vxcjr5Vjo3RaTofC"
-			]
-		},
-		"hardhat/console.sol": {
-			"keccak256": "0x72b6a1d297cd3b033d7c2e4a7e7864934bb767db6453623f1c3082c6534547f4",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://a8cb8681076e765c214e0d51cac989325f6b98e315eaae06ee0cbd5a9f084763",
-				"dweb:/ipfs/QmNWGHi4zmjxQTYN3NMGnJd49jBT5dE4bxTdWEaDuJrC6N"
 			]
 		}
 	},

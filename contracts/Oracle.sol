@@ -11,12 +11,13 @@ import "./utils/Epoch.sol";
 import "./interfaces/IUniswapV2Pair.sol";
 
 /***
- *     ___  ___  ___  ___  ___  ___  ___     ___  _  _ _  ___  _ _  ___  ___ 
- *    / __>| . \| __>|  _>|_ _|| __>| . \   | __>| || \ || . || \ ||  _>| __>
- *    \__ \|  _/| _> | <__ | | | _> |   /   | _> | ||   ||   ||   || <__| _> 
- *    <___/|_|  |___>`___/ |_| |___>|_\_\   |_|  |_||_\_||_|_||_\_|`___/|___>
- *                                                                           
- */
+
+.-. .-. .-. .-. .-. .-. .-.   .-. .-. . . .-. . . .-. .-. 
+`-. |-' |-  |    |  |-  |(    |-   |  |\| |-| |\| |   |-  
+`-' '   `-' `-'  '  `-' ' '   '   `-' ' ` ` ' ' ` `-' `-' 
+                                                          
+
+***/
 
 // fixed window oracle that recomputes the average price for the entire period once every period
 // note that the price average is only guaranteed to be over at least 1 period, but may be over a longer period

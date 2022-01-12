@@ -16,12 +16,13 @@ import "./interfaces/IOracle.sol";
 import "./interfaces/IMasonry.sol";
 
 /***
- *     ___  ___  ___  ___  ___  ___  ___     ___  _  _ _  ___  _ _  ___  ___
- *    / __>| . \| __>|  _>|_ _|| __>| . \   | __>| || \ || . || \ ||  _>| __>
- *    \__ \|  _/| _> | <__ | | | _> |   /   | _> | ||   ||   ||   || <__| _>
- *    <___/|_|  |___>`___/ |_| |___>|_\_\   |_|  |_||_\_||_|_||_\_|`___/|___>
- *
- */
+
+.-. .-. .-. .-. .-. .-. .-.   .-. .-. . . .-. . . .-. .-. 
+`-. |-' |-  |    |  |-  |(    |-   |  |\| |-| |\| |   |-  
+`-' '   `-' `-'  '  `-' ' '   '   `-' ' ` ` ' ' ` `-' `-' 
+                                                          
+
+***/
 
 contract Treasury is ContractGuard {
     using SafeERC20 for IERC20;
@@ -48,7 +49,7 @@ contract Treasury is ContractGuard {
     // exclusions from total supply
     address[] public excludedFromTotalSupply = [
         address(0x9A896d3c54D7e45B558BD5fFf26bF1E8C031F93b), // TombGenesisPool
-        address(0xa7b9123f4b15fE0fF01F469ff5Eab2b41296dC0E), // new TombRewardPool
+        address(0xa7b9123f4b15fE0fF01F469ff5Eab2b41296dC0E), // new TombFTMRewardPool
         address(0xA7B16703470055881e7EE093e9b0bF537f29CD4d) // old TombRewardPool
     ];
 

@@ -1085,11 +1085,11 @@
 			]
 		},
 		"contracts/Tomb.sol": {
-			"keccak256": "0x6c09e1bde803add25a047298886de5390f649f349a91bf8adc3d093591af2166",
+			"keccak256": "0xfb0a1331dea7d1927f319dbe1d2b247f4f65feeffb28eb66dbd9d356638df763",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://13aee54fc0b7c9130945c6acec3991fda0f050491d4e950cb7fb0e66bcb734a5",
-				"dweb:/ipfs/QmYe2aYuehrvXNUBVhFqbAZBnQnjhbbWUkfUJySR8ZZkM6"
+				"bzz-raw://32220e9753ffe5dd7427ce5a71a2f79d0f55277769ff8b9e22961530a877a031",
+				"dweb:/ipfs/Qmeati5poF5NcUeJAZDQDsQpfL34XLdG81sVf4g5RGfMLX"
 			]
 		},
 		"contracts/interfaces/IOracle.sol": {

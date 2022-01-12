@@ -1312,11 +1312,11 @@
 			]
 		},
 		"contracts/Treasury.sol": {
-			"keccak256": "0xc2888a744c989d5f2a47ce161c33fd306c761060f4e26dfba4bff42937563978",
+			"keccak256": "0x2c26f8cde1074278c8b41344c82660ccb074c94f336f325823562e93d05ebb69",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://20838fbf74ef906913c63f796e766d06893788ce4499ce5bc13e96112e1f49d3",
-				"dweb:/ipfs/QmVNhJ5M5Bn5hFgcCZEB9uqhSTnWNCbdQpVPg8tFH95MjT"
+				"bzz-raw://086f6fb1ea3e7f54ea8a4c46ee9a701de264f4d9b67d336b0a95a0c61ec92789",
+				"dweb:/ipfs/QmdA11eBJVQ3BhHFgonWJbkdNYixDnaEuRMX8aCw2KpsRK"
 			]
 		},
 		"contracts/interfaces/IBasisAsset.sol": {
