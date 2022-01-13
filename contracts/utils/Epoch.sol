@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
-import '../owner/Operator.sol';
+import "./owner/Operator.sol";
 
 contract Epoch is Operator {
     using SafeMath for uint256;

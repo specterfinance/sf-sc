@@ -8,7 +8,6 @@ import "./interfaces/ITaxable.sol";
 import "./interfaces/IUniswapV2Router.sol";
 import "./interfaces/IERC20.sol";
 
-import "hardhat/console.sol";
 
 /***
 

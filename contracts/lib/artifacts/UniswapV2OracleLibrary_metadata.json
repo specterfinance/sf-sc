@@ -1,0 +1,69 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/lib/UniswapV2OracleLibrary.sol": "UniswapV2OracleLibrary"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interfaces/IUniswapV2Pair.sol": {
+			"keccak256": "0x168f6b4e5bdc65eb6ebedc12ec8c82da9d24b75f53b83eb2605601e562df861d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c89105f06ce780f9aa6f1aa6e3eab376c58df70f6e339e951259d87c6f924909",
+				"dweb:/ipfs/QmUzBTYcTNoiZUeWpFWaMVJhzFWRA1TXf5enV9nWgjEyUv"
+			]
+		},
+		"contracts/lib/Babylonian.sol": {
+			"keccak256": "0x13c5d3590b976f31939ec06a352838a3bdcfba95def27283b3e7621c3f0b6579",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5bbadf37a20fe4ccae0b7f426f98f8f701c923ecd4340466c436a784f92e5913",
+				"dweb:/ipfs/QmVJmAyfHSbwrJSiuZZhcPWkRJfXAfdkuhksRWBJD8nk5y"
+			]
+		},
+		"contracts/lib/FixedPoint.sol": {
+			"keccak256": "0xb1804af8728c9df112107a74eec006470196d60f57a51745365b16b735f4db86",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d3928871dc3a40b89c01f3c7fa929ae72585d6517e0a707da3c6c998d8e62e53",
+				"dweb:/ipfs/QmXBtmCUJzudtozJToBXAjJwWPYFg1pjc72nKNNz2F72nT"
+			]
+		},
+		"contracts/lib/UniswapV2OracleLibrary.sol": {
+			"keccak256": "0xf3805a457de23a39c0ac5b4bd20bee31a4c7227567d1439cc1e20764128f756a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://06f09a5159fca4f28dce2b4005b0a74362fe5afcbcdb08709a7124350a84b229",
+				"dweb:/ipfs/QmTzqzmXbQ2BDqGrz3wCjW5xYkeCQQHzQtkS7NEWeAfqRs"
+			]
+		}
+	},
+	"version": 1
+}
