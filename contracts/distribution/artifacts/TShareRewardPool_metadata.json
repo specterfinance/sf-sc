@@ -9,7 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tshare",
+						"name": "_sshare",
 						"type": "address"
 					},
 					{
@@ -318,7 +318,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "accTSharePerShare",
+						"name": "accSSharePerShare",
 						"type": "uint256"
 					},
 					{
@@ -389,7 +389,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tSharePerSecond",
+				"name": "sSharePerSecond",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -415,7 +415,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tshare",
+				"name": "sshare",
 				"outputs": [
 					{
 						"internalType": "contract IERC20",
@@ -500,7 +500,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/distribution/TShareRewardPool.sol": "TShareRewardPool"
+			"contracts/distribution/SShareRewardPool.sol": "SShareRewardPool"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -546,7 +546,7 @@
 				"dweb:/ipfs/QmfYuZxRfx2J2xdk4EXN7jKg4bUYEMTaYk9BAw9Bqn4o2Y"
 			]
 		},
-		"contracts/distribution/TShareRewardPool.sol": {
+		"contracts/distribution/SShareRewardPool.sol": {
 			"keccak256": "0x9e5f8b6c1d963c5f538581dfe574ed365ce4063bd4abffbe20f81c24bbd60202",
 			"license": "MIT",
 			"urls": [

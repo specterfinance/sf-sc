@@ -21,14 +21,14 @@ import "./interfaces/IOracle.sol";
 
 ***/
 
-contract Tomb is ERC20Burnable, Operator {
+contract Specter is ERC20Burnable, Operator {
     using SafeMath8 for uint8;
     using SafeMath for uint256;
 
     // Initial distribution for the first 24h genesis pools
     uint256 public constant INITIAL_GENESIS_POOL_DISTRIBUTION = 11000 ether;
-    // Initial distribution for the day 2-5 TOMB-WFTM LP -> TOMB pool
-    uint256 public constant INITIAL_TOMB_POOL_DISTRIBUTION = 140000 ether;
+    // Initial distribution for the day 2-5 SPECTER-WFTM LP -> SPECTER pool
+    uint256 public constant INITIAL_SPECTER_POOL_DISTRIBUTION = 140000 ether;
     // Distribution for airdrops wallet
     uint256 public constant INITIAL_AIRDROP_WALLET_DISTRIBUTION = 9000 ether;
 
@@ -37,7 +37,7 @@ contract Tomb is ERC20Burnable, Operator {
 
     /* ================= Taxation =============== */
     // Address of the Oracle
-    address public tombOracle;
+    address public specterOracle;
     // Address of the Tax Office
     address public taxOffice;
 
@@ -71,10 +71,10 @@ contract Tomb is ERC20Burnable, Operator {
     }
 
     /**
-     * @notice Constructs the TOMB ERC-20 contract.
+     * @notice Constructs the SPECTER ERC-20 contract.
      */
-    constructor(uint256 _taxRate, address _taxCollectorAddress) public ERC20("TOMB", "TOMB") {
-        // Mints 1 TOMB to contract creator for initial pool setup
+    constructor(uint256 _taxRate, address _taxCollectorAddress) public ERC20("SPECTER", "SPECTER") {
+        // Mints 1 SPECTER to contract creator for initial pool setup
         require(_taxRate < 10000, "tax equal or bigger to 100%");
         require(_taxCollectorAddress != address(0), "tax collector address must be non-zero address");
 
@@ -123,18 +123,18 @@ contract Tomb is ERC20Burnable, Operator {
         burnThreshold = _burnThreshold;
     }
 
-    function _getTombPrice() internal view returns (uint256 _tombPrice) {
-        try IOracle(tombOracle).consult(address(this), 1e18) returns (uint144 _price) {
+    function _getSpecterPrice() internal view returns (uint256 _specterPrice) {
+        try IOracle(specterOracle).consult(address(this), 1e18) returns (uint144 _price) {
             return uint256(_price);
         } catch {
-            revert("Tomb: failed to fetch TOMB price from Oracle");
+            revert("Specter: failed to fetch SPECTER price from Oracle");
         }
     }
 
-    function _updateTaxRate(uint256 _tombPrice) internal returns (uint256) {
+    function _updateTaxRate(uint256 _specterPrice) internal returns (uint256) {
         if (autoCalculateTax) {
             for (uint8 tierId = uint8(getTaxTiersTwapsCount()).sub(1); tierId >= 0; --tierId) {
-                if (_tombPrice >= taxTiersTwaps[tierId]) {
+                if (_specterPrice >= taxTiersTwaps[tierId]) {
                     require(taxTiersRates[tierId] < 10000, "tax equal or bigger to 100%");
                     taxRate = taxTiersRates[tierId];
                     return taxTiersRates[tierId];
@@ -151,9 +151,9 @@ contract Tomb is ERC20Burnable, Operator {
         autoCalculateTax = false;
     }
 
-    function setTombOracle(address _tombOracle) public onlyOperatorOrTaxOffice {
-        require(_tombOracle != address(0), "oracle address cannot be 0 address");
-        tombOracle = _tombOracle;
+    function setSpecterOracle(address _specterOracle) public onlyOperatorOrTaxOffice {
+        require(_specterOracle != address(0), "oracle address cannot be 0 address");
+        specterOracle = _specterOracle;
     }
 
     function setTaxOffice(address _taxOffice) public onlyOperatorOrTaxOffice {
@@ -186,9 +186,9 @@ contract Tomb is ERC20Burnable, Operator {
     }
 
     /**
-     * @notice Operator mints TOMB to a recipient
+     * @notice Operator mints SPECTER to a recipient
      * @param recipient_ The address of recipient
-     * @param amount_ The amount of TOMB to mint to
+     * @param amount_ The amount of SPECTER to mint to
      * @return whether the process has been done
      */
     function mint(address recipient_, uint256 amount_) public onlyOperator returns (bool) {
@@ -216,9 +216,9 @@ contract Tomb is ERC20Burnable, Operator {
         bool burnTax = false;
 
         if (autoCalculateTax) {
-            uint256 currentTombPrice = _getTombPrice();
-            currentTaxRate = _updateTaxRate(currentTombPrice);
-            if (currentTombPrice < burnThreshold) {
+            uint256 currentSpecterPrice = _getSpecterPrice();
+            currentTaxRate = _updateTaxRate(currentSpecterPrice);
+            if (currentSpecterPrice < burnThreshold) {
                 burnTax = true;
             }
         }
@@ -261,16 +261,16 @@ contract Tomb is ERC20Burnable, Operator {
      */
     function distributeReward(
         address _genesisPool,
-        address _tombPool,
+        address _specterPool,
         address _airdropWallet
     ) external onlyOperator {
         require(!rewardPoolDistributed, "only can distribute once");
         require(_genesisPool != address(0), "!_genesisPool");
-        require(_tombPool != address(0), "!_tombPool");
+        require(_specterPool != address(0), "!_specterPool");
         require(_airdropWallet != address(0), "!_airdropWallet");
         rewardPoolDistributed = true;
         _mint(_genesisPool, INITIAL_GENESIS_POOL_DISTRIBUTION);
-        _mint(_tombPool, INITIAL_TOMB_POOL_DISTRIBUTION);
+        _mint(_specterPool, INITIAL_SPECTER_POOL_DISTRIBUTION);
         _mint(_airdropWallet, INITIAL_AIRDROP_WALLET_DISTRIBUTION);
     }
 

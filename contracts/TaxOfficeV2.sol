@@ -22,38 +22,38 @@ import "hardhat/console.sol";
 contract TaxOfficeV2 is Operator {
     using SafeMath for uint256;
 
-    address public tomb = address(0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7);
+    address public specter = address(0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7);
     address public wftm = address(0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83);
     address public uniRouter = address(0xF491e7B69E4244ad4002BC14e878a34207E38c29);
 
     mapping(address => bool) public taxExclusionEnabled;
 
     function setTaxTiersTwap(uint8 _index, uint256 _value) public onlyOperator returns (bool) {
-        return ITaxable(tomb).setTaxTiersTwap(_index, _value);
+        return ITaxable(specter).setTaxTiersTwap(_index, _value);
     }
 
     function setTaxTiersRate(uint8 _index, uint256 _value) public onlyOperator returns (bool) {
-        return ITaxable(tomb).setTaxTiersRate(_index, _value);
+        return ITaxable(specter).setTaxTiersRate(_index, _value);
     }
 
     function enableAutoCalculateTax() public onlyOperator {
-        ITaxable(tomb).enableAutoCalculateTax();
+        ITaxable(specter).enableAutoCalculateTax();
     }
 
     function disableAutoCalculateTax() public onlyOperator {
-        ITaxable(tomb).disableAutoCalculateTax();
+        ITaxable(specter).disableAutoCalculateTax();
     }
 
     function setTaxRate(uint256 _taxRate) public onlyOperator {
-        ITaxable(tomb).setTaxRate(_taxRate);
+        ITaxable(specter).setTaxRate(_taxRate);
     }
 
     function setBurnThreshold(uint256 _burnThreshold) public onlyOperator {
-        ITaxable(tomb).setBurnThreshold(_burnThreshold);
+        ITaxable(specter).setBurnThreshold(_burnThreshold);
     }
 
     function setTaxCollectorAddress(address _taxCollectorAddress) public onlyOperator {
-        ITaxable(tomb).setTaxCollectorAddress(_taxCollectorAddress);
+        ITaxable(specter).setTaxCollectorAddress(_taxCollectorAddress);
     }
 
     function excludeAddressFromTax(address _address) external onlyOperator returns (bool) {
@@ -61,8 +61,8 @@ contract TaxOfficeV2 is Operator {
     }
     
     function _excludeAddressFromTax(address _address) private returns (bool) {
-        if (!ITaxable(tomb).isAddressExcluded(_address)) {
-            return ITaxable(tomb).excludeAddress(_address);
+        if (!ITaxable(specter).isAddressExcluded(_address)) {
+            return ITaxable(specter).excludeAddress(_address);
         }
         
     }
@@ -72,20 +72,20 @@ contract TaxOfficeV2 is Operator {
     }
 
     function _includeAddressInTax(address _address) private returns (bool) {
-        if (ITaxable(tomb).isAddressExcluded(_address)) {
-            return ITaxable(tomb).includeAddress(_address);
+        if (ITaxable(specter).isAddressExcluded(_address)) {
+            return ITaxable(specter).includeAddress(_address);
         }
     }
 
     function taxRate() external view returns (uint256) {
-        return ITaxable(tomb).taxRate();
+        return ITaxable(specter).taxRate();
     }
 
     function addLiquidityTaxFree(
         address token,
-        uint256 amtTomb,
+        uint256 amtSpecter,
         uint256 amtToken,
-        uint256 amtTombMin,
+        uint256 amtSpecterMin,
         uint256 amtTokenMin
     )
         external
@@ -95,42 +95,42 @@ contract TaxOfficeV2 is Operator {
             uint256
         )
     {
-        require(amtTomb != 0 && amtToken != 0, "amounts can't be 0");
+        require(amtSpecter != 0 && amtToken != 0, "amounts can't be 0");
         _excludeAddressFromTax(msg.sender);
 
-        IERC20(tomb).transferFrom(msg.sender, address(this), amtTomb);
+        IERC20(specter).transferFrom(msg.sender, address(this), amtSpecter);
         IERC20(token).transferFrom(msg.sender, address(this), amtToken);
-        _approveTokenIfNeeded(tomb, uniRouter);
+        _approveTokenIfNeeded(specter, uniRouter);
         _approveTokenIfNeeded(token, uniRouter);
 
         _includeAddressInTax(msg.sender);
 
-        uint256 resultAmtTomb;
+        uint256 resultAmtSpecter;
         uint256 resultAmtToken;
         uint256 liquidity;
-        (resultAmtTomb, resultAmtToken, liquidity) = IUniswapV2Router(uniRouter).addLiquidity(
-            tomb,
+        (resultAmtSpecter, resultAmtToken, liquidity) = IUniswapV2Router(uniRouter).addLiquidity(
+            specter,
             token,
-            amtTomb,
+            amtSpecter,
             amtToken,
-            amtTombMin,
+            amtSpecterMin,
             amtTokenMin,
             msg.sender,
             block.timestamp
         );
 
-        if (amtTomb.sub(resultAmtTomb) > 0) {
-            IERC20(tomb).transfer(msg.sender, amtTomb.sub(resultAmtTomb));
+        if (amtSpecter.sub(resultAmtSpecter) > 0) {
+            IERC20(specter).transfer(msg.sender, amtSpecter.sub(resultAmtSpecter));
         }
         if (amtToken.sub(resultAmtToken) > 0) {
             IERC20(token).transfer(msg.sender, amtToken.sub(resultAmtToken));
         }
-        return (resultAmtTomb, resultAmtToken, liquidity);
+        return (resultAmtSpecter, resultAmtToken, liquidity);
     }
 
     function addLiquidityETHTaxFree(
-        uint256 amtTomb,
-        uint256 amtTombMin,
+        uint256 amtSpecter,
+        uint256 amtSpecterMin,
         uint256 amtFtmMin
     )
         external
@@ -141,38 +141,38 @@ contract TaxOfficeV2 is Operator {
             uint256
         )
     {
-        require(amtTomb != 0 && msg.value != 0, "amounts can't be 0");
+        require(amtSpecter != 0 && msg.value != 0, "amounts can't be 0");
         _excludeAddressFromTax(msg.sender);
 
-        IERC20(tomb).transferFrom(msg.sender, address(this), amtTomb);
-        _approveTokenIfNeeded(tomb, uniRouter);
+        IERC20(specter).transferFrom(msg.sender, address(this), amtSpecter);
+        _approveTokenIfNeeded(specter, uniRouter);
 
         _includeAddressInTax(msg.sender);
 
-        uint256 resultAmtTomb;
+        uint256 resultAmtSpecter;
         uint256 resultAmtFtm;
         uint256 liquidity;
-        (resultAmtTomb, resultAmtFtm, liquidity) = IUniswapV2Router(uniRouter).addLiquidityETH{value: msg.value}(
-            tomb,
-            amtTomb,
-            amtTombMin,
+        (resultAmtSpecter, resultAmtFtm, liquidity) = IUniswapV2Router(uniRouter).addLiquidityETH{value: msg.value}(
+            specter,
+            amtSpecter,
+            amtSpecterMin,
             amtFtmMin,
             msg.sender,
             block.timestamp
         );
 
-        if (amtTomb.sub(resultAmtTomb) > 0) {
-            IERC20(tomb).transfer(msg.sender, amtTomb.sub(resultAmtTomb));
+        if (amtSpecter.sub(resultAmtSpecter) > 0) {
+            IERC20(specter).transfer(msg.sender, amtSpecter.sub(resultAmtSpecter));
         }
-        return (resultAmtTomb, resultAmtFtm, liquidity);
+        return (resultAmtSpecter, resultAmtFtm, liquidity);
     }
 
-    function setTaxableTombOracle(address _tombOracle) external onlyOperator {
-        ITaxable(tomb).setTombOracle(_tombOracle);
+    function setTaxableSpecterOracle(address _specterOracle) external onlyOperator {
+        ITaxable(specter).setSpecterOracle(_specterOracle);
     }
 
     function transferTaxOffice(address _newTaxOffice) external onlyOperator {
-        ITaxable(tomb).setTaxOffice(_newTaxOffice);
+        ITaxable(specter).setTaxOffice(_newTaxOffice);
     }
 
     function taxFreeTransferFrom(
@@ -182,7 +182,7 @@ contract TaxOfficeV2 is Operator {
     ) external {
         require(taxExclusionEnabled[msg.sender], "Address not approved for tax free transfers");
         _excludeAddressFromTax(_sender);
-        IERC20(tomb).transferFrom(_sender, _recipient, _amt);
+        IERC20(specter).transferFrom(_sender, _recipient, _amt);
         _includeAddressInTax(_sender);
     }
 

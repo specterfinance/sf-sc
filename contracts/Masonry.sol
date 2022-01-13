@@ -78,7 +78,7 @@ contract Masonry is ShareWrapper, ContractGuard {
     // flags
     bool public initialized = false;
 
-    IERC20 public tomb;
+    IERC20 public specter;
     ITreasury public treasury;
 
     mapping(address => Masonseat) public masons;
@@ -125,11 +125,11 @@ contract Masonry is ShareWrapper, ContractGuard {
     /* ========== GOVERNANCE ========== */
 
     function initialize(
-        IERC20 _tomb,
+        IERC20 _specter,
         IERC20 _share,
         ITreasury _treasury
     ) public notInitialized {
-        tomb = _tomb;
+        specter = _specter;
         share = _share;
         treasury = _treasury;
 
@@ -190,8 +190,8 @@ contract Masonry is ShareWrapper, ContractGuard {
         return treasury.nextEpochPoint();
     }
 
-    function getTombPrice() external view returns (uint256) {
-        return treasury.getTombPrice();
+    function getSpecterPrice() external view returns (uint256) {
+        return treasury.getSpecterPrice();
     }
 
     // =========== Mason getters
@@ -234,7 +234,7 @@ contract Masonry is ShareWrapper, ContractGuard {
             require(masons[msg.sender].epochTimerStart.add(rewardLockupEpochs) <= treasury.epoch(), "Masonry: still in reward lockup");
             masons[msg.sender].epochTimerStart = treasury.epoch(); // reset timer
             masons[msg.sender].rewardEarned = 0;
-            tomb.safeTransfer(msg.sender, reward);
+            specter.safeTransfer(msg.sender, reward);
             emit RewardPaid(msg.sender, reward);
         }
     }
@@ -250,7 +250,7 @@ contract Masonry is ShareWrapper, ContractGuard {
         MasonrySnapshot memory newSnapshot = MasonrySnapshot({time: block.number, rewardReceived: amount, rewardPerShare: nextRPS});
         masonryHistory.push(newSnapshot);
 
-        tomb.safeTransferFrom(msg.sender, address(this), amount);
+        specter.safeTransferFrom(msg.sender, address(this), amount);
         emit RewardAdded(msg.sender, amount);
     }
 
@@ -260,7 +260,7 @@ contract Masonry is ShareWrapper, ContractGuard {
         address _to
     ) external onlyOperator {
         // do not allow to drain core tokens
-        require(address(_token) != address(tomb), "tomb");
+        require(address(_token) != address(specter), "specter");
         require(address(_token) != address(share), "share");
         _token.safeTransfer(_to, _amount);
     }

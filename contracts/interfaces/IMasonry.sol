@@ -15,7 +15,7 @@ interface IMasonry {
 
     function nextEpochPoint() external view returns (uint256);
 
-    function getTombPrice() external view returns (uint256);
+    function getSpecterPrice() external view returns (uint256);
 
     function setOperator(address _operator) external;
 

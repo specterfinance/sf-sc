@@ -9,7 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tomb",
+						"name": "_specter",
 						"type": "address"
 					}
 				],
@@ -243,18 +243,18 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tombOracle",
+						"name": "_specterOracle",
 						"type": "address"
 					}
 				],
-				"name": "setTaxableTombOracle",
+				"name": "setTaxableSpecterOracle",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "tomb",
+				"name": "specter",
 				"outputs": [
 					{
 						"internalType": "address",

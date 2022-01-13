@@ -161,11 +161,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tombOracle",
+						"name": "_specterOracle",
 						"type": "address"
 					}
 				],
-				"name": "setTombOracle",
+				"name": "setSpecterOracle",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"

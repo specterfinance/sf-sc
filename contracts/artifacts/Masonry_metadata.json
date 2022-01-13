@@ -237,7 +237,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "getTombPrice",
+				"name": "getSpecterPrice",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -275,7 +275,7 @@
 				"inputs": [
 					{
 						"internalType": "contract IERC20",
-						"name": "_tomb",
+						"name": "_specter",
 						"type": "address"
 					},
 					{
@@ -489,7 +489,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tomb",
+				"name": "specter",
 				"outputs": [
 					{
 						"internalType": "contract IERC20",

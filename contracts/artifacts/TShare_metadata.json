@@ -771,7 +771,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/TShare.sol": "TShare"
+			"contracts/SShare.sol": "SShare"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -841,7 +841,7 @@
 				"dweb:/ipfs/QmfYuZxRfx2J2xdk4EXN7jKg4bUYEMTaYk9BAw9Bqn4o2Y"
 			]
 		},
-		"contracts/TShare.sol": {
+		"contracts/SShare.sol": {
 			"keccak256": "0x6dc219b981e2b61dcac71f8c04bcb667307900f5acacbc314e19130c802e02ea",
 			"license": "MIT",
 			"urls": [

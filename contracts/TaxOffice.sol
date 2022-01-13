@@ -16,54 +16,54 @@ import "./interfaces/ITaxable.sol";
 ***/
 
 contract TaxOffice is Operator {
-    address public tomb;
+    address public specter;
 
-    constructor(address _tomb) public {
-        require(_tomb != address(0), "tomb address cannot be 0");
-        tomb = _tomb;
+    constructor(address _specter) public {
+        require(_specter != address(0), "specter address cannot be 0");
+        specter = _specter;
     }
 
     function setTaxTiersTwap(uint8 _index, uint256 _value) public onlyOperator returns (bool) {
-        return ITaxable(tomb).setTaxTiersTwap(_index, _value);
+        return ITaxable(specter).setTaxTiersTwap(_index, _value);
     }
 
     function setTaxTiersRate(uint8 _index, uint256 _value) public onlyOperator returns (bool) {
-        return ITaxable(tomb).setTaxTiersRate(_index, _value);
+        return ITaxable(specter).setTaxTiersRate(_index, _value);
     }
 
     function enableAutoCalculateTax() public onlyOperator {
-        ITaxable(tomb).enableAutoCalculateTax();
+        ITaxable(specter).enableAutoCalculateTax();
     }
 
     function disableAutoCalculateTax() public onlyOperator {
-        ITaxable(tomb).disableAutoCalculateTax();
+        ITaxable(specter).disableAutoCalculateTax();
     }
 
     function setTaxRate(uint256 _taxRate) public onlyOperator {
-        ITaxable(tomb).setTaxRate(_taxRate);
+        ITaxable(specter).setTaxRate(_taxRate);
     }
 
     function setBurnThreshold(uint256 _burnThreshold) public onlyOperator {
-        ITaxable(tomb).setBurnThreshold(_burnThreshold);
+        ITaxable(specter).setBurnThreshold(_burnThreshold);
     }
 
     function setTaxCollectorAddress(address _taxCollectorAddress) public onlyOperator {
-        ITaxable(tomb).setTaxCollectorAddress(_taxCollectorAddress);
+        ITaxable(specter).setTaxCollectorAddress(_taxCollectorAddress);
     }
 
     function excludeAddressFromTax(address _address) external onlyOperator returns (bool) {
-        return ITaxable(tomb).excludeAddress(_address);
+        return ITaxable(specter).excludeAddress(_address);
     }
 
     function includeAddressInTax(address _address) external onlyOperator returns (bool) {
-        return ITaxable(tomb).includeAddress(_address);
+        return ITaxable(specter).includeAddress(_address);
     }
 
-    function setTaxableTombOracle(address _tombOracle) external onlyOperator {
-        ITaxable(tomb).setTombOracle(_tombOracle);
+    function setTaxableSpecterOracle(address _specterOracle) external onlyOperator {
+        ITaxable(specter).setSpecterOracle(_specterOracle);
     }
 
     function transferTaxOffice(address _newTaxOffice) external onlyOperator {
-        ITaxable(tomb).setTaxOffice(_newTaxOffice);
+        ITaxable(specter).setTaxOffice(_newTaxOffice);
     }
 }

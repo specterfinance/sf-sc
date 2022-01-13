@@ -38,7 +38,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "getTombPrice",
+				"name": "getSpecterPrice",
 				"outputs": [
 					{
 						"internalType": "uint256",

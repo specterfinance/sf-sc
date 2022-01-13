@@ -9,7 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tomb",
+						"name": "_specter",
 						"type": "address"
 					},
 					{
@@ -119,11 +119,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tomb",
+						"name": "_specter",
 						"type": "address"
 					}
 				],
-				"name": "setTomb",
+				"name": "setSpecter",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -143,7 +143,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tomb",
+				"name": "specter",
 				"outputs": [
 					{
 						"internalType": "contract IERC20",
@@ -204,7 +204,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/TaxOracle.sol": "TombTaxOracle"
+			"contracts/TaxOracle.sol": "SpecterTaxOracle"
 		},
 		"evmVersion": "london",
 		"libraries": {},

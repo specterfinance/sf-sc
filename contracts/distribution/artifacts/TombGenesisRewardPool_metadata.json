@@ -9,7 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tomb",
+						"name": "_specter",
 						"type": "address"
 					},
 					{
@@ -272,7 +272,7 @@
 						"type": "address"
 					}
 				],
-				"name": "pendingTOMB",
+				"name": "pendingSPECTER",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -323,7 +323,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "accTombPerShare",
+						"name": "accSpecterPerShare",
 						"type": "uint256"
 					},
 					{
@@ -407,7 +407,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tomb",
+				"name": "specter",
 				"outputs": [
 					{
 						"internalType": "contract IERC20",
@@ -420,7 +420,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tombPerSecond",
+				"name": "specterPerSecond",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -518,7 +518,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/distribution/TombGenesisRewardPool.sol": "TombGenesisRewardPool"
+			"contracts/distribution/SpecterGenesisRewardPool.sol": "SpecterGenesisRewardPool"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -564,7 +564,7 @@
 				"dweb:/ipfs/QmfYuZxRfx2J2xdk4EXN7jKg4bUYEMTaYk9BAw9Bqn4o2Y"
 			]
 		},
-		"contracts/distribution/TombGenesisRewardPool.sol": {
+		"contracts/distribution/SpecterGenesisRewardPool.sol": {
 			"keccak256": "0xc6d74f541db7db7aae62718e1d95ec5d393612ee152435c1e4583685d4999e84",
 			"license": "MIT",
 			"urls": [

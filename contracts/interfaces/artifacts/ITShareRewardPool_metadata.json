@@ -108,7 +108,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/interfaces/ITShareRewardPool.sol": "ITShareRewardPool"
+			"contracts/interfaces/ISShareRewardPool.sol": "ISShareRewardPool"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -122,7 +122,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/interfaces/ITShareRewardPool.sol": {
+		"contracts/interfaces/ISShareRewardPool.sol": {
 			"keccak256": "0xdff6973675e3673ce0ac09bc2779ef0ae49db2e731e3867f83de86bc94edd42e",
 			"license": "MIT",
 			"urls": [

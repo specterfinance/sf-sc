@@ -59,7 +59,7 @@
 			"setTaxRate(uint256)": "c6d69a30",
 			"setTaxTiersRate(uint8,uint256)": "b87c5a4a",
 			"setTaxTiersTwap(uint8,uint256)": "66206ce9",
-			"setTombOracle(address)": "75be5ae1"
+			"setSpecterOracle(address)": "75be5ae1"
 		}
 	},
 	"abi": [
@@ -219,11 +219,11 @@
 			"inputs": [
 				{
 					"internalType": "address",
-					"name": "_tombOracle",
+					"name": "_specterOracle",
 					"type": "address"
 				}
 			],
-			"name": "setTombOracle",
+			"name": "setSpecterOracle",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"

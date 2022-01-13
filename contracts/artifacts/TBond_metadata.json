@@ -513,7 +513,7 @@
 			"kind": "user",
 			"methods": {
 				"constructor": {
-					"notice": "Constructs the TOMB Bond ERC-20 contract."
+					"notice": "Constructs the SPECTER Bond ERC-20 contract."
 				},
 				"mint(address,uint256)": {
 					"notice": "Operator mints basis bonds to a recipient"
@@ -524,7 +524,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/TBond.sol": "TBond"
+			"contracts/SBond.sol": "SBond"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -586,7 +586,7 @@
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
 			]
 		},
-		"contracts/TBond.sol": {
+		"contracts/SBond.sol": {
 			"keccak256": "0x329c98b8628672618dfef623f911310ca7994109b97bac12713741f3089f0d06",
 			"license": "MIT",
 			"urls": [

@@ -6,9 +6,9 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
-// Note that this pool has no minter key of TOMB (rewards).
-// Instead, the governance will call TOMB distributeReward method and send reward to this pool at the beginning.
-contract TombRewardPool {
+// Note that this pool has no minter key of SPECTER (rewards).
+// Instead, the governance will call SPECTER distributeReward method and send reward to this pool at the beginning.
+contract SpecterRewardPool {
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
 
@@ -24,13 +24,13 @@ contract TombRewardPool {
     // Info of each pool.
     struct PoolInfo {
         IERC20 token; // Address of LP token contract.
-        uint256 allocPoint; // How many allocation points assigned to this pool. TOMBs to distribute in the pool.
-        uint256 lastRewardTime; // Last time that TOMBs distribution occurred.
-        uint256 accTombPerShare; // Accumulated TOMBs per share, times 1e18. See below.
+        uint256 allocPoint; // How many allocation points assigned to this pool. SPECTERs to distribute in the pool.
+        uint256 lastRewardTime; // Last time that SPECTERs distribution occurred.
+        uint256 accSpecterPerShare; // Accumulated SPECTERs per share, times 1e18. See below.
         bool isStarted; // if lastRewardTime has passed
     }
 
-    IERC20 public tomb;
+    IERC20 public specter;
 
     // Info of each pool.
     PoolInfo[] public poolInfo;
@@ -41,7 +41,7 @@ contract TombRewardPool {
     // Total allocation points. Must be the sum of all allocation points in all pools.
     uint256 public totalAllocPoint = 0;
 
-    // The time when TOMB mining starts.
+    // The time when SPECTER mining starts.
     uint256 public poolStartTime;
 
     uint256[] public epochTotalRewards = [80000 ether, 60000 ether];
@@ -50,38 +50,38 @@ contract TombRewardPool {
     uint256[3] public epochEndTimes;
 
     // Reward per second for each of 2 epochs (last item is equal to 0 - for sanity).
-    uint256[3] public epochTombPerSecond;
+    uint256[3] public epochSpecterPerSecond;
 
     event Deposit(address indexed user, uint256 indexed pid, uint256 amount);
     event Withdraw(address indexed user, uint256 indexed pid, uint256 amount);
     event EmergencyWithdraw(address indexed user, uint256 indexed pid, uint256 amount);
     event RewardPaid(address indexed user, uint256 amount);
 
-    constructor(address _tomb, uint256 _poolStartTime) public {
+    constructor(address _specter, uint256 _poolStartTime) public {
         require(block.timestamp < _poolStartTime, "late");
-        if (_tomb != address(0)) tomb = IERC20(_tomb);
+        if (_specter != address(0)) specter = IERC20(_specter);
 
         poolStartTime = _poolStartTime;
 
         epochEndTimes[0] = poolStartTime + 4 days; // Day 2-5
         epochEndTimes[1] = epochEndTimes[0] + 5 days; // Day 6-10
 
-        epochTombPerSecond[0] = epochTotalRewards[0].div(4 days);
-        epochTombPerSecond[1] = epochTotalRewards[1].div(5 days);
+        epochSpecterPerSecond[0] = epochTotalRewards[0].div(4 days);
+        epochSpecterPerSecond[1] = epochTotalRewards[1].div(5 days);
 
-        epochTombPerSecond[2] = 0;
+        epochSpecterPerSecond[2] = 0;
         operator = msg.sender;
     }
 
     modifier onlyOperator() {
-        require(operator == msg.sender, "TombRewardPool: caller is not the operator");
+        require(operator == msg.sender, "SpecterRewardPool: caller is not the operator");
         _;
     }
 
     function checkPoolDuplicate(IERC20 _token) internal view {
         uint256 length = poolInfo.length;
         for (uint256 pid = 0; pid < length; ++pid) {
-            require(poolInfo[pid].token != _token, "TombRewardPool: existing pool?");
+            require(poolInfo[pid].token != _token, "SpecterRewardPool: existing pool?");
         }
     }
 
@@ -112,13 +112,13 @@ contract TombRewardPool {
             }
         }
         bool _isStarted = (_lastRewardTime <= poolStartTime) || (_lastRewardTime <= block.timestamp);
-        poolInfo.push(PoolInfo({token: _token, allocPoint: _allocPoint, lastRewardTime: _lastRewardTime, accTombPerShare: 0, isStarted: _isStarted}));
+        poolInfo.push(PoolInfo({token: _token, allocPoint: _allocPoint, lastRewardTime: _lastRewardTime, accSpecterPerShare: 0, isStarted: _isStarted}));
         if (_isStarted) {
             totalAllocPoint = totalAllocPoint.add(_allocPoint);
         }
     }
 
-    // Update the given pool's TOMB allocation point. Can only be called by the owner.
+    // Update the given pool's SPECTER allocation point. Can only be called by the owner.
     function set(uint256 _pid, uint256 _allocPoint) public onlyOperator {
         massUpdatePools();
         PoolInfo storage pool = poolInfo[_pid];
@@ -133,37 +133,37 @@ contract TombRewardPool {
         for (uint8 epochId = 2; epochId >= 1; --epochId) {
             if (_toTime >= epochEndTimes[epochId - 1]) {
                 if (_fromTime >= epochEndTimes[epochId - 1]) {
-                    return _toTime.sub(_fromTime).mul(epochTombPerSecond[epochId]);
+                    return _toTime.sub(_fromTime).mul(epochSpecterPerSecond[epochId]);
                 }
 
-                uint256 _generatedReward = _toTime.sub(epochEndTimes[epochId - 1]).mul(epochTombPerSecond[epochId]);
+                uint256 _generatedReward = _toTime.sub(epochEndTimes[epochId - 1]).mul(epochSpecterPerSecond[epochId]);
                 if (epochId == 1) {
-                    return _generatedReward.add(epochEndTimes[0].sub(_fromTime).mul(epochTombPerSecond[0]));
+                    return _generatedReward.add(epochEndTimes[0].sub(_fromTime).mul(epochSpecterPerSecond[0]));
                 }
                 for (epochId = epochId - 1; epochId >= 1; --epochId) {
                     if (_fromTime >= epochEndTimes[epochId - 1]) {
-                        return _generatedReward.add(epochEndTimes[epochId].sub(_fromTime).mul(epochTombPerSecond[epochId]));
+                        return _generatedReward.add(epochEndTimes[epochId].sub(_fromTime).mul(epochSpecterPerSecond[epochId]));
                     }
-                    _generatedReward = _generatedReward.add(epochEndTimes[epochId].sub(epochEndTimes[epochId - 1]).mul(epochTombPerSecond[epochId]));
+                    _generatedReward = _generatedReward.add(epochEndTimes[epochId].sub(epochEndTimes[epochId - 1]).mul(epochSpecterPerSecond[epochId]));
                 }
-                return _generatedReward.add(epochEndTimes[0].sub(_fromTime).mul(epochTombPerSecond[0]));
+                return _generatedReward.add(epochEndTimes[0].sub(_fromTime).mul(epochSpecterPerSecond[0]));
             }
         }
-        return _toTime.sub(_fromTime).mul(epochTombPerSecond[0]);
+        return _toTime.sub(_fromTime).mul(epochSpecterPerSecond[0]);
     }
 
-    // View function to see pending TOMBs on frontend.
-    function pendingTOMB(uint256 _pid, address _user) external view returns (uint256) {
+    // View function to see pending SPECTERs on frontend.
+    function pendingSPECTER(uint256 _pid, address _user) external view returns (uint256) {
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][_user];
-        uint256 accTombPerShare = pool.accTombPerShare;
+        uint256 accSpecterPerShare = pool.accSpecterPerShare;
         uint256 tokenSupply = pool.token.balanceOf(address(this));
         if (block.timestamp > pool.lastRewardTime && tokenSupply != 0) {
             uint256 _generatedReward = getGeneratedReward(pool.lastRewardTime, block.timestamp);
-            uint256 _tombReward = _generatedReward.mul(pool.allocPoint).div(totalAllocPoint);
-            accTombPerShare = accTombPerShare.add(_tombReward.mul(1e18).div(tokenSupply));
+            uint256 _specterReward = _generatedReward.mul(pool.allocPoint).div(totalAllocPoint);
+            accSpecterPerShare = accSpecterPerShare.add(_specterReward.mul(1e18).div(tokenSupply));
         }
-        return user.amount.mul(accTombPerShare).div(1e18).sub(user.rewardDebt);
+        return user.amount.mul(accSpecterPerShare).div(1e18).sub(user.rewardDebt);
     }
 
     // Update reward variables for all pools. Be careful of gas spending!
@@ -191,8 +191,8 @@ contract TombRewardPool {
         }
         if (totalAllocPoint > 0) {
             uint256 _generatedReward = getGeneratedReward(pool.lastRewardTime, block.timestamp);
-            uint256 _tombReward = _generatedReward.mul(pool.allocPoint).div(totalAllocPoint);
-            pool.accTombPerShare = pool.accTombPerShare.add(_tombReward.mul(1e18).div(tokenSupply));
+            uint256 _specterReward = _generatedReward.mul(pool.allocPoint).div(totalAllocPoint);
+            pool.accSpecterPerShare = pool.accSpecterPerShare.add(_specterReward.mul(1e18).div(tokenSupply));
         }
         pool.lastRewardTime = block.timestamp;
     }
@@ -204,9 +204,9 @@ contract TombRewardPool {
         UserInfo storage user = userInfo[_pid][_sender];
         updatePool(_pid);
         if (user.amount > 0) {
-            uint256 _pending = user.amount.mul(pool.accTombPerShare).div(1e18).sub(user.rewardDebt);
+            uint256 _pending = user.amount.mul(pool.accSpecterPerShare).div(1e18).sub(user.rewardDebt);
             if (_pending > 0) {
-                safeTombTransfer(_sender, _pending);
+                safeSpecterTransfer(_sender, _pending);
                 emit RewardPaid(_sender, _pending);
             }
         }
@@ -214,7 +214,7 @@ contract TombRewardPool {
             pool.token.safeTransferFrom(_sender, address(this), _amount);
             user.amount = user.amount.add(_amount);
         }
-        user.rewardDebt = user.amount.mul(pool.accTombPerShare).div(1e18);
+        user.rewardDebt = user.amount.mul(pool.accSpecterPerShare).div(1e18);
         emit Deposit(_sender, _pid, _amount);
     }
 
@@ -225,16 +225,16 @@ contract TombRewardPool {
         UserInfo storage user = userInfo[_pid][_sender];
         require(user.amount >= _amount, "withdraw: not good");
         updatePool(_pid);
-        uint256 _pending = user.amount.mul(pool.accTombPerShare).div(1e18).sub(user.rewardDebt);
+        uint256 _pending = user.amount.mul(pool.accSpecterPerShare).div(1e18).sub(user.rewardDebt);
         if (_pending > 0) {
-            safeTombTransfer(_sender, _pending);
+            safeSpecterTransfer(_sender, _pending);
             emit RewardPaid(_sender, _pending);
         }
         if (_amount > 0) {
             user.amount = user.amount.sub(_amount);
             pool.token.safeTransfer(_sender, _amount);
         }
-        user.rewardDebt = user.amount.mul(pool.accTombPerShare).div(1e18);
+        user.rewardDebt = user.amount.mul(pool.accSpecterPerShare).div(1e18);
         emit Withdraw(_sender, _pid, _amount);
     }
 
@@ -249,14 +249,14 @@ contract TombRewardPool {
         emit EmergencyWithdraw(msg.sender, _pid, _amount);
     }
 
-    // Safe tomb transfer function, just in case if rounding error causes pool to not have enough TOMBs.
-    function safeTombTransfer(address _to, uint256 _amount) internal {
-        uint256 _tombBal = tomb.balanceOf(address(this));
-        if (_tombBal > 0) {
-            if (_amount > _tombBal) {
-                tomb.safeTransfer(_to, _tombBal);
+    // Safe specter transfer function, just in case if rounding error causes pool to not have enough SPECTERs.
+    function safeSpecterTransfer(address _to, uint256 _amount) internal {
+        uint256 _specterBal = specter.balanceOf(address(this));
+        if (_specterBal > 0) {
+            if (_amount > _specterBal) {
+                specter.safeTransfer(_to, _specterBal);
             } else {
-                tomb.safeTransfer(_to, _amount);
+                specter.safeTransfer(_to, _amount);
             }
         }
     }
@@ -272,7 +272,7 @@ contract TombRewardPool {
     ) external onlyOperator {
         if (block.timestamp < epochEndTimes[1] + 30 days) {
             // do not allow to drain token if less than 30 days after farming
-            require(_token != tomb, "!tomb");
+            require(_token != specter, "!specter");
             uint256 length = poolInfo.length;
             for (uint256 pid = 0; pid < length; ++pid) {
                 PoolInfo storage pool = poolInfo[pid];

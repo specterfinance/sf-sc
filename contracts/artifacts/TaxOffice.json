@@ -1024,7 +1024,7 @@
 														"nodeType": "YulLiteral",
 														"src": "2186:26:5",
 														"type": "",
-														"value": "tomb address cannot be 0"
+														"value": "specter address cannot be 0"
 													}
 												],
 												"functionName": {
@@ -1155,7 +1155,7 @@
 							}
 						]
 					},
-					"contents": "{\n\n    function abi_decode_t_address_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_address(value)\n    }\n\n    function abi_decode_tuple_t_address_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_encode_t_stringliteral_317571e7a84c39809851039b7fb03c87a1852471441f433c4d14608e7275e3bb_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 24)\n        store_literal_in_memory_317571e7a84c39809851039b7fb03c87a1852471441f433c4d14608e7275e3bb(pos)\n        end := add(pos, 32)\n    }\n\n    function abi_encode_tuple_t_stringliteral_317571e7a84c39809851039b7fb03c87a1852471441f433c4d14608e7275e3bb__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_317571e7a84c39809851039b7fb03c87a1852471441f433c4d14608e7275e3bb_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function allocate_unbounded() -> memPtr {\n        memPtr := mload(64)\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() {\n        revert(0, 0)\n    }\n\n    function revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() {\n        revert(0, 0)\n    }\n\n    function store_literal_in_memory_317571e7a84c39809851039b7fb03c87a1852471441f433c4d14608e7275e3bb(memPtr) {\n\n        mstore(add(memPtr, 0), \"tomb address cannot be 0\")\n\n    }\n\n    function validator_revert_t_address(value) {\n        if iszero(eq(value, cleanup_t_address(value))) { revert(0, 0) }\n    }\n\n}\n",
+					"contents": "{\n\n    function abi_decode_t_address_fromMemory(offset, end) -> value {\n        value := mload(offset)\n        validator_revert_t_address(value)\n    }\n\n    function abi_decode_tuple_t_address_fromMemory(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address_fromMemory(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_encode_t_stringliteral_317571e7a84c39809851039b7fb03c87a1852471441f433c4d14608e7275e3bb_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 24)\n        store_literal_in_memory_317571e7a84c39809851039b7fb03c87a1852471441f433c4d14608e7275e3bb(pos)\n        end := add(pos, 32)\n    }\n\n    function abi_encode_tuple_t_stringliteral_317571e7a84c39809851039b7fb03c87a1852471441f433c4d14608e7275e3bb__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_317571e7a84c39809851039b7fb03c87a1852471441f433c4d14608e7275e3bb_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function allocate_unbounded() -> memPtr {\n        memPtr := mload(64)\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() {\n        revert(0, 0)\n    }\n\n    function revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() {\n        revert(0, 0)\n    }\n\n    function store_literal_in_memory_317571e7a84c39809851039b7fb03c87a1852471441f433c4d14608e7275e3bb(memPtr) {\n\n        mstore(add(memPtr, 0), \"specter address cannot be 0\")\n\n    }\n\n    function validator_revert_t_address(value) {\n        if iszero(eq(value, cleanup_t_address(value))) { revert(0, 0) }\n    }\n\n}\n",
 					"id": 5,
 					"language": "Yul",
 					"name": "#utility.yul"
@@ -1264,13 +1264,13 @@
 					"parameterSlots": 2,
 					"returnSlots": 1
 				},
-				"@setTaxableTombOracle_312": {
+				"@setTaxableSpecterOracle_312": {
 					"entryPoint": 4047,
 					"id": 312,
 					"parameterSlots": 1,
 					"returnSlots": 0
 				},
-				"@tomb_134": {
+				"@specter_134": {
 					"entryPoint": 3433,
 					"id": 134,
 					"parameterSlots": 0,
@@ -5743,8 +5743,8 @@
 				"setTaxRate(uint256)": "infinite",
 				"setTaxTiersRate(uint8,uint256)": "infinite",
 				"setTaxTiersTwap(uint8,uint256)": "infinite",
-				"setTaxableTombOracle(address)": "infinite",
-				"tomb()": "2603",
+				"setTaxableSpecterOracle(address)": "infinite",
+				"specter()": "2603",
 				"transferOperator(address)": "28620",
 				"transferOwnership(address)": "30811",
 				"transferTaxOffice(address)": "infinite"
@@ -5764,8 +5764,8 @@
 			"setTaxRate(uint256)": "c6d69a30",
 			"setTaxTiersRate(uint8,uint256)": "b87c5a4a",
 			"setTaxTiersTwap(uint8,uint256)": "66206ce9",
-			"setTaxableTombOracle(address)": "e69abb7e",
-			"tomb()": "c040f23a",
+			"setTaxableSpecterOracle(address)": "e69abb7e",
+			"specter()": "c040f23a",
 			"transferOperator(address)": "29605e77",
 			"transferOwnership(address)": "f2fde38b",
 			"transferTaxOffice(address)": "d1d31a37"
@@ -5776,7 +5776,7 @@
 			"inputs": [
 				{
 					"internalType": "address",
-					"name": "_tomb",
+					"name": "_specter",
 					"type": "address"
 				}
 			],
@@ -6010,18 +6010,18 @@
 			"inputs": [
 				{
 					"internalType": "address",
-					"name": "_tombOracle",
+					"name": "_specterOracle",
 					"type": "address"
 				}
 			],
-			"name": "setTaxableTombOracle",
+			"name": "setTaxableSpecterOracle",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"
 		},
 		{
 			"inputs": [],
-			"name": "tomb",
+			"name": "specter",
 			"outputs": [
 				{
 					"internalType": "address",

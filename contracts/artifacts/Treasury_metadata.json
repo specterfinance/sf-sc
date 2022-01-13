@@ -17,7 +17,7 @@
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "tombAmount",
+						"name": "specterAmount",
 						"type": "uint256"
 					},
 					{
@@ -27,7 +27,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "BoughtBonds",
+				"name": "BoughsBonds",
 				"type": "event"
 			},
 			{
@@ -137,7 +137,7 @@
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "tombAmount",
+						"name": "specterAmount",
 						"type": "uint256"
 					},
 					{
@@ -232,7 +232,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_tombAmount",
+						"name": "_specterAmount",
 						"type": "uint256"
 					},
 					{
@@ -358,7 +358,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "getBondDiscountRate",
+				"name": "gesBondDiscountRate",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -371,7 +371,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "getBondPremiumRate",
+				"name": "gesBondPremiumRate",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -384,11 +384,11 @@
 			},
 			{
 				"inputs": [],
-				"name": "getBurnableTombLeft",
+				"name": "getBurnableSpecterLeft",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "_burnableTombLeft",
+						"name": "_burnableSpecterLeft",
 						"type": "uint256"
 					}
 				],
@@ -423,7 +423,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "getTombCirculatingSupply",
+				"name": "getSpecterCirculatingSupply",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -436,11 +436,11 @@
 			},
 			{
 				"inputs": [],
-				"name": "getTombPrice",
+				"name": "getSpecterPrice",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "tombPrice",
+						"name": "specterPrice",
 						"type": "uint256"
 					}
 				],
@@ -449,11 +449,11 @@
 			},
 			{
 				"inputs": [],
-				"name": "getTombUpdatedPrice",
+				"name": "getSpecterUpdatedPrice",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "_tombPrice",
+						"name": "_specterPrice",
 						"type": "uint256"
 					}
 				],
@@ -487,22 +487,22 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tomb",
+						"name": "_specter",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "_tbond",
+						"name": "_sbond",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "_tshare",
+						"name": "_sshare",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "_tombOracle",
+						"name": "_specterOracle",
 						"type": "address"
 					},
 					{
@@ -778,7 +778,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "previousEpochTombPrice",
+				"name": "previousEpochSpecterPrice",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -841,7 +841,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "setBondDepletionFloorPercent",
+				"name": "sesBondDepletionFloorPercent",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -1087,11 +1087,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tombOracle",
+						"name": "_specterOracle",
 						"type": "address"
 					}
 				],
-				"name": "setTombOracle",
+				"name": "setSpecterOracle",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -1100,11 +1100,11 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_tombPriceCeiling",
+						"name": "_specterPriceCeiling",
 						"type": "uint256"
 					}
 				],
-				"name": "setTombPriceCeiling",
+				"name": "setSpecterPriceCeiling",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -1143,7 +1143,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tbond",
+				"name": "sbond",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -1156,7 +1156,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tomb",
+				"name": "specter",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -1169,7 +1169,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tombOracle",
+				"name": "specterOracle",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -1182,7 +1182,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tombPriceCeiling",
+				"name": "specterPriceCeiling",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -1195,7 +1195,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tombPriceOne",
+				"name": "specterPriceOne",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -1208,7 +1208,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tshare",
+				"name": "sshare",
 				"outputs": [
 					{
 						"internalType": "address",

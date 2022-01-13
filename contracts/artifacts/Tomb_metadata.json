@@ -156,7 +156,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "INITIAL_TOMB_POOL_DISTRIBUTION",
+				"name": "INITIAL_SPECTER_POOL_DISTRIBUTION",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -344,7 +344,7 @@
 					},
 					{
 						"internalType": "address",
-						"name": "_tombPool",
+						"name": "_specterPool",
 						"type": "address"
 					},
 					{
@@ -720,11 +720,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tombOracle",
+						"name": "_specterOracle",
 						"type": "address"
 					}
 				],
-				"name": "setTombOracle",
+				"name": "setSpecterOracle",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -821,7 +821,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tombOracle",
+				"name": "specterOracle",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -954,7 +954,7 @@
 				},
 				"mint(address,uint256)": {
 					"params": {
-						"amount_": "The amount of TOMB to mint to",
+						"amount_": "The amount of SPECTER to mint to",
 						"recipient_": "The address of recipient"
 					},
 					"returns": {
@@ -992,13 +992,13 @@
 			"kind": "user",
 			"methods": {
 				"constructor": {
-					"notice": "Constructs the TOMB ERC-20 contract."
+					"notice": "Constructs the SPECTER ERC-20 contract."
 				},
 				"distributeReward(address,address,address)": {
 					"notice": "distribute to reward pool (only once)"
 				},
 				"mint(address,uint256)": {
-					"notice": "Operator mints TOMB to a recipient"
+					"notice": "Operator mints SPECTER to a recipient"
 				}
 			},
 			"version": 1
@@ -1006,7 +1006,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/Tomb.sol": "Tomb"
+			"contracts/Specter.sol": "Specter"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -1084,7 +1084,7 @@
 				"dweb:/ipfs/QmfYuZxRfx2J2xdk4EXN7jKg4bUYEMTaYk9BAw9Bqn4o2Y"
 			]
 		},
-		"contracts/Tomb.sol": {
+		"contracts/Specter.sol": {
 			"keccak256": "0xfb0a1331dea7d1927f319dbe1d2b247f4f65feeffb28eb66dbd9d356638df763",
 			"license": "MIT",
 			"urls": [

@@ -51,7 +51,7 @@
 		"methodIdentifiers": {
 			"buyBonds(uint256,uint256)": "54f04a11",
 			"epoch()": "900cf0cf",
-			"getTombPrice()": "09bb4f92",
+			"getSpecterPrice()": "09bb4f92",
 			"nextEpochPoint()": "c5967c26",
 			"redeemBonds(uint256,uint256)": "118ebbf9"
 		}
@@ -90,7 +90,7 @@
 		},
 		{
 			"inputs": [],
-			"name": "getTombPrice",
+			"name": "getSpecterPrice",
 			"outputs": [
 				{
 					"internalType": "uint256",
