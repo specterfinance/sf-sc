@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -9,7 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tshare",
+						"name": "_sshare",
 						"type": "address"
 					},
 					{
@@ -318,7 +318,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "accTSharePerShare",
+						"name": "accSSharePerShare",
 						"type": "uint256"
 					},
 					{
@@ -346,6 +346,19 @@
 			{
 				"inputs": [],
 				"name": "runningTime",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "sSharePerSecond",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -389,12 +402,12 @@
 			},
 			{
 				"inputs": [],
-				"name": "tSharePerSecond",
+				"name": "sshare",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "contract IERC20",
 						"name": "",
-						"type": "uint256"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -408,19 +421,6 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "tshare",
-				"outputs": [
-					{
-						"internalType": "contract IERC20",
-						"name": "",
-						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -500,9 +500,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/distribution/TShareRewardPool.sol": "TShareRewardPool"
+			"contracts/distribution/SShareRewardPool.sol": "SShareRewardPool"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -546,12 +546,12 @@
 				"dweb:/ipfs/QmfYuZxRfx2J2xdk4EXN7jKg4bUYEMTaYk9BAw9Bqn4o2Y"
 			]
 		},
-		"contracts/distribution/TShareRewardPool.sol": {
-			"keccak256": "0x9e5f8b6c1d963c5f538581dfe574ed365ce4063bd4abffbe20f81c24bbd60202",
+		"contracts/distribution/SShareRewardPool.sol": {
+			"keccak256": "0x6ec62a0f0fddbb9161733a9b1ea8d8c9ff623dc706c4611db4106a2774153647",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://879175fac4761ac576f7d2311ec49bbb532004f6df9545429aeda51f30fb6291",
-				"dweb:/ipfs/QmZfLaGHccVj7sMVtrEWPfw6VvVrpDwF5cXqSzAvDH2d5C"
+				"bzz-raw://c8d2dde31b5f2e651ec89a4e4b6e965f8ef7b9384047dd1903993309768a47e0",
+				"dweb:/ipfs/QmY7PwxNZpy98Dp5zKXFw9YqFmP3hBn6BkCkkfgSHcNB3Q"
 			]
 		}
 	},

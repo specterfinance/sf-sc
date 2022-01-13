@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -108,9 +108,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/interfaces/ITShareRewardPool.sol": "ITShareRewardPool"
+			"contracts/interfaces/ISShareRewardPool.sol": "ISShareRewardPool"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -122,12 +122,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/interfaces/ITShareRewardPool.sol": {
-			"keccak256": "0xdff6973675e3673ce0ac09bc2779ef0ae49db2e731e3867f83de86bc94edd42e",
+		"contracts/interfaces/ISShareRewardPool.sol": {
+			"keccak256": "0x9aba25a03bc12fc9ad208ef3b891612d8dcf907a02ac31cd0f5f820d94b5a54e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://98fb345d1fe063c88dc4dbcf4ced8df277b2f82830fe204d64ed4a319055f85c",
-				"dweb:/ipfs/Qme6KY4K178DkUFEu1c7xm3iX1jGXYFecrx2E73LxK9ubc"
+				"bzz-raw://8f61fddf54020ff4a3324b06cde30763a296d8b29fe0dee6a086d8e6b674508e",
+				"dweb:/ipfs/QmQan2GK3rmNu8PWMSg6PK14rGSxCKkRsQWbshBJFYu85z"
 			]
 		}
 	},

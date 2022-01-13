@@ -48,22 +48,22 @@ contract Treasury is ContractGuard {
 
     // exclusions from total supply
     address[] public excludedFromTotalSupply = [
-        address(0x9A896d3c54D7e45B558BD5fFf26bF1E8C031F93b), // TombGenesisPool
-        address(0xa7b9123f4b15fE0fF01F469ff5Eab2b41296dC0E), // new TombFTMRewardPool
-        address(0xA7B16703470055881e7EE093e9b0bF537f29CD4d) // old TombRewardPool
+        address(0x9A896d3c54D7e45B558BD5fFf26bF1E8C031F93b), // SpecterGenesisPool
+        address(0xa7b9123f4b15fE0fF01F469ff5Eab2b41296dC0E), // new SpecterFTMRewardPool
+        address(0xA7B16703470055881e7EE093e9b0bF537f29CD4d) // old SpecterRewardPool
     ];
 
     // core components
-    address public tomb;
-    address public tbond;
-    address public tshare;
+    address public specter;
+    address public sbond;
+    address public sshare;
 
     address public masonry;
-    address public tombOracle;
+    address public specterOracle;
 
     // price
-    uint256 public tombPriceOne;
-    uint256 public tombPriceCeiling;
+    uint256 public specterPriceOne;
+    uint256 public specterPriceCeiling;
 
     uint256 public seigniorageSaved;
 
@@ -76,18 +76,18 @@ contract Treasury is ContractGuard {
     uint256 public maxSupplyContractionPercent;
     uint256 public maxDebtRatioPercent;
 
-    // 28 first epochs (1 week) with 4.5% expansion regardless of TOMB price
+    // 28 first epochs (1 week) with 4.5% expansion regardless of SPECTER price
     uint256 public bootstrapEpochs;
     uint256 public bootstrapSupplyExpansionPercent;
 
     /* =================== Added variables =================== */
-    uint256 public previousEpochTombPrice;
+    uint256 public previousEpochSpecterPrice;
     uint256 public maxDiscountRate; // when purchasing bond
     uint256 public maxPremiumRate; // when redeeming bond
     uint256 public discountPercent;
     uint256 public premiumThreshold;
     uint256 public premiumPercent;
-    uint256 public mintingFactorForPayingDebt; // print extra TOMB during debt phase
+    uint256 public mintingFactorForPayingDebt; // print extra SPECTER during debt phase
 
     address public daoFund;
     uint256 public daoFundSharedPercent;
@@ -99,8 +99,8 @@ contract Treasury is ContractGuard {
 
     event Initialized(address indexed executor, uint256 at);
     event BurnedBonds(address indexed from, uint256 bondAmount);
-    event RedeemedBonds(address indexed from, uint256 tombAmount, uint256 bondAmount);
-    event BoughtBonds(address indexed from, uint256 tombAmount, uint256 bondAmount);
+    event RedeemedBonds(address indexed from, uint256 specterAmount, uint256 bondAmount);
+    event BoughsBonds(address indexed from, uint256 specterAmount, uint256 bondAmount);
     event TreasuryFunded(uint256 timestamp, uint256 seigniorage);
     event MasonryFunded(uint256 timestamp, uint256 seigniorage);
     event DaoFundFunded(uint256 timestamp, uint256 seigniorage);
@@ -125,14 +125,14 @@ contract Treasury is ContractGuard {
         _;
 
         epoch = epoch.add(1);
-        epochSupplyContractionLeft = (getTombPrice() > tombPriceCeiling) ? 0 : getTombCirculatingSupply().mul(maxSupplyContractionPercent).div(10000);
+        epochSupplyContractionLeft = (getSpecterPrice() > specterPriceCeiling) ? 0 : getSpecterCirculatingSupply().mul(maxSupplyContractionPercent).div(10000);
     }
 
     modifier checkOperator() {
         require(
-            IBasisAsset(tomb).operator() == address(this) &&
-                IBasisAsset(tbond).operator() == address(this) &&
-                IBasisAsset(tshare).operator() == address(this) &&
+            IBasisAsset(specter).operator() == address(this) &&
+                IBasisAsset(sbond).operator() == address(this) &&
+                IBasisAsset(sshare).operator() == address(this) &&
                 Operator(masonry).operator() == address(this),
             "Treasury: need more permission"
         );
@@ -158,19 +158,19 @@ contract Treasury is ContractGuard {
     }
 
     // oracle
-    function getTombPrice() public view returns (uint256 tombPrice) {
-        try IOracle(tombOracle).consult(tomb, 1e18) returns (uint144 price) {
+    function getSpecterPrice() public view returns (uint256 specterPrice) {
+        try IOracle(specterOracle).consult(specter, 1e18) returns (uint144 price) {
             return uint256(price);
         } catch {
-            revert("Treasury: failed to consult TOMB price from the oracle");
+            revert("Treasury: failed to consult SPECTER price from the oracle");
         }
     }
 
-    function getTombUpdatedPrice() public view returns (uint256 _tombPrice) {
-        try IOracle(tombOracle).twap(tomb, 1e18) returns (uint144 price) {
+    function getSpecterUpdatedPrice() public view returns (uint256 _specterPrice) {
+        try IOracle(specterOracle).twap(specter, 1e18) returns (uint144 price) {
             return uint256(price);
         } catch {
-            revert("Treasury: failed to consult TOMB price from the oracle");
+            revert("Treasury: failed to consult SPECTER price from the oracle");
         }
     }
 
@@ -179,41 +179,41 @@ contract Treasury is ContractGuard {
         return seigniorageSaved;
     }
 
-    function getBurnableTombLeft() public view returns (uint256 _burnableTombLeft) {
-        uint256 _tombPrice = getTombPrice();
-        if (_tombPrice <= tombPriceOne) {
-            uint256 _tombSupply = getTombCirculatingSupply();
-            uint256 _bondMaxSupply = _tombSupply.mul(maxDebtRatioPercent).div(10000);
-            uint256 _bondSupply = IERC20(tbond).totalSupply();
+    function getBurnableSpecterLeft() public view returns (uint256 _burnableSpecterLeft) {
+        uint256 _specterPrice = getSpecterPrice();
+        if (_specterPrice <= specterPriceOne) {
+            uint256 _specterSupply = getSpecterCirculatingSupply();
+            uint256 _bondMaxSupply = _specterSupply.mul(maxDebtRatioPercent).div(10000);
+            uint256 _bondSupply = IERC20(sbond).totalSupply();
             if (_bondMaxSupply > _bondSupply) {
                 uint256 _maxMintableBond = _bondMaxSupply.sub(_bondSupply);
-                uint256 _maxBurnableTomb = _maxMintableBond.mul(_tombPrice).div(1e18);
-                _burnableTombLeft = Math.min(epochSupplyContractionLeft, _maxBurnableTomb);
+                uint256 _maxBurnableSpecter = _maxMintableBond.mul(_specterPrice).div(1e18);
+                _burnableSpecterLeft = Math.min(epochSupplyContractionLeft, _maxBurnableSpecter);
             }
         }
     }
 
     function getRedeemableBonds() public view returns (uint256 _redeemableBonds) {
-        uint256 _tombPrice = getTombPrice();
-        if (_tombPrice > tombPriceCeiling) {
-            uint256 _totalTomb = IERC20(tomb).balanceOf(address(this));
-            uint256 _rate = getBondPremiumRate();
+        uint256 _specterPrice = getSpecterPrice();
+        if (_specterPrice > specterPriceCeiling) {
+            uint256 _totalSpecter = IERC20(specter).balanceOf(address(this));
+            uint256 _rate = gesBondPremiumRate();
             if (_rate > 0) {
-                _redeemableBonds = _totalTomb.mul(1e18).div(_rate);
+                _redeemableBonds = _totalSpecter.mul(1e18).div(_rate);
             }
         }
     }
 
-    function getBondDiscountRate() public view returns (uint256 _rate) {
-        uint256 _tombPrice = getTombPrice();
-        if (_tombPrice <= tombPriceOne) {
+    function gesBondDiscountRate() public view returns (uint256 _rate) {
+        uint256 _specterPrice = getSpecterPrice();
+        if (_specterPrice <= specterPriceOne) {
             if (discountPercent == 0) {
                 // no discount
-                _rate = tombPriceOne;
+                _rate = specterPriceOne;
             } else {
-                uint256 _bondAmount = tombPriceOne.mul(1e18).div(_tombPrice); // to burn 1 TOMB
-                uint256 _discountAmount = _bondAmount.sub(tombPriceOne).mul(discountPercent).div(10000);
-                _rate = tombPriceOne.add(_discountAmount);
+                uint256 _bondAmount = specterPriceOne.mul(1e18).div(_specterPrice); // to burn 1 SPECTER
+                uint256 _discountAmount = _bondAmount.sub(specterPriceOne).mul(discountPercent).div(10000);
+                _rate = specterPriceOne.add(_discountAmount);
                 if (maxDiscountRate > 0 && _rate > maxDiscountRate) {
                     _rate = maxDiscountRate;
                 }
@@ -221,20 +221,20 @@ contract Treasury is ContractGuard {
         }
     }
 
-    function getBondPremiumRate() public view returns (uint256 _rate) {
-        uint256 _tombPrice = getTombPrice();
-        if (_tombPrice > tombPriceCeiling) {
-            uint256 _tombPricePremiumThreshold = tombPriceOne.mul(premiumThreshold).div(100);
-            if (_tombPrice >= _tombPricePremiumThreshold) {
+    function gesBondPremiumRate() public view returns (uint256 _rate) {
+        uint256 _specterPrice = getSpecterPrice();
+        if (_specterPrice > specterPriceCeiling) {
+            uint256 _specterPricePremiumThreshold = specterPriceOne.mul(premiumThreshold).div(100);
+            if (_specterPrice >= _specterPricePremiumThreshold) {
                 //Price > 1.10
-                uint256 _premiumAmount = _tombPrice.sub(tombPriceOne).mul(premiumPercent).div(10000);
-                _rate = tombPriceOne.add(_premiumAmount);
+                uint256 _premiumAmount = _specterPrice.sub(specterPriceOne).mul(premiumPercent).div(10000);
+                _rate = specterPriceOne.add(_premiumAmount);
                 if (maxPremiumRate > 0 && _rate > maxPremiumRate) {
                     _rate = maxPremiumRate;
                 }
             } else {
                 // no premium bonus
-                _rate = tombPriceOne;
+                _rate = specterPriceOne;
             }
         }
     }
@@ -242,22 +242,22 @@ contract Treasury is ContractGuard {
     /* ========== GOVERNANCE ========== */
 
     function initialize(
-        address _tomb,
-        address _tbond,
-        address _tshare,
-        address _tombOracle,
+        address _specter,
+        address _sbond,
+        address _sshare,
+        address _specterOracle,
         address _masonry,
         uint256 _startTime
     ) public notInitialized {
-        tomb = _tomb;
-        tbond = _tbond;
-        tshare = _tshare;
-        tombOracle = _tombOracle;
+        specter = _specter;
+        sbond = _sbond;
+        sshare = _sshare;
+        specterOracle = _specterOracle;
         masonry = _masonry;
         startTime = _startTime;
 
-        tombPriceOne = 10**18;
-        tombPriceCeiling = tombPriceOne.mul(101).div(100);
+        specterPriceOne = 10**18;
+        specterPriceCeiling = specterPriceOne.mul(101).div(100);
 
         // Dynamic max expansion percent
         supplyTiers = [0 ether, 500000 ether, 1000000 ether, 1500000 ether, 2000000 ether, 5000000 ether, 10000000 ether, 20000000 ether, 50000000 ether];
@@ -267,8 +267,8 @@ contract Treasury is ContractGuard {
 
         bondDepletionFloorPercent = 10000; // 100% of Bond supply for depletion floor
         seigniorageExpansionFloorPercent = 3500; // At least 35% of expansion reserved for masonry
-        maxSupplyContractionPercent = 300; // Upto 3.0% supply for contraction (to burn TOMB and mint tBOND)
-        maxDebtRatioPercent = 3500; // Upto 35% supply of tBOND to purchase
+        maxSupplyContractionPercent = 300; // Upto 3.0% supply for contraction (to burn SPECTER and mint sBOND)
+        maxDebtRatioPercent = 3500; // Upto 35% supply of sBOND to purchase
 
         premiumThreshold = 110;
         premiumPercent = 7000;
@@ -278,7 +278,7 @@ contract Treasury is ContractGuard {
         bootstrapSupplyExpansionPercent = 450;
 
         // set seigniorageSaved to it's balance
-        seigniorageSaved = IERC20(tomb).balanceOf(address(this));
+        seigniorageSaved = IERC20(specter).balanceOf(address(this));
 
         initialized = true;
         operator = msg.sender;
@@ -293,13 +293,13 @@ contract Treasury is ContractGuard {
         masonry = _masonry;
     }
 
-    function setTombOracle(address _tombOracle) external onlyOperator {
-        tombOracle = _tombOracle;
+    function setSpecterOracle(address _specterOracle) external onlyOperator {
+        specterOracle = _specterOracle;
     }
 
-    function setTombPriceCeiling(uint256 _tombPriceCeiling) external onlyOperator {
-        require(_tombPriceCeiling >= tombPriceOne && _tombPriceCeiling <= tombPriceOne.mul(120).div(100), "out of range"); // [$1.0, $1.2]
-        tombPriceCeiling = _tombPriceCeiling;
+    function setSpecterPriceCeiling(uint256 _specterPriceCeiling) external onlyOperator {
+        require(_specterPriceCeiling >= specterPriceOne && _specterPriceCeiling <= specterPriceOne.mul(120).div(100), "out of range"); // [$1.0, $1.2]
+        specterPriceCeiling = _specterPriceCeiling;
     }
 
     function setMaxSupplyExpansionPercents(uint256 _maxSupplyExpansionPercent) external onlyOperator {
@@ -328,7 +328,7 @@ contract Treasury is ContractGuard {
         return true;
     }
 
-    function setBondDepletionFloorPercent(uint256 _bondDepletionFloorPercent) external onlyOperator {
+    function sesBondDepletionFloorPercent(uint256 _bondDepletionFloorPercent) external onlyOperator {
         require(_bondDepletionFloorPercent >= 500 && _bondDepletionFloorPercent <= 10000, "out of range"); // [5%, 100%]
         bondDepletionFloorPercent = _bondDepletionFloorPercent;
     }
@@ -380,7 +380,7 @@ contract Treasury is ContractGuard {
     }
 
     function setPremiumThreshold(uint256 _premiumThreshold) external onlyOperator {
-        require(_premiumThreshold >= tombPriceCeiling, "_premiumThreshold exceeds tombPriceCeiling");
+        require(_premiumThreshold >= specterPriceCeiling, "_premiumThreshold exceeds specterPriceCeiling");
         require(_premiumThreshold <= 150, "_premiumThreshold is higher than 1.5");
         premiumThreshold = _premiumThreshold;
     }
@@ -397,103 +397,103 @@ contract Treasury is ContractGuard {
 
     /* ========== MUTABLE FUNCTIONS ========== */
 
-    function _updateTombPrice() internal {
-        try IOracle(tombOracle).update() {} catch {}
+    function _updateSpecterPrice() internal {
+        try IOracle(specterOracle).update() {} catch {}
     }
 
-    function getTombCirculatingSupply() public view returns (uint256) {
-        IERC20 tombErc20 = IERC20(tomb);
-        uint256 totalSupply = tombErc20.totalSupply();
+    function getSpecterCirculatingSupply() public view returns (uint256) {
+        IERC20 specterErc20 = IERC20(specter);
+        uint256 totalSupply = specterErc20.totalSupply();
         uint256 balanceExcluded = 0;
         for (uint8 entryId = 0; entryId < excludedFromTotalSupply.length; ++entryId) {
-            balanceExcluded = balanceExcluded.add(tombErc20.balanceOf(excludedFromTotalSupply[entryId]));
+            balanceExcluded = balanceExcluded.add(specterErc20.balanceOf(excludedFromTotalSupply[entryId]));
         }
         return totalSupply.sub(balanceExcluded);
     }
 
-    function buyBonds(uint256 _tombAmount, uint256 targetPrice) external onlyOneBlock checkCondition checkOperator {
-        require(_tombAmount > 0, "Treasury: cannot purchase bonds with zero amount");
+    function buyBonds(uint256 _specterAmount, uint256 targetPrice) external onlyOneBlock checkCondition checkOperator {
+        require(_specterAmount > 0, "Treasury: cannot purchase bonds with zero amount");
 
-        uint256 tombPrice = getTombPrice();
-        require(tombPrice == targetPrice, "Treasury: TOMB price moved");
+        uint256 specterPrice = getSpecterPrice();
+        require(specterPrice == targetPrice, "Treasury: SPECTER price moved");
         require(
-            tombPrice < tombPriceOne, // price < $1
-            "Treasury: tombPrice not eligible for bond purchase"
+            specterPrice < specterPriceOne, // price < $1
+            "Treasury: specterPrice not eligible for bond purchase"
         );
 
-        require(_tombAmount <= epochSupplyContractionLeft, "Treasury: not enough bond left to purchase");
+        require(_specterAmount <= epochSupplyContractionLeft, "Treasury: not enough bond left to purchase");
 
-        uint256 _rate = getBondDiscountRate();
+        uint256 _rate = gesBondDiscountRate();
         require(_rate > 0, "Treasury: invalid bond rate");
 
-        uint256 _bondAmount = _tombAmount.mul(_rate).div(1e18);
-        uint256 tombSupply = getTombCirculatingSupply();
-        uint256 newBondSupply = IERC20(tbond).totalSupply().add(_bondAmount);
-        require(newBondSupply <= tombSupply.mul(maxDebtRatioPercent).div(10000), "over max debt ratio");
+        uint256 _bondAmount = _specterAmount.mul(_rate).div(1e18);
+        uint256 specterSupply = getSpecterCirculatingSupply();
+        uint256 newBondSupply = IERC20(sbond).totalSupply().add(_bondAmount);
+        require(newBondSupply <= specterSupply.mul(maxDebtRatioPercent).div(10000), "over max debt ratio");
 
-        IBasisAsset(tomb).burnFrom(msg.sender, _tombAmount);
-        IBasisAsset(tbond).mint(msg.sender, _bondAmount);
+        IBasisAsset(specter).burnFrom(msg.sender, _specterAmount);
+        IBasisAsset(sbond).mint(msg.sender, _bondAmount);
 
-        epochSupplyContractionLeft = epochSupplyContractionLeft.sub(_tombAmount);
-        _updateTombPrice();
+        epochSupplyContractionLeft = epochSupplyContractionLeft.sub(_specterAmount);
+        _updateSpecterPrice();
 
-        emit BoughtBonds(msg.sender, _tombAmount, _bondAmount);
+        emit BoughsBonds(msg.sender, _specterAmount, _bondAmount);
     }
 
     function redeemBonds(uint256 _bondAmount, uint256 targetPrice) external onlyOneBlock checkCondition checkOperator {
         require(_bondAmount > 0, "Treasury: cannot redeem bonds with zero amount");
 
-        uint256 tombPrice = getTombPrice();
-        require(tombPrice == targetPrice, "Treasury: TOMB price moved");
+        uint256 specterPrice = getSpecterPrice();
+        require(specterPrice == targetPrice, "Treasury: SPECTER price moved");
         require(
-            tombPrice > tombPriceCeiling, // price > $1.01
-            "Treasury: tombPrice not eligible for bond purchase"
+            specterPrice > specterPriceCeiling, // price > $1.01
+            "Treasury: specterPrice not eligible for bond purchase"
         );
 
-        uint256 _rate = getBondPremiumRate();
+        uint256 _rate = gesBondPremiumRate();
         require(_rate > 0, "Treasury: invalid bond rate");
 
-        uint256 _tombAmount = _bondAmount.mul(_rate).div(1e18);
-        require(IERC20(tomb).balanceOf(address(this)) >= _tombAmount, "Treasury: treasury has no more budget");
+        uint256 _specterAmount = _bondAmount.mul(_rate).div(1e18);
+        require(IERC20(specter).balanceOf(address(this)) >= _specterAmount, "Treasury: treasury has no more budget");
 
-        seigniorageSaved = seigniorageSaved.sub(Math.min(seigniorageSaved, _tombAmount));
+        seigniorageSaved = seigniorageSaved.sub(Math.min(seigniorageSaved, _specterAmount));
 
-        IBasisAsset(tbond).burnFrom(msg.sender, _bondAmount);
-        IERC20(tomb).safeTransfer(msg.sender, _tombAmount);
+        IBasisAsset(sbond).burnFrom(msg.sender, _bondAmount);
+        IERC20(specter).safeTransfer(msg.sender, _specterAmount);
 
-        _updateTombPrice();
+        _updateSpecterPrice();
 
-        emit RedeemedBonds(msg.sender, _tombAmount, _bondAmount);
+        emit RedeemedBonds(msg.sender, _specterAmount, _bondAmount);
     }
 
     function _sendToMasonry(uint256 _amount) internal {
-        IBasisAsset(tomb).mint(address(this), _amount);
+        IBasisAsset(specter).mint(address(this), _amount);
 
         uint256 _daoFundSharedAmount = 0;
         if (daoFundSharedPercent > 0) {
             _daoFundSharedAmount = _amount.mul(daoFundSharedPercent).div(10000);
-            IERC20(tomb).transfer(daoFund, _daoFundSharedAmount);
+            IERC20(specter).transfer(daoFund, _daoFundSharedAmount);
             emit DaoFundFunded(block.timestamp, _daoFundSharedAmount);
         }
 
         uint256 _devFundSharedAmount = 0;
         if (devFundSharedPercent > 0) {
             _devFundSharedAmount = _amount.mul(devFundSharedPercent).div(10000);
-            IERC20(tomb).transfer(devFund, _devFundSharedAmount);
+            IERC20(specter).transfer(devFund, _devFundSharedAmount);
             emit DevFundFunded(block.timestamp, _devFundSharedAmount);
         }
 
         _amount = _amount.sub(_daoFundSharedAmount).sub(_devFundSharedAmount);
 
-        IERC20(tomb).safeApprove(masonry, 0);
-        IERC20(tomb).safeApprove(masonry, _amount);
+        IERC20(specter).safeApprove(masonry, 0);
+        IERC20(specter).safeApprove(masonry, _amount);
         IMasonry(masonry).allocateSeigniorage(_amount);
         emit MasonryFunded(block.timestamp, _amount);
     }
 
-    function _calculateMaxSupplyExpansionPercent(uint256 _tombSupply) internal returns (uint256) {
+    function _calculateMaxSupplyExpansionPercent(uint256 _specterSupply) internal returns (uint256) {
         for (uint8 tierId = 8; tierId >= 0; --tierId) {
-            if (_tombSupply >= supplyTiers[tierId]) {
+            if (_specterSupply >= supplyTiers[tierId]) {
                 maxSupplyExpansionPercent = maxExpansionTiers[tierId];
                 break;
             }
@@ -502,29 +502,29 @@ contract Treasury is ContractGuard {
     }
 
     function allocateSeigniorage() external onlyOneBlock checkCondition checkEpoch checkOperator {
-        _updateTombPrice();
-        previousEpochTombPrice = getTombPrice();
-        uint256 tombSupply = getTombCirculatingSupply().sub(seigniorageSaved);
+        _updateSpecterPrice();
+        previousEpochSpecterPrice = getSpecterPrice();
+        uint256 specterSupply = getSpecterCirculatingSupply().sub(seigniorageSaved);
         if (epoch < bootstrapEpochs) {
             // 28 first epochs with 4.5% expansion
-            _sendToMasonry(tombSupply.mul(bootstrapSupplyExpansionPercent).div(10000));
+            _sendToMasonry(specterSupply.mul(bootstrapSupplyExpansionPercent).div(10000));
         } else {
-            if (previousEpochTombPrice > tombPriceCeiling) {
-                // Expansion ($TOMB Price > 1 $FTM): there is some seigniorage to be allocated
-                uint256 bondSupply = IERC20(tbond).totalSupply();
-                uint256 _percentage = previousEpochTombPrice.sub(tombPriceOne);
+            if (previousEpochSpecterPrice > specterPriceCeiling) {
+                // Expansion ($SPECTER Price > 1 $FTM): there is some seigniorage to be allocated
+                uint256 bondSupply = IERC20(sbond).totalSupply();
+                uint256 _percentage = previousEpochSpecterPrice.sub(specterPriceOne);
                 uint256 _savedForBond;
                 uint256 _savedForMasonry;
-                uint256 _mse = _calculateMaxSupplyExpansionPercent(tombSupply).mul(1e14);
+                uint256 _mse = _calculateMaxSupplyExpansionPercent(specterSupply).mul(1e14);
                 if (_percentage > _mse) {
                     _percentage = _mse;
                 }
                 if (seigniorageSaved >= bondSupply.mul(bondDepletionFloorPercent).div(10000)) {
                     // saved enough to pay debt, mint as usual rate
-                    _savedForMasonry = tombSupply.mul(_percentage).div(1e18);
+                    _savedForMasonry = specterSupply.mul(_percentage).div(1e18);
                 } else {
                     // have not saved enough to pay debt, mint more
-                    uint256 _seigniorage = tombSupply.mul(_percentage).div(1e18);
+                    uint256 _seigniorage = specterSupply.mul(_percentage).div(1e18);
                     _savedForMasonry = _seigniorage.mul(seigniorageExpansionFloorPercent).div(10000);
                     _savedForBond = _seigniorage.sub(_savedForMasonry);
                     if (mintingFactorForPayingDebt > 0) {
@@ -536,7 +536,7 @@ contract Treasury is ContractGuard {
                 }
                 if (_savedForBond > 0) {
                     seigniorageSaved = seigniorageSaved.add(_savedForBond);
-                    IBasisAsset(tomb).mint(address(this), _savedForBond);
+                    IBasisAsset(specter).mint(address(this), _savedForBond);
                     emit TreasuryFunded(block.timestamp, _savedForBond);
                 }
             }
@@ -549,9 +549,9 @@ contract Treasury is ContractGuard {
         address _to
     ) external onlyOperator {
         // do not allow to drain core tokens
-        require(address(_token) != address(tomb), "tomb");
-        require(address(_token) != address(tbond), "bond");
-        require(address(_token) != address(tshare), "share");
+        require(address(_token) != address(specter), "specter");
+        require(address(_token) != address(sbond), "bond");
+        require(address(_token) != address(sshare), "share");
         _token.safeTransfer(_to, _amount);
     }
 

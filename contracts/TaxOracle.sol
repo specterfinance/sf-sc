@@ -15,36 +15,36 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 ***/
 
-contract TombTaxOracle is Ownable {
+contract SpecterTaxOracle is Ownable {
     using SafeMath for uint256;
 
-    IERC20 public tomb;
+    IERC20 public specter;
     IERC20 public wftm;
     address public pair;
 
     constructor(
-        address _tomb,
+        address _specter,
         address _wftm,
         address _pair
     ) public {
-        require(_tomb != address(0), "tomb address cannot be 0");
+        require(_specter != address(0), "specter address cannot be 0");
         require(_wftm != address(0), "wftm address cannot be 0");
         require(_pair != address(0), "pair address cannot be 0");
-        tomb = IERC20(_tomb);
+        specter = IERC20(_specter);
         wftm = IERC20(_wftm);
         pair = _pair;
     }
 
     function consult(address _token, uint256 _amountIn) external view returns (uint144 amountOut) {
-        require(_token == address(tomb), "token needs to be tomb");
-        uint256 tombBalance = tomb.balanceOf(pair);
+        require(_token == address(specter), "token needs to be specter");
+        uint256 specterBalance = specter.balanceOf(pair);
         uint256 wftmBalance = wftm.balanceOf(pair);
-        return uint144(tombBalance.div(wftmBalance));
+        return uint144(specterBalance.div(wftmBalance));
     }
 
-    function setTomb(address _tomb) external onlyOwner {
-        require(_tomb != address(0), "tomb address cannot be 0");
-        tomb = IERC20(_tomb);
+    function setSpecter(address _specter) external onlyOwner {
+        require(_specter != address(0), "specter address cannot be 0");
+        specter = IERC20(_specter);
     }
 
     function setWftm(address _wftm) external onlyOwner {

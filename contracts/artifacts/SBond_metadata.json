@@ -1,28 +1,12 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_startTime",
-						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "_communityFund",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "_devFund",
-						"type": "address"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -113,58 +97,6 @@
 				],
 				"name": "Transfer",
 				"type": "event"
-			},
-			{
-				"inputs": [],
-				"name": "COMMUNITY_FUND_POOL_ALLOCATION",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "DEV_FUND_POOL_ALLOCATION",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "FARMING_POOL_REWARD_ALLOCATION",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "VESTING_DURATION",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
 			},
 			{
 				"inputs": [
@@ -266,52 +198,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "claimRewards",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "communityFund",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "communityFundLastClaimed",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "communityFundRewardRate",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "decimals",
 				"outputs": [
 					{
@@ -344,94 +230,6 @@
 						"type": "bool"
 					}
 				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "devFund",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "devFundLastClaimed",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "devFundRewardRate",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_farmingIncentiveFund",
-						"type": "address"
-					}
-				],
-				"name": "distributeReward",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "endTime",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "contract IERC20",
-						"name": "_token",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_amount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "_to",
-						"type": "address"
-					}
-				],
-				"name": "governanceRecoverUnsupported",
-				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -470,6 +268,30 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recipient_",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount_",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -516,58 +338,6 @@
 				"name": "renounceOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "rewardPoolDistributed",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_devFund",
-						"type": "address"
-					}
-				],
-				"name": "setDevFund",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_communityFund",
-						"type": "address"
-					}
-				],
-				"name": "setTreasuryFund",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "startTime",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -674,32 +444,6 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "unclaimedDevFund",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "_pending",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "unclaimedTreasuryFund",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "_pending",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -720,9 +464,6 @@
 				"burnFrom(address,uint256)": {
 					"details": "Destroys `amount` tokens from `account`, deducting from the caller's allowance. See {ERC20-_burn} and {ERC20-allowance}. Requirements: - the caller must have allowance for ``accounts``'s tokens of at least `amount`."
 				},
-				"claimRewards()": {
-					"details": "Claim pending rewards to community and dev fund"
-				},
 				"decimals()": {
 					"details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless this function is overridden; NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}."
 				},
@@ -731,6 +472,15 @@
 				},
 				"increaseAllowance(address,uint256)": {
 					"details": "Atomically increases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address."
+				},
+				"mint(address,uint256)": {
+					"params": {
+						"amount_": "The amount of basis bonds to mint to",
+						"recipient_": "The address of recipient"
+					},
+					"returns": {
+						"_0": "whether the process has been done"
+					}
 				},
 				"name()": {
 					"details": "Returns the name of the token."
@@ -762,8 +512,11 @@
 		"userdoc": {
 			"kind": "user",
 			"methods": {
-				"distributeReward(address)": {
-					"notice": "distribute to reward pool (only once)"
+				"constructor": {
+					"notice": "Constructs the SPECTER Bond ERC-20 contract."
+				},
+				"mint(address,uint256)": {
+					"notice": "Operator mints basis bonds to a recipient"
 				}
 			},
 			"version": 1
@@ -771,9 +524,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/TShare.sol": "TShare"
+			"contracts/SBond.sol": "SBond"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -833,20 +586,12 @@
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
 			]
 		},
-		"@openzeppelin/contracts/utils/math/SafeMath.sol": {
-			"keccak256": "0xa2f576be637946f767aa56601c26d717f48a0aff44f82e46f13807eea1009a21",
+		"contracts/SBond.sol": {
+			"keccak256": "0x6c0fcd9a81c74c62708324c46ab2b987a4838d805b0d4f100bb0f9e308127c70",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://973868f808e88e21a1a0a01d4839314515ee337ad096286c88e41b74dcc11fc2",
-				"dweb:/ipfs/QmfYuZxRfx2J2xdk4EXN7jKg4bUYEMTaYk9BAw9Bqn4o2Y"
-			]
-		},
-		"contracts/TShare.sol": {
-			"keccak256": "0x6dc219b981e2b61dcac71f8c04bcb667307900f5acacbc314e19130c802e02ea",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://a7acc0dcda8d0e0a874e82779d62ee7e11722bb6e5d29b6ee2d482529372c6a3",
-				"dweb:/ipfs/QmUUDzRsjzuhVvdKVW8CHENzFW9Ct7bPu65errTcTF5DMy"
+				"bzz-raw://df4b87ad2e77df2c692afee8beed77250d619953a856c45ca54781706149c423",
+				"dweb:/ipfs/QmXjDHz1jNbELV2ZHfk4yT8vSxar4FFCpnR28joNVNz1RK"
 			]
 		},
 		"contracts/owner/Operator.sol": {

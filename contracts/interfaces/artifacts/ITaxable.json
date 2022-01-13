@@ -31,7 +31,6 @@
 	},
 	"data": {
 		"bytecode": {
-			"functionDebugData": {},
 			"generatedSources": [],
 			"linkReferences": {},
 			"object": "",
@@ -39,7 +38,6 @@
 			"sourceMap": ""
 		},
 		"deployedBytecode": {
-			"functionDebugData": {},
 			"generatedSources": [],
 			"immutableReferences": {},
 			"linkReferences": {},
@@ -54,12 +52,12 @@
 			"excludeAddress(address)": "3758e6ce",
 			"includeAddress(address)": "93995d4b",
 			"setBurnThreshold(uint256)": "9d6b5f21",
+			"setSpecterOracle(address)": "e178c848",
 			"setTaxCollectorAddress(address)": "69356d47",
 			"setTaxOffice(address)": "3f07d76a",
 			"setTaxRate(uint256)": "c6d69a30",
 			"setTaxTiersRate(uint8,uint256)": "b87c5a4a",
-			"setTaxTiersTwap(uint8,uint256)": "66206ce9",
-			"setTombOracle(address)": "75be5ae1"
+			"setTaxTiersTwap(uint8,uint256)": "66206ce9"
 		}
 	},
 	"abi": [
@@ -124,6 +122,19 @@
 				}
 			],
 			"name": "setBurnThreshold",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_specterOracle",
+					"type": "address"
+				}
+			],
+			"name": "setSpecterOracle",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"
@@ -212,19 +223,6 @@
 					"type": "bool"
 				}
 			],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "_tombOracle",
-					"type": "address"
-				}
-			],
-			"name": "setTombOracle",
-			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"
 		}

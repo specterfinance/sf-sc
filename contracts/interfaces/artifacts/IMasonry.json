@@ -31,7 +31,6 @@
 	},
 	"data": {
 		"bytecode": {
-			"functionDebugData": {},
 			"generatedSources": [],
 			"linkReferences": {},
 			"object": "",
@@ -39,7 +38,6 @@
 			"sourceMap": ""
 		},
 		"deployedBytecode": {
-			"functionDebugData": {},
 			"generatedSources": [],
 			"immutableReferences": {},
 			"linkReferences": {},
@@ -57,7 +55,7 @@
 			"earned(address)": "008cc262",
 			"epoch()": "900cf0cf",
 			"exit()": "e9fad8ee",
-			"getTombPrice()": "09bb4f92",
+			"getSpecterPrice()": "bc726978",
 			"governanceRecoverUnsupported(address,uint256,address)": "54575af4",
 			"nextEpochPoint()": "c5967c26",
 			"setLockUp(uint256,uint256)": "2ffaaa09",
@@ -185,7 +183,7 @@
 		},
 		{
 			"inputs": [],
-			"name": "getTombPrice",
+			"name": "getSpecterPrice",
 			"outputs": [
 				{
 					"internalType": "uint256",

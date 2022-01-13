@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -17,7 +17,7 @@
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "tombAmount",
+						"name": "specterAmount",
 						"type": "uint256"
 					},
 					{
@@ -27,7 +27,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "BoughtBonds",
+				"name": "BoughsBonds",
 				"type": "event"
 			},
 			{
@@ -137,7 +137,7 @@
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "tombAmount",
+						"name": "specterAmount",
 						"type": "uint256"
 					},
 					{
@@ -232,7 +232,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_tombAmount",
+						"name": "_specterAmount",
 						"type": "uint256"
 					},
 					{
@@ -358,7 +358,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "getBondDiscountRate",
+				"name": "gesBondDiscountRate",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -371,7 +371,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "getBondPremiumRate",
+				"name": "gesBondPremiumRate",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -384,11 +384,11 @@
 			},
 			{
 				"inputs": [],
-				"name": "getBurnableTombLeft",
+				"name": "getBurnableSpecterLeft",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "_burnableTombLeft",
+						"name": "_burnableSpecterLeft",
 						"type": "uint256"
 					}
 				],
@@ -423,7 +423,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "getTombCirculatingSupply",
+				"name": "getSpecterCirculatingSupply",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -436,11 +436,11 @@
 			},
 			{
 				"inputs": [],
-				"name": "getTombPrice",
+				"name": "getSpecterPrice",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "tombPrice",
+						"name": "specterPrice",
 						"type": "uint256"
 					}
 				],
@@ -449,11 +449,11 @@
 			},
 			{
 				"inputs": [],
-				"name": "getTombUpdatedPrice",
+				"name": "getSpecterUpdatedPrice",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "_tombPrice",
+						"name": "_specterPrice",
 						"type": "uint256"
 					}
 				],
@@ -487,22 +487,22 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tomb",
+						"name": "_specter",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "_tbond",
+						"name": "_sbond",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "_tshare",
+						"name": "_sshare",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "_tombOracle",
+						"name": "_specterOracle",
 						"type": "address"
 					},
 					{
@@ -778,7 +778,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "previousEpochTombPrice",
+				"name": "previousEpochSpecterPrice",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -805,6 +805,19 @@
 				"name": "redeemBonds",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "sbond",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -841,7 +854,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "setBondDepletionFloorPercent",
+				"name": "sesBondDepletionFloorPercent",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -1062,6 +1075,32 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "_specterOracle",
+						"type": "address"
+					}
+				],
+				"name": "setSpecterOracle",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_specterPriceCeiling",
+						"type": "uint256"
+					}
+				],
+				"name": "setSpecterPriceCeiling",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "uint8",
 						"name": "_index",
 						"type": "uint8"
@@ -1084,29 +1123,68 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
+				"inputs": [],
+				"name": "specter",
+				"outputs": [
 					{
 						"internalType": "address",
-						"name": "_tombOracle",
+						"name": "",
 						"type": "address"
 					}
 				],
-				"name": "setTombOracle",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"inputs": [
+				"inputs": [],
+				"name": "specterOracle",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "specterPriceCeiling",
+				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "_tombPriceCeiling",
+						"name": "",
 						"type": "uint256"
 					}
 				],
-				"name": "setTombPriceCeiling",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "specterPriceOne",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "sshare",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -1140,84 +1218,6 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "tbond",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "tomb",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "tombOracle",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "tombPriceCeiling",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "tombPriceOne",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "tshare",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -1235,7 +1235,7 @@
 		"compilationTarget": {
 			"contracts/Treasury.sol": "Treasury"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -1312,11 +1312,11 @@
 			]
 		},
 		"contracts/Treasury.sol": {
-			"keccak256": "0x2c26f8cde1074278c8b41344c82660ccb074c94f336f325823562e93d05ebb69",
+			"keccak256": "0x338ee1c59c7295e5e5e18e2f59005236cb591de72079ac64a07c11efdf2376e7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://086f6fb1ea3e7f54ea8a4c46ee9a701de264f4d9b67d336b0a95a0c61ec92789",
-				"dweb:/ipfs/QmdA11eBJVQ3BhHFgonWJbkdNYixDnaEuRMX8aCw2KpsRK"
+				"bzz-raw://9f7bdd03d9ef9d3062e902387c72c60bd4d6855ebac83c8e7762661a74ba1eed",
+				"dweb:/ipfs/QmSNuaRUjTudr8xqJw24aREBdPze4UpBRHq9PtbZP68ypw"
 			]
 		},
 		"contracts/interfaces/IBasisAsset.sol": {
@@ -1328,11 +1328,11 @@
 			]
 		},
 		"contracts/interfaces/IMasonry.sol": {
-			"keccak256": "0xe52ef1ac28dd60e969de9d20709b265a8f6775424033770f16b752bb98a480b7",
+			"keccak256": "0x45a56b588921b8851ab0077a026c1491b442ef24fbd1dcdc155911fd2c8b05c5",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://77b129dcd8d3efdf165745f3b2a711e2f6cfc5ed91da16a473e4ad8cdf27a369",
-				"dweb:/ipfs/QmXKvHPn5U8enenxddfXAQU8p2rMLvpoVj2pwK4kMwqCZ6"
+				"bzz-raw://79bd7bed24b002e51d666216e18d1d5f90950a2e81d66b63db973d1e6dd6775a",
+				"dweb:/ipfs/QmP14v8nkmGqd4PiVjZ3GKSVGu2JBQPcF9Co5scC2ft5Cd"
 			]
 		},
 		"contracts/interfaces/IOracle.sol": {

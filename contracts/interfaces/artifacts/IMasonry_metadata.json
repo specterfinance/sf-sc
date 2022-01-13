@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -123,7 +123,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "getTombPrice",
+				"name": "getSpecterPrice",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -243,7 +243,7 @@
 		"compilationTarget": {
 			"contracts/interfaces/IMasonry.sol": "IMasonry"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -256,11 +256,11 @@
 	},
 	"sources": {
 		"contracts/interfaces/IMasonry.sol": {
-			"keccak256": "0xe52ef1ac28dd60e969de9d20709b265a8f6775424033770f16b752bb98a480b7",
+			"keccak256": "0x45a56b588921b8851ab0077a026c1491b442ef24fbd1dcdc155911fd2c8b05c5",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://77b129dcd8d3efdf165745f3b2a711e2f6cfc5ed91da16a473e4ad8cdf27a369",
-				"dweb:/ipfs/QmXKvHPn5U8enenxddfXAQU8p2rMLvpoVj2pwK4kMwqCZ6"
+				"bzz-raw://79bd7bed24b002e51d666216e18d1d5f90950a2e81d66b63db973d1e6dd6775a",
+				"dweb:/ipfs/QmP14v8nkmGqd4PiVjZ3GKSVGu2JBQPcF9Co5scC2ft5Cd"
 			]
 		}
 	},

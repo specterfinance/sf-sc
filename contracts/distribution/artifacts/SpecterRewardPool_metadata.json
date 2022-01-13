@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -9,7 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tomb",
+						"name": "_specter",
 						"type": "address"
 					},
 					{
@@ -201,7 +201,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "epochTombPerSecond",
+				"name": "epochSpecterPerSecond",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -311,7 +311,7 @@
 						"type": "address"
 					}
 				],
-				"name": "pendingTOMB",
+				"name": "pendingSPECTER",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -349,7 +349,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "accTombPerShare",
+						"name": "accSpecterPerShare",
 						"type": "uint256"
 					},
 					{
@@ -407,7 +407,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tomb",
+				"name": "specter",
 				"outputs": [
 					{
 						"internalType": "contract IERC20",
@@ -505,9 +505,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/distribution/TombRewardPool.sol": "TombRewardPool"
+			"contracts/distribution/SpecterRewardPool.sol": "SpecterRewardPool"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -551,12 +551,12 @@
 				"dweb:/ipfs/QmfYuZxRfx2J2xdk4EXN7jKg4bUYEMTaYk9BAw9Bqn4o2Y"
 			]
 		},
-		"contracts/distribution/TombRewardPool.sol": {
-			"keccak256": "0x1728525693169a5d22057558da3bc3a2bb6885bcb2a2a70c2adacefa0fc6f833",
+		"contracts/distribution/SpecterRewardPool.sol": {
+			"keccak256": "0x880b85c7d90c623215e99aad785b9a617fc71a1ef89ca7d6bbbc94050a9ea6b5",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8b41261cea0132bd4a4f9f46b24348e70b5f0c13317ab107cea709b66572d6e1",
-				"dweb:/ipfs/QmXWWjjfjgAqQHCgSCnxKAzV2VpwVD51jqDt29NQzHmXc1"
+				"bzz-raw://fe40fb5bc2bb641538103e8b5adc84d59e7d93c7d41ce565283649c2d398c04d",
+				"dweb:/ipfs/QmcDm75HcRdqdTsKFWTHSqTDzbzK3iH4jV31RAdDYkAhYG"
 			]
 		}
 	},

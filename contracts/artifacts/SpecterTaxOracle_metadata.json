@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -9,7 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tomb",
+						"name": "_specter",
 						"type": "address"
 					},
 					{
@@ -119,11 +119,11 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tomb",
+						"name": "_specter",
 						"type": "address"
 					}
 				],
-				"name": "setTomb",
+				"name": "setSpecter",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -143,7 +143,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tomb",
+				"name": "specter",
 				"outputs": [
 					{
 						"internalType": "contract IERC20",
@@ -204,9 +204,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/TaxOracle.sol": "TombTaxOracle"
+			"contracts/TaxOracle.sol": "SpecterTaxOracle"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -251,11 +251,11 @@
 			]
 		},
 		"contracts/TaxOracle.sol": {
-			"keccak256": "0xd7e66f3a888d4b64d1bf25281fa8be6cc2ecb05b7a7b34665d61c6c416faf12e",
+			"keccak256": "0xa0b6609bf30f41485131ea0e38e7f691973f5149620e9afabc9b12cf2667adf4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8268fa69d34c178749509a1da19038b2f7ce768293a43cf0e794322f08f97515",
-				"dweb:/ipfs/QmSyvbnSNCJky7X71BqzYYwQPBm86Yxph3Wi3XxU3vdYfK"
+				"bzz-raw://685d62c5e83c574a59276bb3aff59b7dd30b77cda0f80dec2cef50468a93b683",
+				"dweb:/ipfs/QmPpNEVVM8Ex3c1ke1upXtoSNmPsZy3aBR78YVpvK7uxPY"
 			]
 		}
 	},

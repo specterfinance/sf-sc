@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -156,7 +156,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "INITIAL_TOMB_POOL_DISTRIBUTION",
+				"name": "INITIAL_SPECTER_POOL_DISTRIBUTION",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -344,7 +344,7 @@
 					},
 					{
 						"internalType": "address",
-						"name": "_tombPool",
+						"name": "_specterPool",
 						"type": "address"
 					},
 					{
@@ -633,6 +633,19 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_specterOracle",
+						"type": "address"
+					}
+				],
+				"name": "setSpecterOracle",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "_taxCollectorAddress",
 						"type": "address"
 					}
@@ -717,16 +730,16 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
+				"inputs": [],
+				"name": "specterOracle",
+				"outputs": [
 					{
 						"internalType": "address",
-						"name": "_tombOracle",
+						"name": "",
 						"type": "address"
 					}
 				],
-				"name": "setTombOracle",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -814,19 +827,6 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "tombOracle",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -954,7 +954,7 @@
 				},
 				"mint(address,uint256)": {
 					"params": {
-						"amount_": "The amount of TOMB to mint to",
+						"amount_": "The amount of SPECTER to mint to",
 						"recipient_": "The address of recipient"
 					},
 					"returns": {
@@ -992,13 +992,13 @@
 			"kind": "user",
 			"methods": {
 				"constructor": {
-					"notice": "Constructs the TOMB ERC-20 contract."
+					"notice": "Constructs the SPECTER ERC-20 contract."
 				},
 				"distributeReward(address,address,address)": {
 					"notice": "distribute to reward pool (only once)"
 				},
 				"mint(address,uint256)": {
-					"notice": "Operator mints TOMB to a recipient"
+					"notice": "Operator mints SPECTER to a recipient"
 				}
 			},
 			"version": 1
@@ -1006,9 +1006,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/Tomb.sol": "Tomb"
+			"contracts/Specter.sol": "Specter"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -1084,12 +1084,12 @@
 				"dweb:/ipfs/QmfYuZxRfx2J2xdk4EXN7jKg4bUYEMTaYk9BAw9Bqn4o2Y"
 			]
 		},
-		"contracts/Tomb.sol": {
-			"keccak256": "0xfb0a1331dea7d1927f319dbe1d2b247f4f65feeffb28eb66dbd9d356638df763",
+		"contracts/Specter.sol": {
+			"keccak256": "0x658dc1235e9cfe5c3806a1442f527ed9a187d675d2e65ae57c5e1f76c57844fd",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://32220e9753ffe5dd7427ce5a71a2f79d0f55277769ff8b9e22961530a877a031",
-				"dweb:/ipfs/Qmeati5poF5NcUeJAZDQDsQpfL34XLdG81sVf4g5RGfMLX"
+				"bzz-raw://f5db4ec5dc59071a52f0580dc6c50bb75dab72537fe54c74ee06e7fde85f8e18",
+				"dweb:/ipfs/QmUUQ9BHhNBezupBPAEkB7W7FrPaWVsC4J3pcXhv1CigqF"
 			]
 		},
 		"contracts/interfaces/IOracle.sol": {

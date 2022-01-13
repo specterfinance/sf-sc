@@ -31,7 +31,6 @@
 	},
 	"data": {
 		"bytecode": {
-			"functionDebugData": {},
 			"generatedSources": [],
 			"linkReferences": {},
 			"object": "",
@@ -39,7 +38,6 @@
 			"sourceMap": ""
 		},
 		"deployedBytecode": {
-			"functionDebugData": {},
 			"generatedSources": [],
 			"immutableReferences": {},
 			"linkReferences": {},
@@ -51,7 +49,7 @@
 		"methodIdentifiers": {
 			"buyBonds(uint256,uint256)": "54f04a11",
 			"epoch()": "900cf0cf",
-			"getTombPrice()": "09bb4f92",
+			"getSpecterPrice()": "bc726978",
 			"nextEpochPoint()": "c5967c26",
 			"redeemBonds(uint256,uint256)": "118ebbf9"
 		}
@@ -90,7 +88,7 @@
 		},
 		{
 			"inputs": [],
-			"name": "getTombPrice",
+			"name": "getSpecterPrice",
 			"outputs": [
 				{
 					"internalType": "uint256",

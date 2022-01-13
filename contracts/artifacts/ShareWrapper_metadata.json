@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -92,7 +92,7 @@
 		"compilationTarget": {
 			"contracts/Masonry.sol": "ShareWrapper"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -137,11 +137,11 @@
 			]
 		},
 		"contracts/Masonry.sol": {
-			"keccak256": "0x8b20332c72716bc454098cf17cc6db62a2299f08fe1381e7a85e7d66e3397aa3",
+			"keccak256": "0x7e66c33eba4520c02126a35826e9cd0e43aea8b3cb693afc06e51b46edf862a2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://970d95e320349aede4113460c82460a3fbe79f46bd90a8b062923a32c104297f",
-				"dweb:/ipfs/Qmeat3SjFWxeAXsGrHJFejs1hfnRiUcB7Qz4p6CuGKgf97"
+				"bzz-raw://d463a14a7c83f52c162d3aaf1f3ae1a0c0f4b319dc437a069ea3c5e258f55c69",
+				"dweb:/ipfs/QmPdHRziQTd7wX65GnNxMbpxGVLjCPxHCrRkXFqTLz7rrw"
 			]
 		},
 		"contracts/interfaces/IBasisAsset.sol": {
@@ -153,11 +153,11 @@
 			]
 		},
 		"contracts/interfaces/ITreasury.sol": {
-			"keccak256": "0xd16ac2f8934031b866482a5f71cbc19aa68906861859a932f9e31f4cb0d27660",
+			"keccak256": "0xf9b0778ae50114602a1e395e2801a136b926c12f102a269e7d4bc871d162ead5",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e90a01ce69c3331425f053d7d7827a28974d36b4f86e8f2d752839c22b0c83b6",
-				"dweb:/ipfs/QmRjz8iuKezRMtzq2coKertSVzwYN6WTGWW4AJfw96jsKG"
+				"bzz-raw://501a34da88e48633fd8afb3a58f00e4682adcf2e6414fe223fa71867440b6107",
+				"dweb:/ipfs/QmeQQGEk7wZ9aFjTdsUfwC7m7zHbEQQR6jbFS9ND6QnLrd"
 			]
 		},
 		"contracts/utils/ContractGuard.sol": {

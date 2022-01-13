@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -66,6 +66,19 @@
 					}
 				],
 				"name": "setBurnThreshold",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_specterOracle",
+						"type": "address"
+					}
+				],
+				"name": "setSpecterOracle",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -156,19 +169,6 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_tombOracle",
-						"type": "address"
-					}
-				],
-				"name": "setTombOracle",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -186,7 +186,7 @@
 		"compilationTarget": {
 			"contracts/interfaces/ITaxable.sol": "ITaxable"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -199,11 +199,11 @@
 	},
 	"sources": {
 		"contracts/interfaces/ITaxable.sol": {
-			"keccak256": "0xbfd76a53a624f7589bdb776b4d1c7c9d07e2a20c10fdda2b8a068e2ee79abbd8",
+			"keccak256": "0x59dca3a254fd12943d920fe22ab55d993730b43ba88020cdb90f24e246a9552e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://babb7ae624a099f3264f9d1c9e362ddc31067d71f88ecd371097e831222112bc",
-				"dweb:/ipfs/QmUJef8Tzm41GY71MvGGDyBgYeEiGTxt4P3KGQsUKHWxMu"
+				"bzz-raw://41e7d4974f71348a50a89032bcc4bc6f08652da36b2874b7c7bc082c699e1f80",
+				"dweb:/ipfs/QmetMyM79BYJa3fKVvRuev981CHRUABNUfV7MocQQD848T"
 			]
 		}
 	},

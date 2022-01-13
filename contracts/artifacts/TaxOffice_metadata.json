@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -9,7 +9,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tomb",
+						"name": "_specter",
 						"type": "address"
 					}
 				],
@@ -243,18 +243,18 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_tombOracle",
+						"name": "_specterOracle",
 						"type": "address"
 					}
 				],
-				"name": "setTaxableTombOracle",
+				"name": "setTaxableSpecterOracle",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "tomb",
+				"name": "specter",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -330,7 +330,7 @@
 		"compilationTarget": {
 			"contracts/TaxOffice.sol": "TaxOffice"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -359,19 +359,19 @@
 			]
 		},
 		"contracts/TaxOffice.sol": {
-			"keccak256": "0x0815bea4b3ae177b0ae045c9a626ccba166a2585cd740a0cae9388f923a164d1",
+			"keccak256": "0xf6e8ff0ebdd2af86e7f4dfa82537d60e3c9d701ebb70e6644b5a7082b9059b8e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d2d437b4983d88fe1a4b92af552794a14895a6fb7c77f5403f7cfba7d1b14eb4",
-				"dweb:/ipfs/QmZ4KgUrcToqwAsQwYN4aaYnEXQh84uwtdwg1tUxuYfpWL"
+				"bzz-raw://742974112bf2beabfef3104c30662308d0d6e9901a2bb1e2df64a08733da8fac",
+				"dweb:/ipfs/QmasfoaaFAF7UQxTfox5GoN8GBNMAKSQzLF97oMHd89Z5z"
 			]
 		},
 		"contracts/interfaces/ITaxable.sol": {
-			"keccak256": "0xbfd76a53a624f7589bdb776b4d1c7c9d07e2a20c10fdda2b8a068e2ee79abbd8",
+			"keccak256": "0x59dca3a254fd12943d920fe22ab55d993730b43ba88020cdb90f24e246a9552e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://babb7ae624a099f3264f9d1c9e362ddc31067d71f88ecd371097e831222112bc",
-				"dweb:/ipfs/QmUJef8Tzm41GY71MvGGDyBgYeEiGTxt4P3KGQsUKHWxMu"
+				"bzz-raw://41e7d4974f71348a50a89032bcc4bc6f08652da36b2874b7c7bc082c699e1f80",
+				"dweb:/ipfs/QmetMyM79BYJa3fKVvRuev981CHRUABNUfV7MocQQD848T"
 			]
 		},
 		"contracts/owner/Operator.sol": {
