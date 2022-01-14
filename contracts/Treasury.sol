@@ -197,14 +197,14 @@ contract Treasury is ContractGuard {
         uint256 _specterPrice = getSpecterPrice();
         if (_specterPrice > specterPriceCeiling) {
             uint256 _totalSpecter = IERC20(specter).balanceOf(address(this));
-            uint256 _rate = gesBondPremiumRate();
+            uint256 _rate = getBondPremiumRate();
             if (_rate > 0) {
                 _redeemableBonds = _totalSpecter.mul(1e18).div(_rate);
             }
         }
     }
 
-    function gesBondDiscountRate() public view returns (uint256 _rate) {
+    function getBondDiscountRate() public view returns (uint256 _rate) {
         uint256 _specterPrice = getSpecterPrice();
         if (_specterPrice <= specterPriceOne) {
             if (discountPercent == 0) {
@@ -221,7 +221,7 @@ contract Treasury is ContractGuard {
         }
     }
 
-    function gesBondPremiumRate() public view returns (uint256 _rate) {
+    function getBondPremiumRate() public view returns (uint256 _rate) {
         uint256 _specterPrice = getSpecterPrice();
         if (_specterPrice > specterPriceCeiling) {
             uint256 _specterPricePremiumThreshold = specterPriceOne.mul(premiumThreshold).div(100);
@@ -328,7 +328,7 @@ contract Treasury is ContractGuard {
         return true;
     }
 
-    function sesBondDepletionFloorPercent(uint256 _bondDepletionFloorPercent) external onlyOperator {
+    function setBondDepletionFloorPercent(uint256 _bondDepletionFloorPercent) external onlyOperator {
         require(_bondDepletionFloorPercent >= 500 && _bondDepletionFloorPercent <= 10000, "out of range"); // [5%, 100%]
         bondDepletionFloorPercent = _bondDepletionFloorPercent;
     }
@@ -423,7 +423,7 @@ contract Treasury is ContractGuard {
 
         require(_specterAmount <= epochSupplyContractionLeft, "Treasury: not enough bond left to purchase");
 
-        uint256 _rate = gesBondDiscountRate();
+        uint256 _rate = getBondDiscountRate();
         require(_rate > 0, "Treasury: invalid bond rate");
 
         uint256 _bondAmount = _specterAmount.mul(_rate).div(1e18);
@@ -450,7 +450,7 @@ contract Treasury is ContractGuard {
             "Treasury: specterPrice not eligible for bond purchase"
         );
 
-        uint256 _rate = gesBondPremiumRate();
+        uint256 _rate = getBondPremiumRate();
         require(_rate > 0, "Treasury: invalid bond rate");
 
         uint256 _specterAmount = _bondAmount.mul(_rate).div(1e18);

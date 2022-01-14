@@ -20060,8 +20060,8 @@
 				"epoch()": "1264",
 				"epochSupplyContractionLeft()": "1283",
 				"excludedFromTotalSupply(uint256)": "2425",
-				"gesBondDiscountRate()": "infinite",
-				"gesBondPremiumRate()": "infinite",
+				"getBondDiscountRate()": "infinite",
+				"getBondPremiumRate()": "infinite",
 				"getBurnableSpecterLeft()": "infinite",
 				"getRedeemableBonds()": "infinite",
 				"getReserve()": "1249",
@@ -20093,7 +20093,7 @@
 				"sbond()": "1350",
 				"seigniorageExpansionFloorPercent()": "1264",
 				"seigniorageSaved()": "1263",
-				"sesBondDepletionFloorPercent(uint256)": "21484",
+				"setBondDepletionFloorPercent(uint256)": "21484",
 				"setBootstrap(uint256,uint256)": "infinite",
 				"setDiscountPercent(uint256)": "21407",
 				"setExtraFunds(address,uint256,address,uint256)": "infinite",
@@ -20140,8 +20140,8 @@
 			"epoch()": "900cf0cf",
 			"epochSupplyContractionLeft()": "fcb6f008",
 			"excludedFromTotalSupply(uint256)": "82cad838",
-			"gesBondDiscountRate()": "61d89777",
-			"gesBondPremiumRate()": "23bf8af1",
+			"getBondDiscountRate()": "61d89777",
+			"getBondPremiumRate()": "23bf8af1",
 			"getBurnableSpecterLeft()": "34692079",
 			"getRedeemableBonds()": "72c054f9",
 			"getReserve()": "59bf5d39",
@@ -20173,7 +20173,7 @@
 			"sbond()": "10bac359",
 			"seigniorageExpansionFloorPercent()": "22f832cd",
 			"seigniorageSaved()": "5a0fc79c",
-			"sesBondDepletionFloorPercent(uint256)": "6cf838d1",
+			"setBondDepletionFloorPercent(uint256)": "6cf838d1",
 			"setBootstrap(uint256,uint256)": "91bbfed5",
 			"setDiscountPercent(uint256)": "154ec2db",
 			"setExtraFunds(address,uint256,address,uint256)": "bcc81f19",
@@ -20554,7 +20554,7 @@
 		},
 		{
 			"inputs": [],
-			"name": "gesBondDiscountRate",
+			"name": "getBondDiscountRate",
 			"outputs": [
 				{
 					"internalType": "uint256",
@@ -20567,7 +20567,7 @@
 		},
 		{
 			"inputs": [],
-			"name": "gesBondPremiumRate",
+			"name": "getBondPremiumRate",
 			"outputs": [
 				{
 					"internalType": "uint256",
@@ -21050,7 +21050,7 @@
 					"type": "uint256"
 				}
 			],
-			"name": "sesBondDepletionFloorPercent",
+			"name": "setBondDepletionFloorPercent",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"

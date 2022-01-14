@@ -358,7 +358,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "gesBondDiscountRate",
+				"name": "getBondDiscountRate",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -371,7 +371,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "gesBondPremiumRate",
+				"name": "getBondPremiumRate",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -854,7 +854,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "sesBondDepletionFloorPercent",
+				"name": "setBondDepletionFloorPercent",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
