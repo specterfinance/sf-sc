@@ -183,11 +183,11 @@
 			]
 		},
 		"contracts/utils/Epoch.sol": {
-			"keccak256": "0x9551296613d28419179980c2e9e8275a12f72a47ddb807d6737e12af064c408a",
+			"keccak256": "0x9b22dd073465a14fe3d5314169fa7e6e8937e4b74437d70d6acecb5de74f8789",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3788e0adb52d0fbb61a8cfc373ae964eae4f68c5b2eddac2e02dcedae61bff0a",
-				"dweb:/ipfs/Qmf6hoqBALwicyvfX575DNcHxzBHs4YZwiHtFfu4yrKYM4"
+				"bzz-raw://c4ff8a941bc8eec1ae0d930c5eddb4bdfda84fccae392bbc1dcd7ea3e48bcfdd",
+				"dweb:/ipfs/QmfHzgrWv9QvoZkJqpuCqFNQm1MLxrYt8trEGwNp2x6yEW"
 			]
 		}
 	},

@@ -8,6 +8,11 @@
 			{
 				"inputs": [
 					{
+						"internalType": "contract IUniswapV2Pair",
+						"name": "_pair",
+						"type": "address"
+					},
+					{
 						"internalType": "uint256",
 						"name": "_period",
 						"type": "uint256"
@@ -15,11 +20,6 @@
 					{
 						"internalType": "uint256",
 						"name": "_startTime",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_startEpoch",
 						"type": "uint256"
 					}
 				],
@@ -63,6 +63,62 @@
 				],
 				"name": "OwnershipTransferred",
 				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price0CumulativeLast",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "price1CumulativeLast",
+						"type": "uint256"
+					}
+				],
+				"name": "Updated",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "blockTimestampLast",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amountIn",
+						"type": "uint256"
+					}
+				],
+				"name": "consult",
+				"outputs": [
+					{
+						"internalType": "uint144",
+						"name": "amountOut",
+						"type": "uint144"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			},
 			{
 				"inputs": [],
@@ -170,6 +226,71 @@
 			},
 			{
 				"inputs": [],
+				"name": "pair",
+				"outputs": [
+					{
+						"internalType": "contract IUniswapV2Pair",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "price0Average",
+				"outputs": [
+					{
+						"internalType": "uint224",
+						"name": "_x",
+						"type": "uint224"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "price0CumulativeLast",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "price1Average",
+				"outputs": [
+					{
+						"internalType": "uint224",
+						"name": "_x",
+						"type": "uint224"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "price1CumulativeLast",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "renounceOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -202,6 +323,32 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "token0",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "token1",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -226,6 +373,37 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amountIn",
+						"type": "uint256"
+					}
+				],
+				"name": "twap",
+				"outputs": [
+					{
+						"internalType": "uint144",
+						"name": "_amountOut",
+						"type": "uint144"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "update",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -239,6 +417,9 @@
 				},
 				"transferOwnership(address)": {
 					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				},
+				"update()": {
+					"details": "Updates 1-day EMA price from Uniswap.  "
 				}
 			},
 			"version": 1
@@ -251,7 +432,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/utils/Epoch.sol": "Epoch"
+			"contracts/Oracle.sol": "Oracle"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -287,6 +468,46 @@
 			"urls": [
 				"bzz-raw://973868f808e88e21a1a0a01d4839314515ee337ad096286c88e41b74dcc11fc2",
 				"dweb:/ipfs/QmfYuZxRfx2J2xdk4EXN7jKg4bUYEMTaYk9BAw9Bqn4o2Y"
+			]
+		},
+		"contracts/Oracle.sol": {
+			"keccak256": "0xb8c077518b1738931e03d7e5fbe10497f3d4151642c276437db998d1b11b145c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6cb40c9ac66fdada69638a7b070cbf435c57d2616b83f8a7fe5ee825147c52bb",
+				"dweb:/ipfs/QmWGfJ9qgHsRq4pL8YbTF6ZRzWF8JUbneh57qmMmSCJBEB"
+			]
+		},
+		"contracts/interfaces/IUniswapV2Pair.sol": {
+			"keccak256": "0x168f6b4e5bdc65eb6ebedc12ec8c82da9d24b75f53b83eb2605601e562df861d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c89105f06ce780f9aa6f1aa6e3eab376c58df70f6e339e951259d87c6f924909",
+				"dweb:/ipfs/QmUzBTYcTNoiZUeWpFWaMVJhzFWRA1TXf5enV9nWgjEyUv"
+			]
+		},
+		"contracts/lib/Babylonian.sol": {
+			"keccak256": "0x13c5d3590b976f31939ec06a352838a3bdcfba95def27283b3e7621c3f0b6579",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5bbadf37a20fe4ccae0b7f426f98f8f701c923ecd4340466c436a784f92e5913",
+				"dweb:/ipfs/QmVJmAyfHSbwrJSiuZZhcPWkRJfXAfdkuhksRWBJD8nk5y"
+			]
+		},
+		"contracts/lib/FixedPoint.sol": {
+			"keccak256": "0xb1804af8728c9df112107a74eec006470196d60f57a51745365b16b735f4db86",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d3928871dc3a40b89c01f3c7fa929ae72585d6517e0a707da3c6c998d8e62e53",
+				"dweb:/ipfs/QmXBtmCUJzudtozJToBXAjJwWPYFg1pjc72nKNNz2F72nT"
+			]
+		},
+		"contracts/lib/UniswapV2OracleLibrary.sol": {
+			"keccak256": "0xf3805a457de23a39c0ac5b4bd20bee31a4c7227567d1439cc1e20764128f756a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://06f09a5159fca4f28dce2b4005b0a74362fe5afcbcdb08709a7124350a84b229",
+				"dweb:/ipfs/QmTzqzmXbQ2BDqGrz3wCjW5xYkeCQQHzQtkS7NEWeAfqRs"
 			]
 		},
 		"contracts/owner/Operator.sol": {
