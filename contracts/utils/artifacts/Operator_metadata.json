@@ -6,29 +6,9 @@
 	"output": {
 		"abi": [
 			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "from",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "uint256",
-						"name": "at",
-						"type": "uint256"
-					},
-					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "reason",
-						"type": "string"
-					}
-				],
-				"name": "Deposit",
-				"type": "event"
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
 			},
 			{
 				"anonymous": false,
@@ -67,60 +47,6 @@
 				],
 				"name": "OwnershipTransferred",
 				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "from",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "to",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "uint256",
-						"name": "at",
-						"type": "uint256"
-					},
-					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "reason",
-						"type": "string"
-					}
-				],
-				"name": "Withdrawal",
-				"type": "event"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "token",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "reason",
-						"type": "string"
-					}
-				],
-				"name": "deposit",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			},
 			{
 				"inputs": [],
@@ -193,34 +119,6 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "token",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "to",
-						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "reason",
-						"type": "string"
-					}
-				],
-				"name": "withdraw",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -246,7 +144,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/SimpleERCFund.sol": "SimpleERCFund"
+			"contracts/utils/Epoch.sol": "Operator"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -268,30 +166,6 @@
 				"dweb:/ipfs/QmXRoFGUgfsaRkoPT5bxNMtSayKTQ8GZATLPXf69HcRA51"
 			]
 		},
-		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-			"keccak256": "0x61437cb513a887a1bbad006e7b1c8b414478427d33de47c5600af3c748f108da",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://2c3d0973630ed74f2b5ce3944677a885dc70ec32fc83b35f55045a10224da32b",
-				"dweb:/ipfs/QmbefZ5RoEZKNHXCALfh683PnaNYzKPcKMFjyY1DVAgq8A"
-			]
-		},
-		"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
-			"keccak256": "0xc3d946432c0ddbb1f846a0d3985be71299df331b91d06732152117f62f0be2b5",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://4632c341a06ba5c079b51ca5a915efab4e6ab57735b37839b3e8365ff806a43e",
-				"dweb:/ipfs/QmTHT3xHYed2wajEoA5qu7ii2BxLpPhQZHwAhtLK5Z7ANK"
-			]
-		},
-		"@openzeppelin/contracts/utils/Address.sol": {
-			"keccak256": "0x51b758a8815ecc9596c66c37d56b1d33883a444631a3f916b9fe65cb863ef7c4",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://997ca03557985b3c6f9143a18b6c3a710b3bc1c7f189ee956d305a966ecfb922",
-				"dweb:/ipfs/QmQaD3Wb62F88SHqmpLttvF6wKuPDQep2LLUcKPekeRzvz"
-			]
-		},
 		"@openzeppelin/contracts/utils/Context.sol": {
 			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
 			"license": "MIT",
@@ -300,28 +174,20 @@
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
 			]
 		},
-		"contracts/SimpleERCFund.sol": {
-			"keccak256": "0xdb60cc63fd0b0a4a2e93d52691ef38c7649b995b79274786890975bc13c81b42",
+		"@openzeppelin/contracts/utils/math/SafeMath.sol": {
+			"keccak256": "0xa2f576be637946f767aa56601c26d717f48a0aff44f82e46f13807eea1009a21",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://24e2bde99554f9f1dbbff89f0c7f0cd1786e05e2e9f2e87e6dfdd4a63f66b38d",
-				"dweb:/ipfs/QmQFAzVb5roM8rVGJCnYzfdEUpGGQGmPvgaUcFuf8D4SGR"
+				"bzz-raw://973868f808e88e21a1a0a01d4839314515ee337ad096286c88e41b74dcc11fc2",
+				"dweb:/ipfs/QmfYuZxRfx2J2xdk4EXN7jKg4bUYEMTaYk9BAw9Bqn4o2Y"
 			]
 		},
-		"contracts/interfaces/ISimpleERCFund.sol": {
-			"keccak256": "0x925419251052490022cc93673bc7076fd8dca48126afbc1056633adee3fb0fa5",
+		"contracts/utils/Epoch.sol": {
+			"keccak256": "0x9551296613d28419179980c2e9e8275a12f72a47ddb807d6737e12af064c408a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://69714b74554ed6308cd8120c453da31f6eb1b68298c0145fc906c698fa695faa",
-				"dweb:/ipfs/QmWBeM9q9MS65viEUqiRxod99BUi7AxuNogqrcP1AmoYax"
-			]
-		},
-		"contracts/owner/Operator.sol": {
-			"keccak256": "0x48ee4ecaf54eed751915cc061f426de405692fa27bba9a9d28ab6c10b8fa3fef",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://5187a02abdc2d365cc4d1316057777cf0955911971efe98203bcb90d76d9e5e8",
-				"dweb:/ipfs/QmQAXwBVBF6dwhoFSMyw3KbtbvLhr8Vxcjr5Vjo3RaTofC"
+				"bzz-raw://3788e0adb52d0fbb61a8cfc373ae964eae4f68c5b2eddac2e02dcedae61bff0a",
+				"dweb:/ipfs/Qmf6hoqBALwicyvfX575DNcHxzBHs4YZwiHtFfu4yrKYM4"
 			]
 		}
 	},
