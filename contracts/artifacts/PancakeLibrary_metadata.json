@@ -1,0 +1,40 @@
+{
+	"compiler": {
+		"version": "0.6.6+commit.6c089d02"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/SafemoonOld.sol": "PancakeLibrary"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/SafemoonOld.sol": {
+			"keccak256": "0xc8bc7b62172ebe27c46fb5f041412fed6a88daf66cce3eaf2178e23bb4bafde2",
+			"urls": [
+				"bzz-raw://4017268f10f39c39168cb551edc3881186a943dd2080dc3a21790d7a2c95de2e",
+				"dweb:/ipfs/QmR7L7tZkEKW3rWbbAeUh9pWYCuUzxUw8ykVuZYWYJDboj"
+			]
+		}
+	},
+	"version": 1
+}
