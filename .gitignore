@@ -1,6 +1,8 @@
 .idea/
 .env
 node_modules/
+tomb old/ 
+.deps/
 
 build/
 typechain/
@@ -14,5 +16,4 @@ truffle-config.js
 *.log
 !deployments/*.log
 env.json
-tomb old/ 
-.deps/
+
