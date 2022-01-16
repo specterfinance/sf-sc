@@ -513,7 +513,7 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
@@ -552,11 +552,11 @@
 			]
 		},
 		"contracts/distribution/SpecterRewardPool.sol": {
-			"keccak256": "0x880b85c7d90c623215e99aad785b9a617fc71a1ef89ca7d6bbbc94050a9ea6b5",
+			"keccak256": "0x0cdc4f0fe141b1bd63e0f42993c6b437a5f51c4c60b640db95a8aba19c27a913",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fe40fb5bc2bb641538103e8b5adc84d59e7d93c7d41ce565283649c2d398c04d",
-				"dweb:/ipfs/QmcDm75HcRdqdTsKFWTHSqTDzbzK3iH4jV31RAdDYkAhYG"
+				"bzz-raw://341508ca71e01f7053dfd1454874c75f349936d9ccdb9668d1cb2a92bbdd3713",
+				"dweb:/ipfs/QmQUEZcmN1T8dgYawnCuzQNcyuAFMCYiCw9a8fxLb2W7Yc"
 			]
 		}
 	},

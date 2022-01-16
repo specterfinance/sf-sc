@@ -779,7 +779,7 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
@@ -842,11 +842,11 @@
 			]
 		},
 		"contracts/SShare.sol": {
-			"keccak256": "0xa9d2c7a6ea0228905d23b8efd595596b2ef5894790868a8459b5a0686d63a17c",
+			"keccak256": "0xf8df2173d49bcd477aad4acd994f4dbb514a6ef236919ea94a9dc27b8182e9b2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1fcf01d0c9cddff9cade80ada90112ab332fd5df0850ce426ca4d0404ab77f25",
-				"dweb:/ipfs/QmbtppSYejuAhVBsLUGEihtKwxd55FfANoaN3AkeN4ybuE"
+				"bzz-raw://604b60ceb0694dfbb02811f04a5dc070699c81befbf1c4e95b91b0f919dac2d1",
+				"dweb:/ipfs/QmNgddqRqfYG3Fz77TRqD5kwRhEqdNMfT9KnpeKJSyzSkE"
 			]
 		},
 		"contracts/owner/Operator.sol": {

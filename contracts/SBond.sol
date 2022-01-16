@@ -22,7 +22,7 @@ contract SBond is ERC20Burnable, Operator {
     /**
      * @notice Constructs the SPECTER Bond ERC-20 contract.
      */
-    constructor() public ERC20("Test SBOND", "tSBOND") {}
+    constructor() public ERC20("Specter SBOND", "SBOND") {}
 
     /**
      * @notice Operator mints basis bonds to a recipient

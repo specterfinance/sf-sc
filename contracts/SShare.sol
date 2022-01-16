@@ -19,12 +19,12 @@ import "./owner/Operator.sol";
 contract SShare is ERC20Burnable, Operator {
     using SafeMath for uint256;
 
-    // TOTAL MAX SUPPLY = 85,500 sSHAREs
+    // TOTAL MAX SUPPLY = 85,500 SSHAREs
     uint256 public constant FARMING_POOL_REWARD_ALLOCATION = 70000 ether;
     uint256 public constant COMMUNITY_FUND_POOL_ALLOCATION = 5500 ether;
     uint256 public constant DEV_FUND_POOL_ALLOCATION = 5000 ether;
 
-    uint256 public constant VESTING_DURATION = 10 days;
+    uint256 public constant VESTING_DURATION = 100 days;
     uint256 public startTime;
     uint256 public endTime;
 
@@ -43,7 +43,7 @@ contract SShare is ERC20Burnable, Operator {
         uint256 _startTime,
         address _communityFund,
         address _devFund
-    ) public ERC20("Test SSHARE", "tSSHARE") {
+    ) public ERC20("Specter Share", "SSHARE") {
         _mint(msg.sender, 1 ether); // mint 1 SPECTER Share for initial pools deployment
 
         startTime = _startTime;

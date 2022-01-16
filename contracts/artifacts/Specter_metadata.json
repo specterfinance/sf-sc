@@ -1085,11 +1085,11 @@
 			]
 		},
 		"contracts/Specter.sol": {
-			"keccak256": "0x7a57f4b27812669efe6bde69602907238dd58f27675c3c2e30c0296374951d66",
+			"keccak256": "0x9de868a9ab75abefc51462cf06d95a595a47190ec4cea641bc42972c7c5c7876",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7cd4a25623a652815777cf53bc169a6fd3e4ea03fe400a5b3e77d4101fcf0e47",
-				"dweb:/ipfs/QmNq4m91Ha1RzWvmdsSxrbmr8h5DDxUiKTUE98crn8mhzG"
+				"bzz-raw://b463f590da02ddcd268fdf21983a9951b679b29919003885de119c27a4464959",
+				"dweb:/ipfs/QmP1c6c75KbgxTyeZpwUKK96GkYeQFht9s9pzcgc91gXGz"
 			]
 		},
 		"contracts/interfaces/IOracle.sol": {

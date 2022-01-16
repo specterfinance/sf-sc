@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -206,13 +206,13 @@
 		"compilationTarget": {
 			"contracts/TaxOracle.sol": "SpecterTaxOracle"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
@@ -251,11 +251,11 @@
 			]
 		},
 		"contracts/TaxOracle.sol": {
-			"keccak256": "0xa0b6609bf30f41485131ea0e38e7f691973f5149620e9afabc9b12cf2667adf4",
+			"keccak256": "0x16c757310b0fe153240a008218fbc232f12ea77b098b01d1fbe301d6bb5e52ce",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://685d62c5e83c574a59276bb3aff59b7dd30b77cda0f80dec2cef50468a93b683",
-				"dweb:/ipfs/QmPpNEVVM8Ex3c1ke1upXtoSNmPsZy3aBR78YVpvK7uxPY"
+				"bzz-raw://2599d899341966c2c822b2a84a91e3cf60c9a74719ad1f14c7a7ac9909c06003",
+				"dweb:/ipfs/QmRKFKTqUheBpTQr7Ww78ExHLtSnEhgbqhwEoxDBJrxrv1"
 			]
 		}
 	},

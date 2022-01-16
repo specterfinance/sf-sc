@@ -63,11 +63,11 @@ contract SpecterRewardPool {
 
         poolStartTime = _poolStartTime;
 
-        epochEndTimes[0] = poolStartTime + 4 days; // Day 2-5
-        epochEndTimes[1] = epochEndTimes[0] + 5 days; // Day 6-10
+        epochEndTimes[0] = poolStartTime + 1 days; // Day 1
+        epochEndTimes[1] = epochEndTimes[0] + 1 days; // Day 2
 
-        epochSpecterPerSecond[0] = epochTotalRewards[0].div(4 days);
-        epochSpecterPerSecond[1] = epochTotalRewards[1].div(5 days);
+        epochSpecterPerSecond[0] = epochTotalRewards[0];
+        epochSpecterPerSecond[1] = epochTotalRewards[1];
 
         epochSpecterPerSecond[2] = 0;
         operator = msg.sender;
