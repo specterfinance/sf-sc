@@ -15,3 +15,4 @@ truffle-config.js
 !deployments/*.log
 env.json
 tomb old/
+.deps/
