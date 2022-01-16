@@ -18,7 +18,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/Treasury2.sol": "SafeMath"
+			"contracts/Treasury2.sol": "Babylonian"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},

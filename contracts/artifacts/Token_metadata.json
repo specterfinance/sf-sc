@@ -1,10 +1,15 @@
 {
 	"compiler": {
-		"version": "0.6.12+commit.27d51765"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
 			{
 				"anonymous": false,
 				"inputs": [
@@ -59,12 +64,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "owner",
+						"name": "",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "spender",
+						"name": "",
 						"type": "address"
 					}
 				],
@@ -88,7 +93,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "value",
 						"type": "uint256"
 					}
 				],
@@ -107,7 +112,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "account",
+						"name": "owner",
 						"type": "address"
 					}
 				],
@@ -117,6 +122,64 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "balances",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "decimals",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
 					}
 				],
 				"stateMutability": "view",
@@ -139,12 +202,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "recipient",
+						"name": "to",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "value",
 						"type": "uint256"
 					}
 				],
@@ -163,17 +226,17 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "sender",
+						"name": "from",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "recipient",
+						"name": "to",
 						"type": "address"
 					},
 					{
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "value",
 						"type": "uint256"
 					}
 				],
@@ -190,35 +253,8 @@
 			}
 		],
 		"devdoc": {
-			"events": {
-				"Approval(address,address,uint256)": {
-					"details": "Emitted when the allowance of a `spender` for an `owner` is set by a call to {approve}. `value` is the new allowance."
-				},
-				"Transfer(address,address,uint256)": {
-					"details": "Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero."
-				}
-			},
 			"kind": "dev",
-			"methods": {
-				"allowance(address,address)": {
-					"details": "Returns the remaining number of tokens that `spender` will be allowed to spend on behalf of `owner` through {transferFrom}. This is zero by default. This value changes when {approve} or {transferFrom} are called."
-				},
-				"approve(address,uint256)": {
-					"details": "Sets `amount` as the allowance of `spender` over the caller's tokens. Returns a boolean value indicating whether the operation succeeded. IMPORTANT: Beware that changing an allowance with this method brings the risk that someone may use both the old and the new allowance by unfortunate transaction ordering. One possible solution to mitigate this race condition is to first reduce the spender's allowance to 0 and set the desired value afterwards: https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729 Emits an {Approval} event."
-				},
-				"balanceOf(address)": {
-					"details": "Returns the amount of tokens owned by `account`."
-				},
-				"totalSupply()": {
-					"details": "Returns the amount of tokens in existence."
-				},
-				"transfer(address,uint256)": {
-					"details": "Moves `amount` tokens from the caller's account to `recipient`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event."
-				},
-				"transferFrom(address,address,uint256)": {
-					"details": "Moves `amount` tokens from `sender` to `recipient` using the allowance mechanism. `amount` is then deducted from the caller's allowance. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event."
-				}
-			},
+			"methods": {},
 			"version": 1
 		},
 		"userdoc": {
@@ -229,7 +265,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/Treasury2.sol": "IERC20"
+			"contracts/DummyToken.sol": "Token"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -237,18 +273,17 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": true,
+			"enabled": false,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
-		"contracts/Treasury2.sol": {
-			"keccak256": "0x3bbb26be3a959a31d0d68e3fabe8d2a5019665cfeac01a0d1670b62f851072cc",
-			"license": "MIT",
+		"contracts/DummyToken.sol": {
+			"keccak256": "0xa0374406e5db5bf15ac549ec0e2679812850e04948da5c23514b257fd78fce03",
 			"urls": [
-				"bzz-raw://4267ef767734cb08df31a7e1494734d11070a1041a0d6af8114fdcb6d143c687",
-				"dweb:/ipfs/QmZ11Gkkk8v8xtdfrdHMEW9kbMguhNXd5huTZ2PTHqiYng"
+				"bzz-raw://b191fff2f7a191d55d8cdf434031972b2041203a8b0fb2669f3f7b0b50c1b69c",
+				"dweb:/ipfs/QmSuvDW1E24Cxfs7BJfHy283C5iyDtm1RUX13tcBZELA9W"
 			]
 		}
 	},

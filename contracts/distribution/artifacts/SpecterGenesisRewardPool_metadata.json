@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -520,7 +520,7 @@
 		"compilationTarget": {
 			"contracts/distribution/SpecterGenesisRewardPool.sol": "SpecterGenesisRewardPool"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -565,11 +565,11 @@
 			]
 		},
 		"contracts/distribution/SpecterGenesisRewardPool.sol": {
-			"keccak256": "0xd92b3065edd2778284a360afcec3b7a3e6fd36ceeef7df3f4e348322fe8cc628",
+			"keccak256": "0x7bd0611ba773a55ddeb840991f6691a075dcf8f3e1f26f17f63333fa3d3335e1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://93e775e045a277da0eb624c7cde854d9964eb68b012512a51aa46842f9160c17",
-				"dweb:/ipfs/QmfJrTALhsz58P67WS2spBmowfASEvJTjaEXtqRD2iScHG"
+				"bzz-raw://e8511ae110135e2dfd01ed7c3a0959275193bfc3a1034a71ed4f6572adddaf32",
+				"dweb:/ipfs/QmNpF7ncDNVq8txbaJ2379MixgXcfqQrNhKFHU2Uzizwfe"
 			]
 		}
 	},

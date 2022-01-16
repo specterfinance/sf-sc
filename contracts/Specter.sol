@@ -26,11 +26,11 @@ contract Specter is ERC20Burnable, Operator {
     using SafeMath for uint256;
 
     // Initial distribution for the first 24h genesis pools
-    uint256 public constant INITIAL_GENESIS_POOL_DISTRIBUTION = 11000 ether;
+    uint256 public constant INITIAL_GENESIS_POOL_DISTRIBUTION = 20000 ether;
     // Initial distribution for the day 2-5 SPECTER-WFTM LP -> SPECTER pool
     uint256 public constant INITIAL_SPECTER_POOL_DISTRIBUTION = 140000 ether;
     // Distribution for airdrops wallet
-    uint256 public constant INITIAL_AIRDROP_WALLET_DISTRIBUTION = 9000 ether;
+    uint256 public constant INITIAL_AIRDROP_WALLET_DISTRIBUTION = 5000 ether;
 
     // Have the rewards been distributed to the pools
     bool public rewardPoolDistributed = false;
@@ -73,7 +73,7 @@ contract Specter is ERC20Burnable, Operator {
     /**
      * @notice Constructs the SPECTER ERC-20 contract.
      */
-    constructor(uint256 _taxRate, address _taxCollectorAddress) public ERC20("SPECTER", "SPECTER") {
+    constructor(uint256 _taxRate, address _taxCollectorAddress) public ERC20("Test Specter", "tSpecter") {
         // Mints 1 SPECTER to contract creator for initial pool setup
         require(_taxRate < 10000, "tax equal or bigger to 100%");
         require(_taxCollectorAddress != address(0), "tax collector address must be non-zero address");

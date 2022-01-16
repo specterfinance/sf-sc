@@ -31,7 +31,7 @@ contract Treasury is ContractGuard {
 
     /* ========= CONSTANT VARIABLES ======== */
 
-    uint256 public constant PERIOD = 6 hours;
+    uint256 public constant PERIOD = 1 hours;
 
     /* ========== STATE VARIABLES ========== */
 
@@ -48,9 +48,9 @@ contract Treasury is ContractGuard {
 
     // exclusions from total supply
     address[] public excludedFromTotalSupply = [
-        address(0x9A896d3c54D7e45B558BD5fFf26bF1E8C031F93b), // SpecterGenesisPool
-        address(0xa7b9123f4b15fE0fF01F469ff5Eab2b41296dC0E), // new SpecterFTMRewardPool
-        address(0xA7B16703470055881e7EE093e9b0bF537f29CD4d) // old SpecterRewardPool
+        address(0xee031Fc742baBd5269956515dDd04e3C2f49c8e0), // SpecterGenesisPool
+        address(0xEB28349efa6f39F76E39C7b1ee853aD71F64c83c), // new SpecterFTMRewardPool
+        address(0xee031Fc742baBd5269956515dDd04e3C2f49c8e0)  // old SpecterRewardPool
     ];
 
     // core components

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -1235,13 +1235,13 @@
 		"compilationTarget": {
 			"contracts/Treasury.sol": "Treasury"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
@@ -1312,11 +1312,11 @@
 			]
 		},
 		"contracts/Treasury.sol": {
-			"keccak256": "0xd52f84496a74c89512b210451771497a1de164658f165a59ba8ea809b3c42b79",
+			"keccak256": "0xa24514015820c10eb2c00a7b025bb388b7e2b1fd4a0510916d80431e523092e0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fbc2d8ec0d613dbdae9755d2704cafabf01a1af074b930e067b07501ae5afb14",
-				"dweb:/ipfs/QmVurvaFwK9f7eHEFSoqdbF6CKRaN9JLD4jCC5WHT2P7Gj"
+				"bzz-raw://b0270c4df1352ebdb754a2f1e075d87292f845ce72cdafcef67257be7145cb49",
+				"dweb:/ipfs/QmXWjt3vkGigPVYDPCqZiwT4jN4xu6RsHKndNusdD16w4W"
 			]
 		},
 		"contracts/interfaces/IBasisAsset.sol": {

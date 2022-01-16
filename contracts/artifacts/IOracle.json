@@ -45,39 +45,55 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"owner()": "8da5cb5b",
-			"renounceOwnership()": "715018a6",
-			"transferOwnership(address)": "f2fde38b"
+			"consult(address,uint256)": "3ddac953",
+			"twap(address,uint256)": "6808a128",
+			"update()": "a2e62045"
 		}
 	},
 	"abi": [
 		{
-			"anonymous": false,
 			"inputs": [
 				{
-					"indexed": true,
 					"internalType": "address",
-					"name": "previousOwner",
+					"name": "_token",
 					"type": "address"
 				},
 				{
-					"indexed": true,
-					"internalType": "address",
-					"name": "newOwner",
-					"type": "address"
+					"internalType": "uint256",
+					"name": "_amountIn",
+					"type": "uint256"
 				}
 			],
-			"name": "OwnershipTransferred",
-			"type": "event"
-		},
-		{
-			"inputs": [],
-			"name": "owner",
+			"name": "consult",
 			"outputs": [
 				{
+					"internalType": "uint144",
+					"name": "amountOut",
+					"type": "uint144"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
 					"internalType": "address",
-					"name": "",
+					"name": "_token",
 					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_amountIn",
+					"type": "uint256"
+				}
+			],
+			"name": "twap",
+			"outputs": [
+				{
+					"internalType": "uint144",
+					"name": "_amountOut",
+					"type": "uint144"
 				}
 			],
 			"stateMutability": "view",
@@ -85,20 +101,7 @@
 		},
 		{
 			"inputs": [],
-			"name": "renounceOwnership",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "address",
-					"name": "newOwner",
-					"type": "address"
-				}
-			],
-			"name": "transferOwnership",
+			"name": "update",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -526,13 +526,13 @@
 		"compilationTarget": {
 			"contracts/SBond.sol": "SBond"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
@@ -587,11 +587,11 @@
 			]
 		},
 		"contracts/SBond.sol": {
-			"keccak256": "0x6c0fcd9a81c74c62708324c46ab2b987a4838d805b0d4f100bb0f9e308127c70",
+			"keccak256": "0x00dde30154aa41d2fb21e73ac698d0348c629d9cda1a0054cd00519c9ca46d0d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://df4b87ad2e77df2c692afee8beed77250d619953a856c45ca54781706149c423",
-				"dweb:/ipfs/QmXjDHz1jNbELV2ZHfk4yT8vSxar4FFCpnR28joNVNz1RK"
+				"bzz-raw://a6bfbb195f981324096b18f3690044f38abdaf4a396f0dce51e8599e8818fc71",
+				"dweb:/ipfs/QmR32WxkPN6D71F4vUBL1QDptHt2pRGvrAbBDu2o6QoMVJ"
 			]
 		},
 		"contracts/owner/Operator.sol": {

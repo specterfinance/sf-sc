@@ -49,15 +49,15 @@ contract SpecterGenesisRewardPool {
     uint256 public poolEndTime;
 
     // TESTNET
-    uint256 public specterPerSecond = 3.0555555 ether; // 11000 SPECTER / (1h * 60min * 60s)
-    uint256 public runningTime = 24 hours; // 1 hours
-    uint256 public constant TOTAL_REWARDS = 11000 ether;
+    //uint256 public specterPerSecond = 5.555555 ether; // 20000 SPECTER / (1h * 60min * 60s)
+    //uint256 public runningTime = 1 hours; // 1 hours
+    //uint256 public constant TOTAL_REWARDS = 20000 ether;
     // END TESTNET
 
     // MAINNET
-    // uint256 public specterPerSecond = 0.11574 ether; // 10000 SPECTER / (24h * 60min * 60s)
-    // uint256 public runningTime = 1 days; // 1 days
-    // uint256 public constant TOTAL_REWARDS = 10000 ether;
+    uint256 public specterPerSecond = 0.11574 ether; // 10000 SPECTER / (24h * 60min * 60s)
+    uint256 public runningTime = 1 days; // 1 days
+    uint256 public constant TOTAL_REWARDS = 10000 ether;
     // END MAINNET
 
     event Deposit(address indexed user, uint256 indexed pid, uint256 amount);

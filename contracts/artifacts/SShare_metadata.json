@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -773,7 +773,7 @@
 		"compilationTarget": {
 			"contracts/SShare.sol": "SShare"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -842,11 +842,11 @@
 			]
 		},
 		"contracts/SShare.sol": {
-			"keccak256": "0x3498826533605284982d1f1c574a7b6e648312b4474fddb87b333ee914a51a83",
+			"keccak256": "0xa9d2c7a6ea0228905d23b8efd595596b2ef5894790868a8459b5a0686d63a17c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1227dccf2a3318c4066ab89567857baf63d2004afcafbe028500e2db64c6b5db",
-				"dweb:/ipfs/QmSPKtrR16Ddt5LtVghycz7zV4YSw3ut7gJqxz9PS1zssC"
+				"bzz-raw://1fcf01d0c9cddff9cade80ada90112ab332fd5df0850ce426ca4d0404ab77f25",
+				"dweb:/ipfs/QmbtppSYejuAhVBsLUGEihtKwxd55FfANoaN3AkeN4ybuE"
 			]
 		},
 		"contracts/owner/Operator.sol": {

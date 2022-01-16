@@ -47,9 +47,15 @@ contract SShareRewardPool {
     // The time when sSHARE mining ends.
     uint256 public poolEndTime;
 
-    uint256 public sSharePerSecond = 0.00186122 ether; // 59500 sshare / (370 days * 24h * 60min * 60s)
+    //Mainnet
+    uint256 public sSharePerSecond = 0.0021896896 ether; // 70000 sshare / (370 days * 24h * 60min * 60s)
     uint256 public runningTime = 370 days; // 370 days
-    uint256 public constant TOTAL_REWARDS = 59500 ether;
+    uint256 public constant TOTAL_REWARDS = 70000 ether;
+
+    //Testnet
+    // uint256 public sSharePerSecond = 0.27006 ether; // 70000 sshare / (3 days * 24h * 60min * 60s)
+    // uint256 public runningTime = 3 days; // 3 days
+    // uint256 public constant TOTAL_REWARDS = 70000 ether;
 
     event Deposit(address indexed user, uint256 indexed pid, uint256 amount);
     event Withdraw(address indexed user, uint256 indexed pid, uint256 amount);

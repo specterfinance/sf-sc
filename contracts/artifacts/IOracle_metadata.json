@@ -1,0 +1,101 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amountIn",
+						"type": "uint256"
+					}
+				],
+				"name": "consult",
+				"outputs": [
+					{
+						"internalType": "uint144",
+						"name": "amountOut",
+						"type": "uint144"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amountIn",
+						"type": "uint256"
+					}
+				],
+				"name": "twap",
+				"outputs": [
+					{
+						"internalType": "uint144",
+						"name": "_amountOut",
+						"type": "uint144"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "update",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Treasury2.sol": "IOracle"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Treasury2.sol": {
+			"keccak256": "0x3bbb26be3a959a31d0d68e3fabe8d2a5019665cfeac01a0d1670b62f851072cc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4267ef767734cb08df31a7e1494734d11070a1041a0d6af8114fdcb6d143c687",
+				"dweb:/ipfs/QmZ11Gkkk8v8xtdfrdHMEW9kbMguhNXd5huTZ2PTHqiYng"
+			]
+		}
+	},
+	"version": 1
+}

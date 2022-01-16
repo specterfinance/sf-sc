@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -502,7 +502,7 @@
 		"compilationTarget": {
 			"contracts/distribution/SShareRewardPool.sol": "SShareRewardPool"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -547,11 +547,11 @@
 			]
 		},
 		"contracts/distribution/SShareRewardPool.sol": {
-			"keccak256": "0x6ec62a0f0fddbb9161733a9b1ea8d8c9ff623dc706c4611db4106a2774153647",
+			"keccak256": "0x41b2faaaa943e9a194179e562e40156bef234bf9afac3ea593c9515f1a32d35f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c8d2dde31b5f2e651ec89a4e4b6e965f8ef7b9384047dd1903993309768a47e0",
-				"dweb:/ipfs/QmY7PwxNZpy98Dp5zKXFw9YqFmP3hBn6BkCkkfgSHcNB3Q"
+				"bzz-raw://d9ed4245d2f5fa2e617e78c02ba50564e1df8ef8ab449a969deaa750a1ba73cc",
+				"dweb:/ipfs/QmQv9oREiZ6CCAEfZ9ZeeyTEEP5f4TjkmFYSKrzfnX34Ay"
 			]
 		}
 	},

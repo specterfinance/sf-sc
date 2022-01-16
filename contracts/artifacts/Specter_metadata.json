@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -1008,13 +1008,13 @@
 		"compilationTarget": {
 			"contracts/Specter.sol": "Specter"
 		},
-		"evmVersion": "london",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
@@ -1085,11 +1085,11 @@
 			]
 		},
 		"contracts/Specter.sol": {
-			"keccak256": "0x658dc1235e9cfe5c3806a1442f527ed9a187d675d2e65ae57c5e1f76c57844fd",
+			"keccak256": "0x7a57f4b27812669efe6bde69602907238dd58f27675c3c2e30c0296374951d66",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://f5db4ec5dc59071a52f0580dc6c50bb75dab72537fe54c74ee06e7fde85f8e18",
-				"dweb:/ipfs/QmUUQ9BHhNBezupBPAEkB7W7FrPaWVsC4J3pcXhv1CigqF"
+				"bzz-raw://7cd4a25623a652815777cf53bc169a6fd3e4ea03fe400a5b3e77d4101fcf0e47",
+				"dweb:/ipfs/QmNq4m91Ha1RzWvmdsSxrbmr8h5DDxUiKTUE98crn8mhzG"
 			]
 		},
 		"contracts/interfaces/IOracle.sol": {
