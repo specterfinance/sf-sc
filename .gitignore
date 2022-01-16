@@ -1,7 +1,7 @@
 .idea/
 .env
 node_modules/
-tomb old/ 
+tomb_old/ 
 .deps/
 
 build/
