@@ -232,7 +232,7 @@ contract Masonry is ShareWrapper, ContractGuard {
         uint256 reward = masons[msg.sender].rewardEarned;
         if (reward > 0) {
             require(masons[msg.sender].epochTimerStart.add(rewardLockupEpochs) <= treasury.epoch(), "Masonry: still in reward lockup");
-            masons[msg.sender].epochTimerStart = treasury.epoch(); // reset timer
+            masons[msg.sender].epochTimerStart = treasury.epoch(); // reset timers
             masons[msg.sender].rewardEarned = 0;
             specter.safeTransfer(msg.sender, reward);
             emit RewardPaid(msg.sender, reward);

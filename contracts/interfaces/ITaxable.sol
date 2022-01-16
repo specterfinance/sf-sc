@@ -3,7 +3,7 @@
 pragma solidity ^0.8.0;
 
 interface ITaxable {
-    function setTaxTiersTwap(uint8 _index, uint256 _value) external returns (bool);
+    function setTaxTiersTwap(uint8 _index, uint256 _value) external returns (bool); //set tax tiers
 
     function setTaxTiersRate(uint8 _index, uint256 _value) external returns (bool);
 

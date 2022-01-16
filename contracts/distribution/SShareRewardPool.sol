@@ -62,10 +62,7 @@ contract SShareRewardPool {
     event EmergencyWithdraw(address indexed user, uint256 indexed pid, uint256 amount);
     event RewardPaid(address indexed user, uint256 amount);
 
-    constructor(
-        address _sshare,
-        uint256 _poolStartTime
-    ) public {
+    constructor(address _sshare, uint256 _poolStartTime) public {
         require(block.timestamp < _poolStartTime, "late");
         if (_sshare != address(0)) sshare = IERC20(_sshare);
         poolStartTime = _poolStartTime;
@@ -111,16 +108,8 @@ contract SShareRewardPool {
                 _lastRewardTime = block.timestamp;
             }
         }
-        bool _isStarted =
-        (_lastRewardTime <= poolStartTime) ||
-        (_lastRewardTime <= block.timestamp);
-        poolInfo.push(PoolInfo({
-            token : _token,
-            allocPoint : _allocPoint,
-            lastRewardTime : _lastRewardTime,
-            accSSharePerShare : 0,
-            isStarted : _isStarted
-            }));
+        bool _isStarted = (_lastRewardTime <= poolStartTime) || (_lastRewardTime <= block.timestamp);
+        poolInfo.push(PoolInfo({token: _token, allocPoint: _allocPoint, lastRewardTime: _lastRewardTime, accSSharePerShare: 0, isStarted: _isStarted}));
         if (_isStarted) {
             totalAllocPoint = totalAllocPoint.add(_allocPoint);
         }
@@ -131,9 +120,7 @@ contract SShareRewardPool {
         massUpdatePools();
         PoolInfo storage pool = poolInfo[_pid];
         if (pool.isStarted) {
-            totalAllocPoint = totalAllocPoint.sub(pool.allocPoint).add(
-                _allocPoint
-            );
+            totalAllocPoint = totalAllocPoint.sub(pool.allocPoint).add(_allocPoint);
         }
         pool.allocPoint = _allocPoint;
     }
@@ -265,7 +252,11 @@ contract SShareRewardPool {
         operator = _operator;
     }
 
-    function governanceRecoverUnsupported(IERC20 _token, uint256 amount, address to) external onlyOperator {
+    function governanceRecoverUnsupported(
+        IERC20 _token,
+        uint256 amount,
+        address to
+    ) external onlyOperator {
         if (block.timestamp < poolEndTime + 90 days) {
             // do not allow to drain core token (sSHARE or lps) if less than 90 days after pool ends
             require(_token != sshare, "sshare");

@@ -9,5 +9,5 @@ interface ISShareRewardPool {
 
     function pendingShare(uint256 _pid, address _user) external view returns (uint256);
 
-    function userInfo(uint _pid, address _user) external view returns (uint amount, uint rewardDebt);
+    function userInfo(uint256 _pid, address _user) external view returns (uint256 amount, uint256 rewardDebt);
 }

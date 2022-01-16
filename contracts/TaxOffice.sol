@@ -5,14 +5,13 @@ pragma solidity ^0.8.0;
 import "./owner/Operator.sol";
 import "./interfaces/ITaxable.sol";
 
-
 /***
 
 .-. .-. .-. .-. .-. .-. .-.   .-. .-. . . .-. . . .-. .-. 
 `-. |-' |-  |    |  |-  |(    |-   |  |\| |-| |\| |   |-  
 `-' '   `-' `-'  '  `-' ' '   '   `-' ' ` ` ' ' ` `-' `-' 
                                                           
-
+ 
 ***/
 
 contract TaxOffice is Operator {
