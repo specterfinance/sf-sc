@@ -8,12 +8,9 @@ import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "./owner/Operator.sol";
 
 /***
-
 .-. .-. .-. .-. .-. .-. .-.   .-. .-. . . .-. . . .-. .-. 
 `-. |-' |-  |    |  |-  |(    |-   |  |\| |-| |\| |   |-  
 `-' '   `-' `-'  '  `-' ' '   '   `-' ' ` ` ' ' ` `-' `-' 
-                                                          
-
 ***/
 
 contract SShare is ERC20Burnable, Operator {

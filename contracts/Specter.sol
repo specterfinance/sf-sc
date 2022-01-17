@@ -2,8 +2,8 @@
 
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol"; 
-import "@openzeppelin/contracts/utils/Context.sol"; 
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/utils/Context.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/utils/math/Math.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
@@ -13,12 +13,9 @@ import "./owner/Operator.sol";
 import "./interfaces/IOracle.sol";
 
 /***
-
 .-. .-. .-. .-. .-. .-. .-.   .-. .-. . . .-. . . .-. .-. 
 `-. |-' |-  |    |  |-  |(    |-   |  |\| |-| |\| |   |-  
 `-' '   `-' `-'  '  `-' ' '   '   `-' ' ` ` ' ' ` `-' `-' 
-                                                          
-
 ***/
 
 contract Specter is ERC20Burnable, Operator {

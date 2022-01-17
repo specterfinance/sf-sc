@@ -43,12 +43,9 @@ contract ShareWrapper {
 }
 
 /***
-
 .-. .-. .-. .-. .-. .-. .-.   .-. .-. . . .-. . . .-. .-. 
 `-. |-' |-  |    |  |-  |(    |-   |  |\| |-| |\| |   |-  
 `-' '   `-' `-'  '  `-' ' '   '   `-' ' ` ` ' ' ` `-' `-' 
-                                                          
-
 ***/
 
 contract Masonry is ShareWrapper, ContractGuard {

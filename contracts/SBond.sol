@@ -10,12 +10,9 @@ import "@openzeppelin/contracts/utils/Context.sol"; /*requires solidity ^0.8.0 *
 import "./owner/Operator.sol";
 
 /***
-
 .-. .-. .-. .-. .-. .-. .-.   .-. .-. . . .-. . . .-. .-. 
 `-. |-' |-  |    |  |-  |(    |-   |  |\| |-| |\| |   |-  
 `-' '   `-' `-'  '  `-' ' '   '   `-' ' ` ` ' ' ` `-' `-' 
-                                                          
-
 ***/
 
 contract SBond is ERC20Burnable, Operator {

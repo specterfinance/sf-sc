@@ -8,14 +8,10 @@ import "./interfaces/ITaxable.sol";
 import "./interfaces/IUniswapV2Router.sol";
 import "./interfaces/IERC20.sol";
 
-
 /***
-
 .-. .-. .-. .-. .-. .-. .-.   .-. .-. . . .-. . . .-. .-. 
 `-. |-' |-  |    |  |-  |(    |-   |  |\| |-| |\| |   |-  
 `-' '   `-' `-'  '  `-' ' '   '   `-' ' ` ` ' ' ` `-' `-' 
-                                                          
-
 ***/
 
 contract TaxOfficeV2 is Operator {
@@ -58,12 +54,11 @@ contract TaxOfficeV2 is Operator {
     function excludeAddressFromTax(address _address) external onlyOperator returns (bool) {
         return _excludeAddressFromTax(_address);
     }
-    
+
     function _excludeAddressFromTax(address _address) private returns (bool) {
         if (!ITaxable(specter).isAddressExcluded(_address)) {
             return ITaxable(specter).excludeAddress(_address);
         }
-        
     }
 
     function includeAddressInTax(address _address) external onlyOperator returns (bool) {

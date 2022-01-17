@@ -6,12 +6,9 @@ import "./owner/Operator.sol";
 import "./interfaces/ITaxable.sol";
 
 /***
-
 .-. .-. .-. .-. .-. .-. .-.   .-. .-. . . .-. . . .-. .-. 
 `-. |-' |-  |    |  |-  |(    |-   |  |\| |-| |\| |   |-  
 `-' '   `-' `-'  '  `-' ' '   '   `-' ' ` ` ' ' ` `-' `-' 
-                                                          
- 
 ***/
 
 contract TaxOffice is Operator {
