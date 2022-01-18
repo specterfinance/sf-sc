@@ -45,9 +45,8 @@ contract Treasury is ContractGuard {
 
     // exclusions from total supply
     address[] public excludedFromTotalSupply = [
-        address(0xee031Fc742baBd5269956515dDd04e3C2f49c8e0), // SpecterGenesisPool
-        address(0xEB28349efa6f39F76E39C7b1ee853aD71F64c83c), // new SpecterFTMRewardPool
-        address(0xee031Fc742baBd5269956515dDd04e3C2f49c8e0)  // old SpecterRewardPool
+        address(0x7515D76A338Bbc3592F3e079041e8bf947841886),    // SpecterGenesisPool
+        address(0x000000000000000000000000000000000000dEaD)     //Specter at null address
     ];
 
     // core components
@@ -97,7 +96,7 @@ contract Treasury is ContractGuard {
     event Initialized(address indexed executor, uint256 at);
     event BurnedBonds(address indexed from, uint256 bondAmount);
     event RedeemedBonds(address indexed from, uint256 specterAmount, uint256 bondAmount);
-    event BoughsBonds(address indexed from, uint256 specterAmount, uint256 bondAmount);
+    event BoughtBonds(address indexed from, uint256 specterAmount, uint256 bondAmount);
     event TreasuryFunded(uint256 timestamp, uint256 seigniorage);
     event MasonryFunded(uint256 timestamp, uint256 seigniorage);
     event DaoFundFunded(uint256 timestamp, uint256 seigniorage);
@@ -110,13 +109,13 @@ contract Treasury is ContractGuard {
         _;
     }
 
-    modifier checkCondition() {
+    modifier checkCondition {
         require(block.timestamp >= startTime, "Treasury: not started yet");
 
         _;
     }
 
-    modifier checkEpoch() {
+    modifier checkEpoch {
         require(block.timestamp >= nextEpochPoint(), "Treasury: not opened yet");
 
         _;
@@ -125,7 +124,7 @@ contract Treasury is ContractGuard {
         epochSupplyContractionLeft = (getSpecterPrice() > specterPriceCeiling) ? 0 : getSpecterCirculatingSupply().mul(maxSupplyContractionPercent).div(10000);
     }
 
-    modifier checkOperator() {
+    modifier checkOperator {
         require(
             IBasisAsset(specter).operator() == address(this) &&
                 IBasisAsset(sbond).operator() == address(this) &&
@@ -137,7 +136,7 @@ contract Treasury is ContractGuard {
         _;
     }
 
-    modifier notInitialized() {
+    modifier notInitialized {
         require(!initialized, "Treasury: already initialized");
 
         _;
@@ -434,7 +433,7 @@ contract Treasury is ContractGuard {
         epochSupplyContractionLeft = epochSupplyContractionLeft.sub(_specterAmount);
         _updateSpecterPrice();
 
-        emit BoughsBonds(msg.sender, _specterAmount, _bondAmount);
+        emit BoughtBonds(msg.sender, _specterAmount, _bondAmount);
     }
 
     function redeemBonds(uint256 _bondAmount, uint256 targetPrice) external onlyOneBlock checkCondition checkOperator {

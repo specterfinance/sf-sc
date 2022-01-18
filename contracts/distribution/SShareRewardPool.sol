@@ -62,7 +62,10 @@ contract SShareRewardPool {
     event EmergencyWithdraw(address indexed user, uint256 indexed pid, uint256 amount);
     event RewardPaid(address indexed user, uint256 amount);
 
-    constructor(address _sshare, uint256 _poolStartTime) public {
+    constructor(
+        address _sshare, 
+        uint256 _poolStartTime) 
+    public {
         require(block.timestamp < _poolStartTime, "late");
         if (_sshare != address(0)) sshare = IERC20(_sshare);
         poolStartTime = _poolStartTime;

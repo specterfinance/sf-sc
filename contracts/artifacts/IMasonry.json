@@ -53,7 +53,7 @@
 			"earned(address)": "008cc262",
 			"epoch()": "900cf0cf",
 			"exit()": "e9fad8ee",
-			"getRocketPrice()": "5552791f",
+			"getSpecterPrice()": "5552791f",
 			"governanceRecoverUnsupported(address,uint256,address)": "54575af4",
 			"nextEpochPoint()": "c5967c26",
 			"setLockUp(uint256,uint256)": "2ffaaa09",
@@ -181,7 +181,7 @@
 		},
 		{
 			"inputs": [],
-			"name": "getRocketPrice",
+			"name": "getSpecterPrice",
 			"outputs": [
 				{
 					"internalType": "uint256",

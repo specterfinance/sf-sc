@@ -547,11 +547,11 @@
 			]
 		},
 		"contracts/distribution/SShareRewardPool.sol": {
-			"keccak256": "0xd9d81380153788097ce2ce1e1491e1b0e841f942763ee052a6d0a92dddcb8898",
+			"keccak256": "0x87da8e5c4880929fa74c744da9e9ff668ea552ccc02cb30c8abc2862ecf91a93",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4b24656d262b0303fd40da37bd528a814aa41788a64a062abeb4e3639583bbab",
-				"dweb:/ipfs/QmaG7aiu3CkHJptiCL3aw2pUfKm4AEBCCzJfgahKEwRHcr"
+				"bzz-raw://58f2c8b1960c9837910448f4aec31c23155083ecbc8993729da054b726c12e63",
+				"dweb:/ipfs/QmZZWMvF9jpwgYjHAsM9BYBunkQYTUpp9QLapdMsvumdLQ"
 			]
 		}
 	},

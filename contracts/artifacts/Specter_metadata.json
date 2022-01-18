@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.6.12+commit.27d51765"
 	},
 	"language": "Solidity",
 	"output": {
@@ -944,7 +944,7 @@
 					"details": "Destroys `amount` tokens from `account`, deducting from the caller's allowance. See {ERC20-_burn} and {ERC20-allowance}. Requirements: - the caller must have allowance for ``accounts``'s tokens of at least `amount`."
 				},
 				"decimals()": {
-					"details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless this function is overridden; NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}."
+					"details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5,05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is called. NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}."
 				},
 				"decreaseAllowance(address,uint256)": {
 					"details": "Atomically decreases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`."
@@ -991,9 +991,7 @@
 		"userdoc": {
 			"kind": "user",
 			"methods": {
-				"constructor": {
-					"notice": "Constructs the SPECTER ERC-20 contract."
-				},
+				"constructor": "Constructs the SPECTER ERC-20 contract.",
 				"distributeReward(address,address,address)": {
 					"notice": "distribute to reward pool (only once)"
 				},
@@ -1020,100 +1018,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"@openzeppelin/contracts/access/Ownable.sol": {
-			"keccak256": "0x24e0364e503a9bbde94c715d26573a76f14cd2a202d45f96f52134ab806b67b9",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://e12cbaa7378fd9b62280e4e1d164bedcb4399ce238f5f98fc0eefb7e50577981",
-				"dweb:/ipfs/QmXRoFGUgfsaRkoPT5bxNMtSayKTQ8GZATLPXf69HcRA51"
-			]
-		},
-		"@openzeppelin/contracts/token/ERC20/ERC20.sol": {
-			"keccak256": "0xd1d8caaeb45f78e0b0715664d56c220c283c89bf8b8c02954af86404d6b367f8",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://300a0cc7be3b26c96c22a47ffa9530a585e1c4f2dba3021d9bf309dc63007487",
-				"dweb:/ipfs/QmQmxsvxK6CaJmQ4D8vDCYPLHMqcMmZLcBqedG4GFAbzu9"
-			]
-		},
-		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-			"keccak256": "0x61437cb513a887a1bbad006e7b1c8b414478427d33de47c5600af3c748f108da",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://2c3d0973630ed74f2b5ce3944677a885dc70ec32fc83b35f55045a10224da32b",
-				"dweb:/ipfs/QmbefZ5RoEZKNHXCALfh683PnaNYzKPcKMFjyY1DVAgq8A"
-			]
-		},
-		"@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol": {
-			"keccak256": "0x0707ddb033e6bbb36546b9d58bb6f043076ceac7a10792a71dfd957583acde09",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://8f16258ce35ab9409430a2213b3a76845c06f01cbf2e6c2f5229d5efad1367b2",
-				"dweb:/ipfs/QmTKeY9WgozRyDAQuX3zgLRbS1maWGuA5VJZL6n3GcptJo"
-			]
-		},
-		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-			"keccak256": "0x8de418a5503946cabe331f35fe242d3201a73f67f77aaeb7110acb1f30423aca",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://5a376d3dda2cb70536c0a45c208b29b34ac560c4cb4f513a42079f96ba47d2dd",
-				"dweb:/ipfs/QmZQg6gn1sUpM8wHzwNvSnihumUCAhxD119MpXeKp8B9s8"
-			]
-		},
-		"@openzeppelin/contracts/utils/Context.sol": {
-			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
-				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
-			]
-		},
-		"@openzeppelin/contracts/utils/math/Math.sol": {
-			"keccak256": "0xfaad496c1c944b6259b7dc70b4865eb1775d6402bc0c81b38a0b24d9f525ae37",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://2f60ddc4639589b1d7a87cd647561be4c71ddf9a9dcf55f38db75e24ef1f6c5b",
-				"dweb:/ipfs/QmTocvyQx3DPrzsFePtrhDGM6eYxUh3v8iBN3D59yoeuBt"
-			]
-		},
-		"@openzeppelin/contracts/utils/math/SafeMath.sol": {
-			"keccak256": "0xa2f576be637946f767aa56601c26d717f48a0aff44f82e46f13807eea1009a21",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://973868f808e88e21a1a0a01d4839314515ee337ad096286c88e41b74dcc11fc2",
-				"dweb:/ipfs/QmfYuZxRfx2J2xdk4EXN7jKg4bUYEMTaYk9BAw9Bqn4o2Y"
-			]
-		},
 		"contracts/Specter.sol": {
-			"keccak256": "0x9de868a9ab75abefc51462cf06d95a595a47190ec4cea641bc42972c7c5c7876",
+			"keccak256": "0xdf89b48be31c25a55db6718269f1df0bddb1c317223c2252a4c8c1ddfdfd7d5a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b463f590da02ddcd268fdf21983a9951b679b29919003885de119c27a4464959",
-				"dweb:/ipfs/QmP1c6c75KbgxTyeZpwUKK96GkYeQFht9s9pzcgc91gXGz"
-			]
-		},
-		"contracts/interfaces/IOracle.sol": {
-			"keccak256": "0x5c91e0607cbadf1c524c3433135dd111f7912e960a84caa196a5f87324e9dcbd",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://1ea077f1e2b43bddefd0e3f2a0b118c44d32816101fe8d6f42691d38c640e7c1",
-				"dweb:/ipfs/QmRK3Hez12mJiyjaaCyUK23bhhjt7wxbDYeerkQKsgL8np"
-			]
-		},
-		"contracts/lib/SafeMath8.sol": {
-			"keccak256": "0x808316f882547c62bfff9a622720431f644874c23641293c972492fe7a561ac9",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://4d03a7804a92282510c544f7c10c0548675241cd3a037aae934bad77099b0fd6",
-				"dweb:/ipfs/QmVs3hYtqT4SDapD3fpLowtTUukPsx4yQcft2a62f7HL4e"
-			]
-		},
-		"contracts/owner/Operator.sol": {
-			"keccak256": "0x48ee4ecaf54eed751915cc061f426de405692fa27bba9a9d28ab6c10b8fa3fef",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://5187a02abdc2d365cc4d1316057777cf0955911971efe98203bcb90d76d9e5e8",
-				"dweb:/ipfs/QmQAXwBVBF6dwhoFSMyw3KbtbvLhr8Vxcjr5Vjo3RaTofC"
+				"bzz-raw://79cb9ba35708aefccd31fac3a10d0a5b9707cbfb4451f00bba5670700d6a311b",
+				"dweb:/ipfs/QmW1wPTc2ZQjDv2q6enGJai7NvNJSgb55FF5gGT4GqWehs"
 			]
 		}
 	},

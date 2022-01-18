@@ -27,7 +27,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "BoughsBonds",
+				"name": "BoughtBonds",
 				"type": "event"
 			},
 			{
@@ -1312,11 +1312,11 @@
 			]
 		},
 		"contracts/Treasury.sol": {
-			"keccak256": "0x0de4ce904fdf8632c0a7f31aa8a8224b04bbed1221d80ff72056fa4628477cb6",
+			"keccak256": "0x9a22cf447f3fd4e91d4e8f515ad9a5420d1cca844715c4f15df5ce97b417fc87",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b01831e39a0db2902f1ef76419bf5828ec5fdfbfb112538cbcd0e1c42eeef73b",
-				"dweb:/ipfs/QmbvtDBMUYSLuixPWjH1L9FqLAomLgcszmq4bssgRvE3WN"
+				"bzz-raw://8c670f8d935fd0ec789a3cf462d362dff133685ba68f9882e7aae723a55d5dce",
+				"dweb:/ipfs/QmXggg2oaid9E5yfBD1xA8SZDtPyRXqdQ1GFkTg99XS5Tp"
 			]
 		},
 		"contracts/interfaces/IBasisAsset.sol": {

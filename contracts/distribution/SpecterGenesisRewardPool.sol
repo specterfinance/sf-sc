@@ -31,7 +31,6 @@ contract SpecterGenesisRewardPool {
     }
 
     IERC20 public specter;
-    address public shiba;
 
     // Info of each pool.
     PoolInfo[] public poolInfo;
@@ -48,12 +47,6 @@ contract SpecterGenesisRewardPool {
     // The time when SPECTER mining ends.
     uint256 public poolEndTime;
 
-    // TESTNET
-    //uint256 public specterPerSecond = 5.555555 ether; // 20000 SPECTER / (1h * 60min * 60s)
-    //uint256 public runningTime = 1 hours; // 1 hours
-    //uint256 public constant TOTAL_REWARDS = 20000 ether;
-    // END TESTNET
-
     // MAINNET
     uint256 public specterPerSecond = 0.231481 ether; // 20000 SPECTER / (24h * 60min * 60s)
     uint256 public runningTime = 1 days; // 1 days
@@ -67,12 +60,10 @@ contract SpecterGenesisRewardPool {
 
     constructor(
         address _specter,
-        address _shiba,
         uint256 _poolStartTime
     ) public {
         require(block.timestamp < _poolStartTime, "late");
         if (_specter != address(0)) specter = IERC20(_specter);
-        if (_shiba != address(0)) shiba = _shiba;
         poolStartTime = _poolStartTime;
         poolEndTime = poolStartTime + runningTime;
         operator = msg.sender;
@@ -217,11 +208,7 @@ contract SpecterGenesisRewardPool {
         }
         if (_amount > 0) {
             pool.token.safeTransferFrom(_sender, address(this), _amount);
-            if(address(pool.token) == shiba) {
-                user.amount = user.amount.add(_amount.mul(9900).div(10000));
-            } else {
-                user.amount = user.amount.add(_amount);
-            }
+            user.amount = user.amount.add(_amount);
         }
         user.rewardDebt = user.amount.mul(pool.accSpecterPerShare).div(1e18);
         emit Deposit(_sender, _pid, _amount);

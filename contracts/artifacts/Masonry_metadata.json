@@ -574,7 +574,7 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
@@ -613,11 +613,11 @@
 			]
 		},
 		"contracts/Masonry.sol": {
-			"keccak256": "0x7e66c33eba4520c02126a35826e9cd0e43aea8b3cb693afc06e51b46edf862a2",
+			"keccak256": "0xa152eb060fc62c85cef2db6b3935e5e9dc61b0cd0657699721799184a22f2f00",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d463a14a7c83f52c162d3aaf1f3ae1a0c0f4b319dc437a069ea3c5e258f55c69",
-				"dweb:/ipfs/QmPdHRziQTd7wX65GnNxMbpxGVLjCPxHCrRkXFqTLz7rrw"
+				"bzz-raw://520e550a4663e24aab19042ece89f73c43fa21f685e71a81c6b5490d3eb5ce96",
+				"dweb:/ipfs/QmPSGYy4meVQRoUjtSyV278ctVv42orrMhcxhqbprJjRKX"
 			]
 		},
 		"contracts/interfaces/IBasisAsset.sol": {
@@ -629,11 +629,11 @@
 			]
 		},
 		"contracts/interfaces/ITreasury.sol": {
-			"keccak256": "0xf9b0778ae50114602a1e395e2801a136b926c12f102a269e7d4bc871d162ead5",
+			"keccak256": "0x26bdca8ffbb32a36dd778d8767c273c20b5a09b9ace5c4d869c39a2bc63a43c5",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://501a34da88e48633fd8afb3a58f00e4682adcf2e6414fe223fa71867440b6107",
-				"dweb:/ipfs/QmeQQGEk7wZ9aFjTdsUfwC7m7zHbEQQR6jbFS9ND6QnLrd"
+				"bzz-raw://25fcb3896f5a25ae9ccce5317262aadcdfd000b85124bea1d4df53ac0f7b23ce",
+				"dweb:/ipfs/Qmb51gretCHoqxwBjzS1mnQkAtdVrVmgmaaMg7UVXe84KC"
 			]
 		},
 		"contracts/utils/ContractGuard.sol": {

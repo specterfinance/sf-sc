@@ -440,7 +440,7 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
@@ -471,11 +471,11 @@
 			]
 		},
 		"contracts/Oracle.sol": {
-			"keccak256": "0xb8c077518b1738931e03d7e5fbe10497f3d4151642c276437db998d1b11b145c",
+			"keccak256": "0x836f02627baef4c66b424ad8d6494a52a29f5422a565c04bf5cfc42d26660d50",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6cb40c9ac66fdada69638a7b070cbf435c57d2616b83f8a7fe5ee825147c52bb",
-				"dweb:/ipfs/QmWGfJ9qgHsRq4pL8YbTF6ZRzWF8JUbneh57qmMmSCJBEB"
+				"bzz-raw://29ede2958478fd2a4cefaf9b61874b26e43271c4c10dd0aee4855d375528acaa",
+				"dweb:/ipfs/Qmcj9GK4toxAfLnwh5ksNKswgvhHXm1tTL2uh1aQ9nRHkJ"
 			]
 		},
 		"contracts/interfaces/IUniswapV2Pair.sol": {

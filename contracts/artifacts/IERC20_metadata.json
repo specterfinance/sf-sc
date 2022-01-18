@@ -190,6 +190,7 @@
 			}
 		],
 		"devdoc": {
+			"details": "Interface of the ERC20 standard as defined in the EIP.",
 			"events": {
 				"Approval(address,address,uint256)": {
 					"details": "Emitted when the allowance of a `spender` for an `owner` is set by a call to {approve}. `value` is the new allowance."
@@ -229,7 +230,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/Treasury2.sol": "IERC20"
+			"contracts/Specter.sol": "IERC20"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -243,12 +244,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/Treasury2.sol": {
-			"keccak256": "0x3bbb26be3a959a31d0d68e3fabe8d2a5019665cfeac01a0d1670b62f851072cc",
+		"contracts/Specter.sol": {
+			"keccak256": "0xdf89b48be31c25a55db6718269f1df0bddb1c317223c2252a4c8c1ddfdfd7d5a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4267ef767734cb08df31a7e1494734d11070a1041a0d6af8114fdcb6d143c687",
-				"dweb:/ipfs/QmZ11Gkkk8v8xtdfrdHMEW9kbMguhNXd5huTZ2PTHqiYng"
+				"bzz-raw://79cb9ba35708aefccd31fac3a10d0a5b9707cbfb4451f00bba5670700d6a311b",
+				"dweb:/ipfs/QmW1wPTc2ZQjDv2q6enGJai7NvNJSgb55FF5gGT4GqWehs"
 			]
 		}
 	},

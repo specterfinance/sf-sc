@@ -842,11 +842,11 @@
 			]
 		},
 		"contracts/SShare.sol": {
-			"keccak256": "0xf8df2173d49bcd477aad4acd994f4dbb514a6ef236919ea94a9dc27b8182e9b2",
+			"keccak256": "0xb1817e65cb22199a0ab12cf0792ea8975f9a0a186e327db3e69d2517a01759e8",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://604b60ceb0694dfbb02811f04a5dc070699c81befbf1c4e95b91b0f919dac2d1",
-				"dweb:/ipfs/QmNgddqRqfYG3Fz77TRqD5kwRhEqdNMfT9KnpeKJSyzSkE"
+				"bzz-raw://c88c533346f637e76076a7393ae396c5ab093e4e5a0972b269002d9351b3714b",
+				"dweb:/ipfs/QmPrr6qRoPcjtjDmEf3vffQPWRvGpHDknFocBWoWtjuAwy"
 			]
 		},
 		"contracts/owner/Operator.sol": {

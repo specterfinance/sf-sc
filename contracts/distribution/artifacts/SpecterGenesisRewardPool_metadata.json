@@ -13,11 +13,6 @@
 						"type": "address"
 					},
 					{
-						"internalType": "address",
-						"name": "_shiba",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
 						"name": "_poolStartTime",
 						"type": "uint256"
@@ -394,19 +389,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "shiba",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "specter",
 				"outputs": [
 					{
@@ -565,11 +547,11 @@
 			]
 		},
 		"contracts/distribution/SpecterGenesisRewardPool.sol": {
-			"keccak256": "0x08ce88d927aabc348a39cab6bdfff85e613cee417befd685e9bdb9576b348619",
+			"keccak256": "0xa37c3f622525e33dfba10634eaa19b1176443ea72614240aaa911ad885df64f7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7a57709350dcf65dfd7e5f820d1691cf43db4f3669cf3b8798b8fe481a9c5ba1",
-				"dweb:/ipfs/QmTWhzzxwVuNynbDuYjyr5sahQj6oF8ioMA9nzWwxEPqpJ"
+				"bzz-raw://3df4f7f010d6c0212424760cf73b73754f3824f247b52d14be095326cfd6360b",
+				"dweb:/ipfs/QmeUJCuu4FcNUbMzhYSsoPc3KFST2gZ57efLM67aUQVWsz"
 			]
 		}
 	},

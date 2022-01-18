@@ -99,7 +99,7 @@ contract Masonry is ShareWrapper, ContractGuard {
         _;
     }
 
-    modifier masonExists() {
+    modifier masonExists {
         require(balanceOf(msg.sender) > 0, "Masonry: The mason does not exist");
         _;
     }
@@ -114,7 +114,7 @@ contract Masonry is ShareWrapper, ContractGuard {
         _;
     }
 
-    modifier notInitialized() {
+    modifier notInitialized {
         require(!initialized, "Masonry: already initialized");
         _;
     }
